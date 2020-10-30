@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NbCardModule, NbSearchModule } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { PackagesRoutingModule, routedComponents } from './packages-routing.module';
@@ -7,6 +8,8 @@ import { PackagesRoutingModule, routedComponents } from './packages-routing.modu
   imports: [
     ThemeModule,
     PackagesRoutingModule,
+    NbSearchModule,
+    NbCardModule,
   ],
   exports: [],
   declarations: [

@@ -7,7 +7,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Search',
-        link: '/pages/layout/stepper',
+        link: '/pages/packages/search',
       },
       {
         title: 'Package List',
