@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import {
   NbActionsModule,
+  NbAutocompleteModule,
   NbButtonModule,
   NbCardModule,
   NbCheckboxModule,
@@ -19,6 +20,7 @@ import { PackagesRoutingModule, routedComponents } from './packages-routing.modu
   imports: [
     ThemeModule,
     PackagesRoutingModule,
+    NbAutocompleteModule,
     NbSearchModule,
     NbCardModule,
     NbInputModule,
