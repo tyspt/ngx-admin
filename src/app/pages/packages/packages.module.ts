@@ -1,5 +1,16 @@
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbSearchModule } from '@nebular/theme';
+import {
+  NbActionsModule,
+  NbButtonModule,
+  NbCardModule,
+  NbCheckboxModule,
+  NbIconModule,
+  NbInputModule,
+  NbRadioModule,
+  NbSearchModule,
+  NbSelectModule,
+  NbUserModule,
+} from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { PackagesRoutingModule, routedComponents } from './packages-routing.module';
@@ -10,6 +21,15 @@ import { PackagesRoutingModule, routedComponents } from './packages-routing.modu
     PackagesRoutingModule,
     NbSearchModule,
     NbCardModule,
+    NbInputModule,
+    NbCardModule,
+    NbButtonModule,
+    NbActionsModule,
+    NbUserModule,
+    NbCheckboxModule,
+    NbRadioModule,
+    NbSelectModule,
+    NbIconModule,
   ],
   exports: [],
   declarations: [

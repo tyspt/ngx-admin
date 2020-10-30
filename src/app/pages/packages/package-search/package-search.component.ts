@@ -12,4 +12,8 @@ export class PackageSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // TODO: perform search
+  searchPackage(): void {
+    console.log("search clicked")
+  }
 }

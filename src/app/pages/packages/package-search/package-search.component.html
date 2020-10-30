@@ -1,10 +1,9 @@
 <nb-card>
-    <nb-card-header>
-      Search Package
-    </nb-card-header>
-    <nb-card-body>
-      <nb-search matRipple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="36"
-        type="modal-zoomin" tag="modal-zoomin"></nb-search>
-    </nb-card-body>
-  </nb-card>
-  
+  <nb-card-header>Search Packages</nb-card-header>
+  <nb-card-body class="d-flex justify-content-center align-items-center">
+    <input class="search-bar" type="text" nbInput fullWidth shape="round" placeholder="Enter Tracking Number">
+    <button nbButton ghost (click)="searchPackage()">
+      <nb-icon class="search-icon" icon="search"></nb-icon>
+    </button>
+  </nb-card-body>
+</nb-card>
