@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableData } from '../../../@core/data/smart-table';
+import { StatusRendererComponent } from './status-renderer.component';
 
 @Component({
   selector: 'ngx-package-list',
@@ -47,7 +48,8 @@ export class PackageListComponent {
       },
       status: {
         title: 'status',
-        type: 'string',
+        type: 'custom',
+        renderComponent: StatusRendererComponent,
       },
     },
   };

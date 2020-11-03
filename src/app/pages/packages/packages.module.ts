@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import {
   NbActionsModule,
   NbAutocompleteModule,
+  NbBadgeModule,
   NbButtonModule,
   NbCardModule,
   NbCheckboxModule,
@@ -16,9 +17,11 @@ import {
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
+import { StatusRendererComponent } from './package-list/status-renderer.component';
 import { PackagesRoutingModule, routedComponents } from './packages-routing.module';
 
 @NgModule({
+  entryComponents: [StatusRendererComponent],
   imports: [
     ThemeModule,
     PackagesRoutingModule,
@@ -35,11 +38,13 @@ import { PackagesRoutingModule, routedComponents } from './packages-routing.modu
     NbSelectModule,
     NbIconModule,
     NbListModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    NbBadgeModule
   ],
   exports: [],
   declarations: [
     ...routedComponents,
+    StatusRendererComponent,
   ],
 })
 export class PackagesModule { }
