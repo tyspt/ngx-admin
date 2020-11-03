@@ -8,7 +8,7 @@ import { StatusRendererComponent } from './status-renderer.component';
 @Component({
   selector: 'ngx-package-list',
   templateUrl: './package-list.component.html',
-  styleUrls: ['./package-list.component.scss']
+  styleUrls: ['./package-list.component.scss'],
 })
 export class PackageListComponent {
   settings = {

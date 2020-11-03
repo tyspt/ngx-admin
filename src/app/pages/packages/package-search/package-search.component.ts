@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'ngx-package-search',
   templateUrl: './package-search.component.html',
-  styleUrls: ['./package-search.component.scss']
+  styleUrls: ['./package-search.component.scss'],
 })
 export class PackageSearchComponent implements OnInit {
 
@@ -42,6 +42,6 @@ export class PackageSearchComponent implements OnInit {
 
   // TODO: perform search
   searchPackage(): void {
-    console.log("search clicked")
+    // console.log('search clicked');
   }
 }

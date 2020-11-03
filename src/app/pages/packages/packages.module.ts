@@ -41,7 +41,7 @@ import { PackageAddComponent } from './package-add/package-add.component';
     NbIconModule,
     NbListModule,
     Ng2SmartTableModule,
-    NbBadgeModule
+    NbBadgeModule,
   ],
   exports: [],
   declarations: [

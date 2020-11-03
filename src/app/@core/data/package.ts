@@ -1,16 +1,16 @@
 export interface Package {
-    id: number,
-    type: Type,
-    barcode: string,
-    building: string,
-    recipient: string,
-    timeReceived: string,
-    status: Status,
+    id: number;
+    type: Type;
+    barcode: string;
+    building: string;
+    recipient: string;
+    timeReceived: string;
+    status: Status;
 }
 
 export enum Type {
     INBOUND = 'INBOUND',
-    OUTBOUND = 'OUTBOUND'
+    OUTBOUND = 'OUTBOUND',
 }
 
 export enum Status {

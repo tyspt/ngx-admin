@@ -44,7 +44,7 @@ const SERVICES = [
   StatsProgressBarService,
   VisitorsAnalyticsService,
   SecurityCamerasService,
-  PackageService
+  PackageService,
 ];
 
 @NgModule({

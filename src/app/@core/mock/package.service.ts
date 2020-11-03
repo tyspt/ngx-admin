@@ -4,7 +4,7 @@ import { Package, PackageData, Status, Type } from '../data/package';
 
 @Injectable()
 export class PackageService extends PackageData {
-  data : Package[] = [
+  data: Package[] = [
     {
       id: 1,
       barcode: '1313131',
@@ -12,7 +12,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -21,7 +21,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -30,7 +30,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -39,7 +39,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -48,7 +48,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -57,7 +57,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -66,7 +66,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -75,7 +75,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -84,7 +84,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -93,7 +93,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -102,7 +102,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -111,7 +111,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -120,7 +120,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -129,7 +129,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -138,7 +138,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -147,7 +147,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -156,7 +156,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -165,7 +165,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -174,7 +174,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -183,7 +183,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -192,7 +192,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -201,7 +201,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -210,7 +210,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -219,7 +219,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -228,7 +228,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -237,7 +237,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -246,7 +246,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
     {
       id: 1,
@@ -255,7 +255,7 @@ export class PackageService extends PackageData {
       recipient: 'John Doe',
       timeReceived: '2020-10-30 12:42:35',
       status: Status.ERFASST,
-      type: Type.INBOUND
+      type: Type.INBOUND,
     },
   ];
 

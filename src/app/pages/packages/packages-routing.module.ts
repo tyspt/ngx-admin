@@ -20,7 +20,7 @@ const routes: Routes = [{
       { path: '', component: PackageListComponent },
       { path: 'add', component: PackageAddComponent },
       { path: ':id', component: PackageDetailComponent },
-    ]
+    ],
   }],
 }];
 
@@ -33,5 +33,5 @@ export class PackagesRoutingModule { }
 export const routedComponents = [
   PackagesComponent,
   PackageListComponent,
-  PackageSearchComponent
+  PackageSearchComponent,
 ];

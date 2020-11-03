@@ -12,7 +12,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Package List',
         link: '/pages/packages',
-      }
+      },
     ],
   },
   {
@@ -26,9 +26,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Planed',
         link: '/pages/layout/stepper',
-      }
+      },
     ],
-  }
+  },
 ];
 
 
