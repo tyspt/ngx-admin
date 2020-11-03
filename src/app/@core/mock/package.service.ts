@@ -24,7 +24,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.GELIEFERT,
       type: Type.INBOUND,
@@ -48,7 +48,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'BETTIE JONES'
+        name: 'BETTIE JONES',
       },
       status: Status.IM_TRANSPORT,
       type: Type.INBOUND,
@@ -72,7 +72,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'GEORGE JUNIUS STINNEY'
+        name: 'GEORGE JUNIUS STINNEY',
       },
       status: Status.SORTIERT,
       type: Type.INBOUND,
@@ -96,7 +96,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'JOHN CRAWFORD'
+        name: 'JOHN CRAWFORD',
       },
       status: Status.SORTIERT,
       type: Type.INBOUND,
@@ -120,7 +120,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'DANTE PARKER'
+        name: 'DANTE PARKER',
       },
       status: Status.GELIEFERT,
       type: Type.INBOUND,
@@ -144,7 +144,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'JANET WILSON'
+        name: 'JANET WILSON',
       },
       status: Status.IM_TRANSPORT,
       type: Type.INBOUND,
@@ -168,7 +168,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.IM_TRANSPORT,
       type: Type.INBOUND,
@@ -192,7 +192,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.GELIEFERT,
       type: Type.INBOUND,
@@ -216,7 +216,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.GELIEFERT,
       type: Type.INBOUND,
@@ -240,7 +240,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.SORTIERT,
       type: Type.INBOUND,
@@ -264,7 +264,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.SORTIERT,
       type: Type.INBOUND,
@@ -288,7 +288,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.IM_TRANSPORT,
       type: Type.INBOUND,
@@ -312,7 +312,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -336,7 +336,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -360,7 +360,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -384,7 +384,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -408,7 +408,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -432,7 +432,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -456,7 +456,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -480,7 +480,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -504,7 +504,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -528,7 +528,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -552,7 +552,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -576,7 +576,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -600,7 +600,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -624,7 +624,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -648,7 +648,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,
@@ -672,7 +672,7 @@ export class PackageService extends PackageData {
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'Max Mustermann',
       },
       status: Status.ERFASST,
       type: Type.INBOUND,

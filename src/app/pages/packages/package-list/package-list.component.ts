@@ -55,7 +55,7 @@ export class PackageListComponent implements OnInit {
   constructor(
     private packageService: PackageData,
     private dialogService: NbDialogService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) {
     const data = this.packageService.getData();
     // extract nested data fields into first level so that smart table can work with it as column
@@ -80,7 +80,7 @@ export class PackageListComponent implements OnInit {
   showPackageDetail(pkg: Package) {
     this.dialogService.open(PackageDetailComponent, {
       context: {
-        package: pkg
+        package: pkg,
       },
       autoFocus: false,
     });
@@ -89,7 +89,7 @@ export class PackageListComponent implements OnInit {
   showPackageAdd(event) {
     this.dialogService.open(PackageAddComponent, {
       context: {
-        package: event?.data
+        package: event?.data,
       },
       autoFocus: false,
     });
