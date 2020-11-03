@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { GoogleMapsModule } from '@angular/google-maps';
 import {
   NbActionsModule,
   NbAutocompleteModule,
@@ -17,16 +18,17 @@ import {
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
+import { PackageAddComponent } from './package-add/package-add.component';
+import { PackageDetailComponent } from './package-detail/package-detail.component';
 import { StatusRendererComponent } from './package-list/status-renderer.component';
 import { PackagesRoutingModule, routedComponents } from './packages-routing.module';
-import { PackageDetailComponent } from './package-detail/package-detail.component';
-import { PackageAddComponent } from './package-add/package-add.component';
 
 @NgModule({
   entryComponents: [StatusRendererComponent],
   imports: [
     ThemeModule,
     PackagesRoutingModule,
+    GoogleMapsModule,
     NbAutocompleteModule,
     NbSearchModule,
     NbCardModule,

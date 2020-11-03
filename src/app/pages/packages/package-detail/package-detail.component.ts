@@ -39,6 +39,8 @@ export class PackageDetailComponent implements OnInit {
     description: 'Die Sendung wurde elektronisch angekündigt. Sobald die Sendung von uns bearbeitet wurde, erhalten Sie weitere Informationen.'
   },]
 
+  readonly position = { lat: 49.005739, lng: 12.145199 };
+
   constructor(protected ref: NbDialogRef<PackageDetailComponent>) { }
 
   ngOnInit(): void {

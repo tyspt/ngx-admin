@@ -1,4 +1,4 @@
-<nb-card>
+<nb-card class="main-card">
   <nb-card-header class="d-flex justify-content-between align-items-center">
     <span>Package #{{ package.barcode }}</span>
     <button nbButton matRipple hero size="small" (click)="dismiss()" status="primary">
@@ -7,39 +7,48 @@
   </nb-card-header>
   <nb-card-body>
 
-    <nb-card>
+    <nb-card class="package-detail-card">
       <nb-card-header>Package Detail</nb-card-header>
       <nb-card-body>
         <div class="row">
-          <dt class="col-4">Tracking Number: </dt>
+          <dt class="col-3">Tracking Number:</dt>
           <dd class="col">{{ package.barcode }}</dd>
         </div>
         <div class="row">
-          <dt class="col-4">Recipient: </dt>
+          <dt class="col-3">Recipient:</dt>
           <dd class="col">{{ package.recipient }}</dd>
         </div>
         <div class="row">
-          <dt class="col-4">Building: </dt>
+          <dt class="col-3">Building:</dt>
           <dd class="col">{{ package.building }}</dd>
         </div>
         <div class="row">
-          <dt class="col-4">Address: </dt>
+          <dt class="col-3">Address:</dt>
           <dd class="col">{{ package.fullAddress }}</dd>
         </div>
         <div class="row">
-          <dt class="col-4">Time Created: </dt>
+          <dt class="col-3">Time Created:</dt>
           <dd class="col">{{ package.timeCreated }}</dd>
         </div>
         <div class="row">
-          <dt class="col-4">Current Status: </dt>
+          <dt class="col-3">Status:</dt>
           <dd class="col">
             <ngx-status-renderer [value]="package.status"></ngx-status-renderer>
           </dd>
         </div>
+        <div class="row">
+          <dt class="col-3">Current Location:</dt>
+          <dd class="col">{{ position.lat }}, {{ position.lng }}</dd>
+        </div>
+        <div class="row map-container">
+          <google-map class="col" [center]="position" [zoom]="12" width="100%" height="250px">
+            <map-marker [position]="position"></map-marker>
+          </google-map>
+        </div>
       </nb-card-body>
     </nb-card>
 
-    <nb-card size="small">
+    <nb-card class="tracking-info-card" size="small">
       <nb-card-header>Tracking Information</nb-card-header>
       <nb-card-body class="shipmentCourse">
         <div class="shipmentCourseEntry" *ngFor="let shipmentCourseEntry of shipmentCourses">

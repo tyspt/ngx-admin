@@ -1,12 +1,22 @@
 @import '../../../@theme/styles/themes';
 
 @include nb-install-component() {
-  nb-card {
-    max-width: 600px;
-    max-height: 800px;
-    font-size: small;
 
-    .shipmentCourse .shipmentCourseEntry {
+  .main-card {
+    max-width: 800px;
+    max-height: 90vh;
+
+    & > nb-card-body {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+  
+    dt,
+    dd {
+      font-size: small;
+    }
+
+    .tracking-info-card .shipmentCourse .shipmentCourseEntry {
       display: flex;
 
       .courseLeft {
