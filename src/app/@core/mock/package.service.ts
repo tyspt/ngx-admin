@@ -7,7 +7,7 @@ export class PackageService extends PackageData {
   data: Package[] = [
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -17,7 +17,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -27,7 +27,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -37,7 +37,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -47,7 +47,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -57,7 +57,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -67,7 +67,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -77,7 +77,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -87,7 +87,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -97,7 +97,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -107,7 +107,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -117,7 +117,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -127,7 +127,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -137,7 +137,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -147,7 +147,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -157,7 +157,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -167,7 +167,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -177,7 +177,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -187,7 +187,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -197,7 +197,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -207,7 +207,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -217,7 +217,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -227,7 +227,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -237,7 +237,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -247,7 +247,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -257,7 +257,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -267,7 +267,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
@@ -277,7 +277,7 @@ export class PackageService extends PackageData {
     },
     {
       id: 1,
-      barcode: '1313131',
+      barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
       timeCreated: '2020-10-30 12:42:35',
