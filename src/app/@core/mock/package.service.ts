@@ -12,8 +12,8 @@ export class PackageService extends PackageData {
         name: 'John Doe',
         email: 'john.doe@continental.com',
         telephone: '123-4567890',
-        building: 'D42',
-        fullAddress: 'Siemensstraße 12 Geb. D42/4/7, Regensburg',
+        building: 'F31',
+        fullAddress: 'Siemensstraße 12 Geb. F31/3/2, Regensburg',
       },
       timeCreated: '2020-10-30 12:42:35',
       representative: {
@@ -26,132 +26,132 @@ export class PackageService extends PackageData {
       sender: {
         name: 'Max Mustermann'
       },
-      status: Status.ERFASST,
+      status: Status.GELIEFERT,
       type: Type.INBOUND,
     },
     {
       id: '2',
-      barcode: '4621642642641264124261',
+      barcode: '172471974917192137391',
       recipient: {
-        name: 'John Doe',
-        email: 'john.doe@continental.com',
+        name: 'MICHAEL NOEL',
+        email: 'michael.noel@continental.com',
         telephone: '123-4567890',
         building: 'D42',
         fullAddress: 'Siemensstraße 12 Geb. D42/4/7, Regensburg',
       },
       timeCreated: '2020-10-30 12:42:35',
       representative: {
-        name: 'Anna Musterfrau',
-        email: 'anna.musterfrau@continental.com',
+        name: 'KEVIN MATTHEWS',
+        email: 'kevin.matthews@continental.com',
         telephone: '987-6543210',
         building: 'D42',
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'BETTIE JONES'
       },
-      status: Status.ERFASST,
+      status: Status.IM_TRANSPORT,
       type: Type.INBOUND,
     },
     {
       id: '3',
-      barcode: '4621642642641264124261',
+      barcode: '1378979849812083132213',
       recipient: {
-        name: 'John Doe',
-        email: 'john.doe@continental.com',
+        name: 'EMMETT TILL',
+        email: 'emmett.till@continental.com',
         telephone: '123-4567890',
         building: 'D42',
         fullAddress: 'Siemensstraße 12 Geb. D42/4/7, Regensburg',
       },
       timeCreated: '2020-10-30 12:42:35',
       representative: {
-        name: 'Anna Musterfrau',
-        email: 'anna.musterfrau@continental.com',
+        name: 'MEDGAR EVERS',
+        email: 'medgar.evers@continental.com',
         telephone: '987-6543210',
         building: 'D42',
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'GEORGE JUNIUS STINNEY'
       },
-      status: Status.ERFASST,
+      status: Status.SORTIERT,
       type: Type.INBOUND,
     },
     {
       id: '4',
-      barcode: '4621642642641264124261',
+      barcode: '17923791027490173409217',
       recipient: {
-        name: 'John Doe',
-        email: 'john.doe@continental.com',
+        name: 'MARTIN LUTHER KING',
+        email: 'martin.luther.king@continental.com',
         telephone: '123-4567890',
         building: 'D42',
         fullAddress: 'Siemensstraße 12 Geb. D42/4/7, Regensburg',
       },
       timeCreated: '2020-10-30 12:42:35',
       representative: {
-        name: 'Anna Musterfrau',
-        email: 'anna.musterfrau@continental.com',
+        name: 'HENRY SMITH',
+        email: 'henry.smith@continental.com',
         telephone: '987-6543210',
         building: 'D42',
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'JOHN CRAWFORD'
       },
-      status: Status.ERFASST,
+      status: Status.SORTIERT,
       type: Type.INBOUND,
     },
     {
       id: '5',
-      barcode: '4621642642641264124261',
+      barcode: '12758917571975901757232',
       recipient: {
-        name: 'John Doe',
-        email: 'john.doe@continental.com',
+        name: 'MICHAEL BROWN',
+        email: 'michael.brown@continental.com',
         telephone: '123-4567890',
         building: 'D42',
         fullAddress: 'Siemensstraße 12 Geb. D42/4/7, Regensburg',
       },
       timeCreated: '2020-10-30 12:42:35',
       representative: {
-        name: 'Anna Musterfrau',
-        email: 'anna.musterfrau@continental.com',
+        name: 'EZELL FORD',
+        email: 'ezell.ford@continental.com',
         telephone: '987-6543210',
         building: 'D42',
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'DANTE PARKER'
       },
-      status: Status.ERFASST,
+      status: Status.GELIEFERT,
       type: Type.INBOUND,
     },
     {
       id: '6',
-      barcode: '4621642642641264124261',
+      barcode: '47976890682082067602863',
       recipient: {
-        name: 'John Doe',
-        email: 'john.doe@continental.com',
+        name: 'QUINTONIO LEGRIER',
+        email: 'QUINTONIO.LEGRIER@continental.com',
         telephone: '123-4567890',
         building: 'D42',
         fullAddress: 'Siemensstraße 12 Geb. D42/4/7, Regensburg',
       },
       timeCreated: '2020-10-30 12:42:35',
       representative: {
-        name: 'Anna Musterfrau',
-        email: 'anna.musterfrau@continental.com',
+        name: 'KEITH CHILDRESS',
+        email: 'KEITH.CHILDRESS @continental.com',
         telephone: '987-6543210',
         building: 'D42',
         fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
       },
       sender: {
-        name: 'Max Mustermann'
+        name: 'JANET WILSON'
       },
-      status: Status.ERFASST,
+      status: Status.IM_TRANSPORT,
       type: Type.INBOUND,
     },
     {
       id: '7',
-      barcode: '4621642642641264124261',
+      barcode: '37957985018083724975948',
       recipient: {
         name: 'John Doe',
         email: 'john.doe@continental.com',
@@ -170,12 +170,12 @@ export class PackageService extends PackageData {
       sender: {
         name: 'Max Mustermann'
       },
-      status: Status.ERFASST,
+      status: Status.IM_TRANSPORT,
       type: Type.INBOUND,
     },
     {
       id: '8',
-      barcode: '4621642642641264124261',
+      barcode: '94897582683648274832172',
       recipient: {
         name: 'John Doe',
         email: 'john.doe@continental.com',
@@ -194,7 +194,7 @@ export class PackageService extends PackageData {
       sender: {
         name: 'Max Mustermann'
       },
-      status: Status.ERFASST,
+      status: Status.GELIEFERT,
       type: Type.INBOUND,
     },
     {
@@ -218,7 +218,7 @@ export class PackageService extends PackageData {
       sender: {
         name: 'Max Mustermann'
       },
-      status: Status.ERFASST,
+      status: Status.GELIEFERT,
       type: Type.INBOUND,
     },
     {
@@ -242,7 +242,7 @@ export class PackageService extends PackageData {
       sender: {
         name: 'Max Mustermann'
       },
-      status: Status.ERFASST,
+      status: Status.SORTIERT,
       type: Type.INBOUND,
     },
     {
@@ -266,7 +266,7 @@ export class PackageService extends PackageData {
       sender: {
         name: 'Max Mustermann'
       },
-      status: Status.ERFASST,
+      status: Status.SORTIERT,
       type: Type.INBOUND,
     },
     {
@@ -290,7 +290,7 @@ export class PackageService extends PackageData {
       sender: {
         name: 'Max Mustermann'
       },
-      status: Status.ERFASST,
+      status: Status.IM_TRANSPORT,
       type: Type.INBOUND,
     },
     {
