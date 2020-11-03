@@ -40,7 +40,7 @@ export class PackageListComponent {
         type: 'string',
       },
       status: {
-        title: 'status',
+        title: 'Status',
         type: 'custom',
         renderComponent: StatusRendererComponent,
       },
@@ -55,6 +55,10 @@ export class PackageListComponent {
   ) {
     const data = this.service.getData();
     this.source.load(data);
+  }
+
+  toAddPackage(): void {
+    this.router.navigate(['pages', 'packages', 'search']);
   }
 
   toPackageDetail(event): void {
