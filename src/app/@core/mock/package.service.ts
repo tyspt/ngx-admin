@@ -6,7 +6,7 @@ import { Package, PackageData, Status, Type } from '../data/package';
 export class PackageService extends PackageData {
   data: Package[] = [
     {
-      id: 1,
+      id: '1',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -16,7 +16,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '2',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -26,7 +26,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '3',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -36,7 +36,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '4',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -46,7 +46,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '5',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -56,7 +56,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '6',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -66,7 +66,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '7',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -76,7 +76,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '8',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -86,7 +86,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '9',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -96,7 +96,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '10',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -106,7 +106,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '11',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -116,7 +116,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '12',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -126,7 +126,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '13',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -136,7 +136,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '14',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -146,7 +146,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '15',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -156,7 +156,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '16',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -166,7 +166,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '17',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -176,7 +176,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '18',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -186,7 +186,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '19',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -196,7 +196,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '20',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -206,7 +206,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '21',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -216,7 +216,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '22',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -226,7 +226,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '23',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -236,7 +236,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '24',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -246,7 +246,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '25',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -256,7 +256,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '26',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -266,7 +266,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '27',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -276,7 +276,7 @@ export class PackageService extends PackageData {
       type: Type.INBOUND,
     },
     {
-      id: 1,
+      id: '28',
       barcode: '4621642642641264124261',
       building: 'D42',
       recipient: 'John Doe',
@@ -289,5 +289,9 @@ export class PackageService extends PackageData {
 
   getData() {
     return this.data;
+  }
+
+  getPackagebyId(id: string) {
+    return this.data.find(p => p.id === id);
   }
 }

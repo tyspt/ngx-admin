@@ -1,5 +1,5 @@
 export interface Package {
-    id: number;
+    id: string;
     type: Type;
     barcode: string;
     building?: string;
@@ -23,4 +23,5 @@ export enum Status {
 
 export abstract class PackageData {
     abstract getData(): Package[];
+    abstract getPackagebyId(id: string): Package;
 }

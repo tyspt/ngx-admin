@@ -6,11 +6,11 @@
     max-width: 800px;
     max-height: 90vh;
 
-    & > nb-card-body {
+    &>nb-card-body {
       padding-left: 50px;
       padding-right: 50px;
     }
-  
+
     dt,
     dd {
       font-size: small;
@@ -49,6 +49,10 @@
 
       .courseText {
         margin-left: 2.5rem;
+      }
+
+      // Add padding between entry texts except for the last one
+      &:not(:last-child)>.courseText {
         padding-bottom: 0.75rem;
       }
     }

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
-import { PackageData } from 'app/@core/data/package';
+import { Package, PackageData } from 'app/@core/data/package';
 import { LocalDataSource } from 'ng2-smart-table';
 import { PackageAddComponent } from '../package-add/package-add.component';
 import { PackageDetailComponent } from '../package-detail/package-detail.component';
@@ -13,7 +13,7 @@ import { StatusRendererComponent } from './status-renderer.component';
   templateUrl: './package-list.component.html',
   styleUrls: ['./package-list.component.scss'],
 })
-export class PackageListComponent {
+export class PackageListComponent implements OnInit {
   settings = {
     actions: {
       add: false,
@@ -54,21 +54,32 @@ export class PackageListComponent {
 
   constructor(
     private packageService: PackageData,
-    private dialogService: NbDialogService
+    private dialogService: NbDialogService,
+    private activatedRoute: ActivatedRoute
   ) {
     const data = this.packageService.getData();
     this.source.load(data);
   }
 
-  showPackageDetail(event) {
+  ngOnInit(): void {
+    // Show package detail popup if route contains a package id
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    if (id) {
+      const pkg = this.packageService.getPackagebyId(id);
+      setTimeout(() => {
+        this.showPackageDetail(pkg);
+      }, 1000);
+    }
+  }
+
+  showPackageDetail(pkg: Package) {
     this.dialogService.open(PackageDetailComponent, {
       context: {
-        package: event?.data
+        package: pkg
       },
       autoFocus: false,
     });
   }
-  
 
   showPackageAdd(event) {
     this.dialogService.open(PackageAddComponent, {
