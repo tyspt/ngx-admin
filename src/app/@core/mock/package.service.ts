@@ -686,4 +686,8 @@ export class PackageService extends PackageData {
   getPackagebyId(id: string) {
     return this.data.find(p => p.id === id);
   }
+
+  getPackagebyBarcode(barCode: string) {
+    return this.data.find(p => p.barcode === barCode);
+  }
 }

@@ -37,4 +37,5 @@ export enum Status {
 export abstract class PackageData {
     abstract getData(): Package[];
     abstract getPackagebyId(id: string): Package;
+    abstract getPackagebyBarcode(barcode: string): Package;
 }

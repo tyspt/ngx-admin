@@ -73,7 +73,7 @@ export class PackageListComponent implements OnInit {
       const pkg = this.packageService.getPackagebyId(id);
       setTimeout(() => {
         this.showPackageDetail(pkg);
-      }, 1000);
+      }, 100);
     }
   }
 

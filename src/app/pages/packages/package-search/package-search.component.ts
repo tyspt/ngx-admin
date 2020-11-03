@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { PackageData } from 'app/@core/data/package';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -9,7 +11,10 @@ import { map } from 'rxjs/operators';
 })
 export class PackageSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private packageService: PackageData
+  ) { }
 
   options: string[];
   filteredOptions$: Observable<string[]>;
@@ -17,7 +22,7 @@ export class PackageSearchComponent implements OnInit {
   @ViewChild('autoInput') input;
 
   ngOnInit() {
-    this.options = ['7943963707', '2741725288', '6662965167', '6532223894', '6532223894'];
+    this.options = this.packageService.getData().map(p => p.barcode);
     this.filteredOptions$ = of(this.options);
   }
 
@@ -40,8 +45,9 @@ export class PackageSearchComponent implements OnInit {
     this.filteredOptions$ = this.getFilteredOptions($event);
   }
 
-  // TODO: perform search
   searchPackage(): void {
-    // console.log('search clicked');
+    const barcode = this.input.nativeElement.value;
+    const id = this.packageService.getPackagebyBarcode(barcode);
+    this.router.navigate(['pages', 'packages', id]);
   }
 }
