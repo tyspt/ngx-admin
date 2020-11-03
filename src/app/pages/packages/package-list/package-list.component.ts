@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { Package, PackageData } from 'app/@core/data/package';
 import { LocalDataSource } from 'ng2-smart-table';
+
 import { PackageAddComponent } from '../package-add/package-add.component';
 import { PackageDetailComponent } from '../package-detail/package-detail.component';
-
 import { StatusRendererComponent } from './status-renderer.component';
 
 @Component({
@@ -30,11 +30,11 @@ export class PackageListComponent implements OnInit {
         title: 'Barcode',
         type: 'string',
       },
-      building: {
+      recipientBuilding: {
         title: 'Building',
         type: 'string',
       },
-      recipient: {
+      recipientName: {
         title: 'Recipient',
         type: 'string',
       },
@@ -58,6 +58,11 @@ export class PackageListComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {
     const data = this.packageService.getData();
+    // extract nested data fields into first level so that smart table can work with it as column
+    data.forEach(p => {
+      p.recipientName = p.recipient.name;
+      p.recipientBuilding = p.recipient.building;
+    });
     this.source.load(data);
   }
 

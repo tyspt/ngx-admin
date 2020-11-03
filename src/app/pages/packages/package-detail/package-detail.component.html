@@ -15,16 +15,41 @@
           <dd class="col">{{ package.barcode }}</dd>
         </div>
         <div class="row">
-          <dt class="col-3">Recipient:</dt>
-          <dd class="col">{{ package.recipient }}</dd>
+          <dt class="col-3">Order Number:</dt>
+          <dd class="col">{{ package?.orderNumber || 'N/A' }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Recipient Name:</dt>
+          <dd class="col">{{ package?.recipient?.name || 'N/A' }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Email:</dt>
+          <dd class="col">{{ package.recipient?.email || 'N/A' }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Telephone:</dt>
+          <dd class="col">{{ package.recipient?.telephone || 'N/A' }}</dd>
         </div>
         <div class="row">
           <dt class="col-3">Building:</dt>
-          <dd class="col">{{ package.building }}</dd>
+          <dd class="col">{{ package.recipient?.building || 'N/A' }}</dd>
         </div>
         <div class="row">
           <dt class="col-3">Address:</dt>
-          <dd class="col">{{ package.fullAddress }}</dd>
+          <dd class="col">{{ package.recipient?.fullAddress || 'N/A'}}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Representative:</dt>
+          <dd class="col">
+            {{ package?.representative?.name || 'N/A' }}
+            <span *ngIf="package?.representative?.fullAddress">
+              ({{ package.representative.fullAddress }})
+            </span>
+          </dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Sender:</dt>
+          <dd class="col">{{ package?.sender?.name || 'N/A' }}</dd>
         </div>
         <div class="row">
           <dt class="col-3">Time Created:</dt>

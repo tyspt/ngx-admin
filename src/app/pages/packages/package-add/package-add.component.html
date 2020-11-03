@@ -8,9 +8,22 @@
   <nb-card-body>
     <form>
       <div class="form-group row">
+        <label for="recipient" class="label col-sm-3 col-form-label">Package Type:</label>
+        <nb-select matRippl class="col-sm-9" e>
+          <nb-option matRipple value="1">NPM</nb-option>
+          <nb-option matRipple value="2">SIVA</nb-option>
+        </nb-select>
+      </div>
+      <div class="form-group row">
         <label for="trackingNumber" class="label col-sm-3 col-form-label">Tracking Number:</label>
         <div class="col-sm-9">
           <input type="text" nbInput fullWidth id="trackingNumber">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="orderNumber" class="label col-sm-3 col-form-label">Order Number:</label>
+        <div class="col-sm-9">
+          <input type="text" nbInput fullWidth id="orderNumber">
         </div>
       </div>
       <div class="form-group row">
@@ -20,11 +33,16 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="recipient" class="label col-sm-3 col-form-label">Package Type:</label>
-        <nb-select matRippl class="col-sm-9" e>
-          <nb-option matRipple value="1">NPM</nb-option>
-          <nb-option matRipple value="2">SIVA</nb-option>
-        </nb-select>
+        <label for="email" class="label col-sm-3 col-form-label">Email:</label>
+        <div class="col-sm-9">
+          <input type="text" nbInput fullWidth id="email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="telephone" class="label col-sm-3 col-form-label">Telephone:</label>
+        <div class="col-sm-9">
+          <input type="text" nbInput fullWidth id="telephone">
+        </div>
       </div>
       <div class="form-group row">
         <label for="recipient" class="label col-sm-3 col-form-label">Building:</label>
@@ -42,6 +60,18 @@
         <label for="fullAddress" class="label col-sm-3 col-form-label">Address:</label>
         <div class="col-sm-9">
           <input type="text" nbInput fullWidth id="fullAddress">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="representative" class="label col-sm-3 col-form-label">Representative:</label>
+        <div class="col-sm-9">
+          <input type="text" nbInput fullWidth id="representative">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="sender" class="label col-sm-3 col-form-label">Sender:</label>
+        <div class="col-sm-9">
+          <input type="text" nbInput fullWidth id="sender">
         </div>
       </div>
       <div class="form-group">
