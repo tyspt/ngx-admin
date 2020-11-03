@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NbDialogRef } from '@nebular/theme';
+import { Package } from 'app/@core/data/package';
 
 @Component({
   selector: 'ngx-package-add',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PackageAddComponent implements OnInit {
 
-  constructor() { }
+  @Input() package: Package;
+
+  constructor(protected ref: NbDialogRef<PackageAddComponent>) { }
 
   ngOnInit(): void {
+  }
+
+  dismiss() {
+    this.ref.close();
   }
 
 }

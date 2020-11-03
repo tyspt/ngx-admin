@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { PackageData } from 'app/@core/data/package';
 import { LocalDataSource } from 'ng2-smart-table';
+import { PackageAddComponent } from '../package-add/package-add.component';
 import { PackageDetailComponent } from '../package-detail/package-detail.component';
 
 import { StatusRendererComponent } from './status-renderer.component';
@@ -61,6 +62,16 @@ export class PackageListComponent {
 
   showPackageDetail(event) {
     this.dialogService.open(PackageDetailComponent, {
+      context: {
+        package: event?.data
+      },
+      autoFocus: false,
+    });
+  }
+  
+
+  showPackageAdd(event) {
+    this.dialogService.open(PackageAddComponent, {
       context: {
         package: event?.data
       },

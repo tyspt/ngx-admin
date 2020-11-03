@@ -1,1 +1,55 @@
-<p>package-add works!</p>
+<nb-card class="form-card">
+  <nb-card-header class="d-flex justify-content-between align-items-center">
+    Add New Package
+    <button nbButton matRipple ghost size="small" (click)="dismiss()">
+      <nb-icon class="close-dialog-icon" icon="close"></nb-icon>
+    </button>
+  </nb-card-header>
+  <nb-card-body>
+    <form>
+      <div class="form-group row">
+        <label for="trackingNumber" class="label col-sm-3 col-form-label">Tracking Number:</label>
+        <div class="col-sm-9">
+          <input type="text" nbInput fullWidth id="trackingNumber">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="recipient" class="label col-sm-3 col-form-label">Recipient Name:</label>
+        <div class="col-sm-9">
+          <input type="text" nbInput fullWidth id="recipient">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="recipient" class="label col-sm-3 col-form-label">Package Type:</label>
+        <nb-select matRippl class="col-sm-9" e>
+          <nb-option matRipple value="1">NPM</nb-option>
+          <nb-option matRipple value="2">SIVA</nb-option>
+        </nb-select>
+      </div>
+      <div class="form-group row">
+        <label for="recipient" class="label col-sm-3 col-form-label">Building:</label>
+        <nb-select matRipple class="col-sm-9">
+          <nb-option matRipple value="1">Logistikzentrum</nb-option>
+          <nb-option matRipple value="2">Testcenter</nb-option>
+          <nb-option matRipple value="3">Fertigung</nb-option>
+          <nb-option matRipple value="4">Energiezentral</nb-option>
+          <nb-option matRipple value="5">Entwicklungszentrum</nb-option>
+          <nb-option matRipple value="6">Energiepark</nb-option>
+          <nb-option matRipple value="7">Business Park</nb-option>
+        </nb-select>
+      </div>
+      <div class="form-group row">
+        <label for="fullAddress" class="label col-sm-3 col-form-label">Address:</label>
+        <div class="col-sm-9">
+          <input type="text" nbInput fullWidth id="fullAddress">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="d-flex justify-content-end">
+          <button class="confirm-btn" nbButton type="submit" status="primary">Create</button>
+          <button class="cancel-btn" nbButton status="secondary" (click)="dismiss()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
