@@ -2,6 +2,12 @@
   <nb-card-header>Package List</nb-card-header>
   <nb-card-body>
     <nb-list>
+      <nb-list-item class="d-flex justify-content-between">
+        <span>Barcode</span>
+        <span>Recipient</span>
+        <span>Building</span>
+        <span>Time Received</span>
+      </nb-list-item>
       <nb-list-item *ngFor="let package of packages">
         <ngx-package-list-item [package] = "package"></ngx-package-list-item>
       </nb-list-item>

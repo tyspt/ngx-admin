@@ -12,6 +12,7 @@ import {
   NbSearchModule,
   NbSelectModule,
   NbUserModule,
+  NbBadgeModule
 } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
@@ -34,7 +35,8 @@ import { PackageListItemComponent } from './package-list/package-list-item/packa
     NbRadioModule,
     NbSelectModule,
     NbIconModule,
-    NbListModule
+    NbListModule,
+    NbBadgeModule
   ],
   exports: [],
   declarations: [

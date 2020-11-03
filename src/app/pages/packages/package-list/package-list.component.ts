@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PackageListComponent implements OnInit {
 
-  packages = [1, 2, 3]
+  packages = [{
+    barcode: '1313131',
+    building: 'D42',
+    recipient: 'John Doe',
+    timeReceived: '2020-10-30',
+    status: 'erfasst'
+  }]
 
   constructor() { }
 

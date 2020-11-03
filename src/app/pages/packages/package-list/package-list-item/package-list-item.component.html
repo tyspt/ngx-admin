@@ -1,1 +1,10 @@
-{{ package }}
+<div class="list-item d-flex justify-content-between">
+    <span>{{ package.barcode }}</span>
+    <span>{{ package.recipient }}</span>
+    <span>{{ package.building }}</span>
+    <span>{{ package.timeReceived }}</span>
+    <span style="position: relative;">
+      <nb-badge [text]="package.status" status="success"></nb-badge>
+    </span>
+  </div>
+  
