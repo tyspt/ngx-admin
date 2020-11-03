@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NbDialogService } from '@nebular/theme';
 import { PackageData } from 'app/@core/data/package';
 import { LocalDataSource } from 'ng2-smart-table';
+import { PackageDetailComponent } from '../package-detail/package-detail.component';
 
 import { StatusRendererComponent } from './status-renderer.component';
 
@@ -50,16 +52,19 @@ export class PackageListComponent {
   source: LocalDataSource = new LocalDataSource();
 
   constructor(
-    private service: PackageData,
-    private router: Router,
-    private activeRoute: ActivatedRoute,
+    private packageService: PackageData,
+    private dialogService: NbDialogService
   ) {
-    const data = this.service.getData();
+    const data = this.packageService.getData();
     this.source.load(data);
   }
 
-  toPackageDetail(event): void {
-    const id = event?.data?.id;
-    this.router.navigate([id], { relativeTo: this.activeRoute });
+  showPackageDetail(event) {
+    this.dialogService.open(PackageDetailComponent, {
+      context: {
+        package: event?.data
+      },
+      autoFocus: false,
+    });
   }
 }

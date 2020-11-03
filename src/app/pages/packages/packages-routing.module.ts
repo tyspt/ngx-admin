@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PackageAddComponent } from './package-add/package-add.component';
-import { PackageDetailComponent } from './package-detail/package-detail.component';
 import { PackageListComponent } from './package-list/package-list.component';
 import { PackageSearchComponent } from './package-search/package-search.component';
 import { PackagesComponent } from './packages.component';
@@ -16,11 +14,7 @@ const routes: Routes = [{
   },
   {
     path: '',
-    children: [
-      { path: '', component: PackageListComponent },
-      { path: 'add', component: PackageAddComponent },
-      { path: ':id', component: PackageDetailComponent },
-    ],
+    component: PackageListComponent
   }],
 }];
 

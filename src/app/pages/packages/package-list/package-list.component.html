@@ -1,13 +1,13 @@
 <nb-card>
   <nb-card-header class="d-flex justify-content-between align-items-center">
     Package List
-    <button nbButton status="success" size="medium" routerLink="add">
+    <button nbButton status="primary" size="medium" routerLink="add">
       <nb-icon class="add-package-icon" icon="plus"></nb-icon>New Package
     </button>
   </nb-card-header>
 
   <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="toPackageDetail($event)">
+    <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="showPackageDetail($event)">
     </ng2-smart-table>
   </nb-card-body>
 </nb-card>
