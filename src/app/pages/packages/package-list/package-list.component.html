@@ -1,10 +1,10 @@
-<nb-card [size]="'giant'">
-  <nb-card-header>Package List</nb-card-header>
+<nb-card>
+  <nb-card-header>
+    Package List
+  </nb-card-header>
+
   <nb-card-body>
-    <nb-list>
-      <nb-list-item *ngFor="let package of packages">
-        <ngx-package-list-item [package] = "package"></ngx-package-list-item>
-      </nb-list-item>
-    </nb-list>
+    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
   </nb-card-body>
 </nb-card>

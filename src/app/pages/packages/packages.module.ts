@@ -13,10 +13,10 @@ import {
   NbSelectModule,
   NbUserModule,
 } from '@nebular/theme';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { PackagesRoutingModule, routedComponents } from './packages-routing.module';
-import { PackageListItemComponent } from './package-list/package-list-item/package-list-item.component';
 
 @NgModule({
   imports: [
@@ -34,12 +34,12 @@ import { PackageListItemComponent } from './package-list/package-list-item/packa
     NbRadioModule,
     NbSelectModule,
     NbIconModule,
-    NbListModule
+    NbListModule,
+    Ng2SmartTableModule
   ],
   exports: [],
   declarations: [
     ...routedComponents,
-    PackageListItemComponent
   ],
 })
 export class PackagesModule { }
