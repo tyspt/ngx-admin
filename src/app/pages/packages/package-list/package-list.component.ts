@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PackageData } from 'app/@core/data/package';
 import { LocalDataSource } from 'ng2-smart-table';
 
@@ -51,18 +51,15 @@ export class PackageListComponent {
 
   constructor(
     private service: PackageData,
-    private router: Router
+    private router: Router,
+    private activeRoute: ActivatedRoute,
   ) {
     const data = this.service.getData();
     this.source.load(data);
   }
 
-  toAddPackage(): void {
-    this.router.navigate(['pages', 'packages', 'search']);
-  }
-
   toPackageDetail(event): void {
     const id = event?.data?.id;
-    this.router.navigate(['pages', 'packages', 'search']);
+    this.router.navigate([id], { relativeTo: this.activeRoute });
   }
 }

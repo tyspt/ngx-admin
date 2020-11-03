@@ -11,7 +11,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         title: 'Package List',
-        link: '/pages/packages/list',
+        link: '/pages/packages',
       }
     ],
   },
