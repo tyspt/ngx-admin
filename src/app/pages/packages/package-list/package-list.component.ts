@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PackageListComponent implements OnInit {
 
+  packages = [1, 2, 3]
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

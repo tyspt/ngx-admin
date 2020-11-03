@@ -7,6 +7,7 @@ import {
   NbCheckboxModule,
   NbIconModule,
   NbInputModule,
+  NbListModule,
   NbRadioModule,
   NbSearchModule,
   NbSelectModule,
@@ -15,6 +16,7 @@ import {
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { PackagesRoutingModule, routedComponents } from './packages-routing.module';
+import { PackageListItemComponent } from './package-list/package-list-item/package-list-item.component';
 
 @NgModule({
   imports: [
@@ -32,10 +34,12 @@ import { PackagesRoutingModule, routedComponents } from './packages-routing.modu
     NbRadioModule,
     NbSelectModule,
     NbIconModule,
+    NbListModule
   ],
   exports: [],
   declarations: [
-    ...routedComponents
+    ...routedComponents,
+    PackageListItemComponent
   ],
 })
 export class PackagesModule { }

@@ -1,1 +1,10 @@
-<p>package-list works!</p>
+<nb-card [size]="'giant'">
+  <nb-card-header>Package List</nb-card-header>
+  <nb-card-body>
+    <nb-list>
+      <nb-list-item *ngFor="let package of packages">
+        <ngx-package-list-item [package] = "package"></ngx-package-list-item>
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
+</nb-card>
