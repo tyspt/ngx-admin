@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
+import { PackageData } from 'app/@core/data/package';
 import { LocalDataSource } from 'ng2-smart-table';
 
-import { SmartTableData } from '../../../@core/data/smart-table';
 import { StatusRendererComponent } from './status-renderer.component';
 
 @Component({
@@ -11,24 +11,16 @@ import { StatusRendererComponent } from './status-renderer.component';
 })
 export class PackageListComponent {
   settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
+    actions: {
+      add: false,
+      edit: false,
+      delete: false,
     },
     columns: {
       id: {
         title: '#',
         type: 'number',
+        width: '5rem',
       },
       barcode: {
         title: 'Barcode',
@@ -56,25 +48,8 @@ export class PackageListComponent {
 
   source: LocalDataSource = new LocalDataSource();
 
-  data = [{
-    id: 1,
-    barcode: '1313131',
-    building: 'D42',
-    recipient: 'John Doe',
-    timeReceived: '2020-10-30 12:42:35',
-    status: 'erfasst'
-  }];
-
-  constructor(private service: SmartTableData) {
-    // const data = this.service.getData();
-    this.source.load(this.data);
-  }
-
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+  constructor(private service: PackageData) {
+    const data = this.service.getData();
+    this.source.load(data);
   }
 }

@@ -1,21 +1,25 @@
-export interface Month {
+export interface Package {
     id: number,
-    type: PackageType,
+    type: Type,
     barcode: string,
     building: string,
     recipient: string,
-    timeReceived: Date,
-    status: PackageStatus,
+    timeReceived: string,
+    status: Status,
 }
 
-export enum PackageType {
+export enum Type {
     INBOUND = 'INBOUND',
     OUTBOUND = 'OUTBOUND'
 }
 
-export enum PackageStatus {
+export enum Status {
     ERFASST = 'ERFASST',
     SORTIERT = 'SORTIERT',
     IM_TRANSPORT = 'IM_TRANSPORT',
     GELIEFERT = 'GELIEFERT',
+}
+
+export abstract class PackageData {
+    abstract getData(): Package[];
 }

@@ -54,6 +54,8 @@ import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { RippleService } from './utils/ripple.service';
 import { MockDataModule } from './mock/mock-data.module';
+import { PackageData } from './data/package';
+import { PackageService } from './mock/package.service';
 
 const socialLinks = [
   {
@@ -93,6 +95,7 @@ const DATA_SERVICES = [
   { provide: StatsProgressBarData, useClass: StatsProgressBarService },
   { provide: VisitorsAnalyticsData, useClass: VisitorsAnalyticsService },
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
+  { provide: PackageData, useClass: PackageService },
   {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useExisting: RippleService},
 ];
 
