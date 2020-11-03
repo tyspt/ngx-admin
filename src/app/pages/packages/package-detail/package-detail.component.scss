@@ -3,6 +3,44 @@
 @include nb-install-component() {
   nb-card {
     max-width: 600px;
-    max-height: 600px;
+    max-height: 800px;
+    font-size: small;
+
+    .shipmentCourse .shipmentCourseEntry {
+      display: flex;
+
+      .courseLeft {
+        position: relative;
+        max-width: 68px;
+
+        // Draw connector lines beteween status icons
+        &::before {
+          content: " ";
+          position: absolute;
+          width: 2px;
+          background-color: nb-theme(color-primary-default);
+          top: 24px;
+          bottom: -4px;
+          left: 14px;
+          margin-left: -3px;
+        }
+
+        .icon svg {
+          width: 24px;
+          height: 24px;
+          fill: nb-theme(color-primary-default);
+        }
+      }
+
+      // Do not display connector for the last entry
+      &:last-child>.courseLeft::before {
+        width: 0;
+      }
+
+      .courseText {
+        margin-left: 2.5rem;
+        padding-bottom: 0.75rem;
+      }
+    }
   }
 }

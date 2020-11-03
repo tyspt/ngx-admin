@@ -31,7 +31,6 @@ import { PackageAddComponent } from './package-add/package-add.component';
     NbSearchModule,
     NbCardModule,
     NbInputModule,
-    NbCardModule,
     NbButtonModule,
     NbActionsModule,
     NbUserModule,

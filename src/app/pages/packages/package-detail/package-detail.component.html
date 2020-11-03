@@ -1,17 +1,69 @@
 <nb-card>
-    <nb-card-header class="d-flex justify-content-between align-items-center">
-      <span>Package #{{ package.id }}</span>
-      <button nbButton matRipple hero size="small" (click)="dismiss()" status="primary">
-        <nb-icon class="close-dialog-icon" icon="close"></nb-icon>
-      </button>
-    </nb-card-header>
-    <nb-card-body>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis tincidunt tincidunt.
-      Vestibulum vulputate maximus massa vel tristique. Suspendisse potenti. Duis aliquet purus sed dictum dictum.
-      Donec fringilla, purus at fermentum imperdiet, velit enim malesuada turpis, quis luctus arcu arcu nec orci.
-      Duis eu mattis felis. Quisque sollicitudin elementum nunc vel tincidunt. Vestibulum egestas mi nec
-      iaculis varius. Morbi in risus sed sapien ultricies feugiat. Quisque pulvinar mattis purus,
-      in aliquet massa aliquet et.
-    </nb-card-body>
-  </nb-card>
-  
+  <nb-card-header class="d-flex justify-content-between align-items-center">
+    <span>Package #{{ package.barcode }}</span>
+    <button nbButton matRipple hero size="small" (click)="dismiss()" status="primary">
+      <nb-icon class="close-dialog-icon" icon="close"></nb-icon>
+    </button>
+  </nb-card-header>
+  <nb-card-body>
+
+    <nb-card>
+      <nb-card-header>Package Detail</nb-card-header>
+      <nb-card-body>
+        <div class="row">
+          <dt class="col-4">Tracking Number: </dt>
+          <dd class="col">{{ package.barcode }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-4">Recipient: </dt>
+          <dd class="col">{{ package.recipient }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-4">Building: </dt>
+          <dd class="col">{{ package.building }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-4">Address: </dt>
+          <dd class="col">{{ package.fullAddress }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-4">Time Created: </dt>
+          <dd class="col">{{ package.timeCreated }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-4">Current Status: </dt>
+          <dd class="col">
+            <ngx-status-renderer [value]="package.status"></ngx-status-renderer>
+          </dd>
+        </div>
+      </nb-card-body>
+    </nb-card>
+
+    <nb-card size="small">
+      <nb-card-header>Tracking Information</nb-card-header>
+      <nb-card-body class="shipmentCourse">
+        <div class="shipmentCourseEntry" *ngFor="let shipmentCourseEntry of shipmentCourses">
+          <div class="courseLeft">
+            <span class="icon">
+              <svg>
+                <use xlink:href="#checkmark-filled" />
+              </svg>
+            </span>
+          </div>
+          <div class="courseText">
+            <dt class="header">{{ shipmentCourseEntry.timestamp }}</dt>
+            <dd class="status">{{ shipmentCourseEntry.description }}</dd>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-body>
+</nb-card>
+
+<svg display="none">
+  <symbol width="24" height="24" viewBox="0 0 24 24" id="checkmark-filled">
+    <path fill-rule="evenodd"
+      d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.25 8.891l-1.421-1.409-6.105 6.218-3.078-2.937-1.396 1.436 4.5 4.319 7.5-7.627z">
+    </path>
+  </symbol>
+</svg>

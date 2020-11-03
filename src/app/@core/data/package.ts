@@ -2,9 +2,10 @@ export interface Package {
     id: number;
     type: Type;
     barcode: string;
-    building: string;
+    building?: string;
     recipient: string;
-    timeReceived: string;
+    fullAddress?: string;
+    timeCreated: string;
     status: Status;
 }
 

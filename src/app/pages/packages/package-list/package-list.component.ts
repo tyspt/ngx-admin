@@ -37,8 +37,8 @@ export class PackageListComponent {
         title: 'Recipient',
         type: 'string',
       },
-      timeReceived: {
-        title: 'Time Received',
+      timeCreated: {
+        title: 'Time Created',
         type: 'string',
       },
       status: {
