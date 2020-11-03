@@ -7,7 +7,7 @@ export class PackageService extends PackageData {
   data: Package[] = [
     {
       id: '1',
-      barcode: '4621642642641264124261',
+      barcode: '1937917519711295139517',
       recipient: {
         name: 'John Doe',
         email: 'john.doe@continental.com',
@@ -31,7 +31,7 @@ export class PackageService extends PackageData {
     },
     {
       id: '2',
-      barcode: '172471974917192137391',
+      barcode: '1724719749171921373931',
       recipient: {
         name: 'MICHAEL NOEL',
         email: 'michael.noel@continental.com',
@@ -79,7 +79,7 @@ export class PackageService extends PackageData {
     },
     {
       id: '4',
-      barcode: '17923791027490173409217',
+      barcode: '1792379102749017340917',
       recipient: {
         name: 'MARTIN LUTHER KING',
         email: 'martin.luther.king@continental.com',
@@ -103,7 +103,7 @@ export class PackageService extends PackageData {
     },
     {
       id: '5',
-      barcode: '12758917571975901757232',
+      barcode: '1275891757197590177232',
       recipient: {
         name: 'MICHAEL BROWN',
         email: 'michael.brown@continental.com',
@@ -127,7 +127,7 @@ export class PackageService extends PackageData {
     },
     {
       id: '6',
-      barcode: '47976890682082067602863',
+      barcode: '4797689068208207602863',
       recipient: {
         name: 'QUINTONIO LEGRIER',
         email: 'QUINTONIO.LEGRIER@continental.com',
@@ -151,7 +151,7 @@ export class PackageService extends PackageData {
     },
     {
       id: '7',
-      barcode: '37957985018083724975948',
+      barcode: '3795798501808372975948',
       recipient: {
         name: 'John Doe',
         email: 'john.doe@continental.com',
@@ -175,7 +175,7 @@ export class PackageService extends PackageData {
     },
     {
       id: '8',
-      barcode: '94897582683648274832172',
+      barcode: '9489758268364824832172',
       recipient: {
         name: 'John Doe',
         email: 'john.doe@continental.com',
