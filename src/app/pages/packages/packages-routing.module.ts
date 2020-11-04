@@ -11,10 +11,10 @@ const routes: Routes = [{
   path: '',
   component: PackagesComponent,
   children: [
-    { path: '', component: PackageListComponent },
-    { path: 'search', component: PackageSearchComponent },
+    { path: 'list', component: PackageListComponent },
     { path: 'add', component: PackageAddComponent },
-    { path: ':id', component: PackageListComponent },
+    { path: 'search', component: PackageSearchComponent },
+    { path: 'search/:id', component: PackageSearchComponent },
   ],
 }];
 

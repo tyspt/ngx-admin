@@ -66,16 +66,7 @@ export class PackageListComponent implements OnInit {
     this.source.load(data);
   }
 
-  ngOnInit(): void {
-    // Show package detail popup if route contains a package id
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
-    if (id) {
-      const pkg = this.packageService.getPackagebyId(id);
-      setTimeout(() => {
-        this.showPackageDetail(pkg);
-      }, 100);
-    }
-  }
+  ngOnInit(): void {}
 
   showPackageDetail(pkg: Package) {
     this.dialogService.open(PackageDetailComponent, {

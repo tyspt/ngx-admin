@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { PackageData } from 'app/@core/data/package';
+import { ActivatedRoute } from '@angular/router';
+import { NbDialogService, NbToastrService } from '@nebular/theme';
+import { Package, PackageData } from 'app/@core/data/package';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+import { PackageDetailComponent } from '../package-detail/package-detail.component';
 
 @Component({
   selector: 'ngx-package-search',
@@ -12,7 +15,9 @@ import { map } from 'rxjs/operators';
 export class PackageSearchComponent implements OnInit {
 
   constructor(
-    private router: Router,
+    private dialogService: NbDialogService,
+    private toastrService: NbToastrService,
+    private activatedRoute: ActivatedRoute,
     private packageService: PackageData
   ) { }
 
@@ -24,6 +29,15 @@ export class PackageSearchComponent implements OnInit {
   ngOnInit() {
     this.options = this.packageService.getData().map(p => p.barcode);
     this.filteredOptions$ = of(this.options);
+
+    // Show package detail popup if route contains a package id
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    if (id) {
+      const pkg = this.packageService.getPackagebyId(id);
+      setTimeout(() => {
+        this.showPackageDetail(pkg);
+      }, 100);
+    }
   }
 
   private filter(value: string): string[] {
@@ -47,7 +61,21 @@ export class PackageSearchComponent implements OnInit {
 
   searchPackage(): void {
     const barcode = this.input.nativeElement.value;
-    const id = this.packageService.getPackagebyBarcode(barcode);
-    this.router.navigate(['pages', 'packages', id]);
+    const pkg = this.packageService.getPackagebyBarcode(barcode);
+    this.showPackageDetail(pkg);
+  }
+
+  private showPackageDetail(pkg: Package) {
+    if (pkg) {
+      this.dialogService.open(PackageDetailComponent, {
+        context: {
+          package: pkg,
+        },
+        autoFocus: false,
+      });
+    } else {
+      this.toastrService.danger('Please make sure to fill in the correct number', `Package number does not exist!`);
+      this.input.nativeElement.value = '';
+    }
   }
 }
