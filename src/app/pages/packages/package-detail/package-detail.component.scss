@@ -6,7 +6,7 @@
     max-width: 800px;
     max-height: 90vh;
 
-    &>nb-card-body {
+    & > nb-card-body {
       padding-left: 50px;
       padding-right: 50px;
     }
@@ -25,7 +25,7 @@
 
         // Draw connector lines beteween status icons
         &::before {
-          content: " ";
+          content: ' ';
           position: absolute;
           width: 2px;
           background-color: nb-theme(color-primary-default);
@@ -43,7 +43,7 @@
       }
 
       // Do not display connector for the last entry
-      &:last-child>.courseLeft::before {
+      &:last-child > .courseLeft::before {
         width: 0;
       }
 
@@ -52,7 +52,7 @@
       }
 
       // Add padding between entry texts except for the last one
-      &:not(:last-child)>.courseText {
+      &:not(:last-child) > .courseText {
         padding-bottom: 0.75rem;
       }
     }

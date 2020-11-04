@@ -18,7 +18,7 @@ export class PackageSearchComponent implements OnInit {
     private dialogService: NbDialogService,
     private toastrService: NbToastrService,
     private activatedRoute: ActivatedRoute,
-    private packageService: PackageData
+    private packageService: PackageData,
   ) { }
 
   options: string[];
