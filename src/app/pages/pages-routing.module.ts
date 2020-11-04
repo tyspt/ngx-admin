@@ -75,7 +75,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'packages',
       pathMatch: 'full',
     },
     {
