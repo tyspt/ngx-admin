@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'ngx-package-handover',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PackageHandoverComponent implements OnInit {
 
-  constructor() { }
+  stepIndex = 0;
+
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
   }
 
+  next() {
+    this.stepIndex++;
+  }
+
+  cancel() {
+    this.location.back();
+  }
 }

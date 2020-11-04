@@ -1,10 +1,17 @@
 <nb-card>
   <nb-card-header>Package Handover Process</nb-card-header>
-  <nb-card-body class="d-flex align-items-center flex-column">
+  <nb-card-body>
+    <div *ngIf="stepIndex === 0" class="qr-container d-flex align-items-center flex-column">
       <qrcode [qrdata]="'Your data string'" [width]="256"></qrcode>
-      <p class="qr-description">To start the handover process, please ask tour driver to scan the following QR code with mobile phone app.</p>
+      <p class="qr-description">To start the handover process, please ask tour driver to scan the following QR code with
+        mobile phone app.</p>
+    </div>
+    <div *ngIf="stepIndex === 1">
+      Table here
+    </div>
   </nb-card-body>
-  <nb-card-footer class="d-flex d-flex justify-content-end">
-    <button nbButton status="primary" size="medium">Next</button>
+  <nb-card-footer class="action-buttons d-flex d-flex justify-content-end">
+    <button nbButton status="primary" size="medium" (click)="next()" [disabled]="stepIndex === 2">Next</button>
+    <button nbButton status="secondary" size="medium" (click)="cancel()">Cancel</button>
   </nb-card-footer>
 </nb-card>

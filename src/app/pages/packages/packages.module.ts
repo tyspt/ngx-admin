@@ -28,6 +28,8 @@ import { PackagesRoutingModule, routedComponents } from './packages-routing.modu
     ThemeModule,
     PackagesRoutingModule,
     GoogleMapsModule,
+    QRCodeModule,
+    Ng2SmartTableModule,
     NbAutocompleteModule,
     NbSearchModule,
     NbCardModule,
@@ -40,9 +42,7 @@ import { PackagesRoutingModule, routedComponents } from './packages-routing.modu
     NbSelectModule,
     NbIconModule,
     NbListModule,
-    Ng2SmartTableModule,
     NbBadgeModule,
-    QRCodeModule,
   ],
   exports: [],
   declarations: [
