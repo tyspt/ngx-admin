@@ -11,6 +11,7 @@ const routes: Routes = [{
   path: '',
   component: PackagesComponent,
   children: [
+    { path: '', component: PackageListComponent },
     { path: 'list', component: PackageListComponent },
     { path: 'add', component: PackageAddComponent },
     { path: 'search', component: PackageSearchComponent },
