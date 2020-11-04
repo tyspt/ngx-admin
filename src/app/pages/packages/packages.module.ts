@@ -19,8 +19,9 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
-import { StatusRendererComponent } from './package-list/status-renderer.component';
+import { StatusRendererComponent } from './shared-smart-table/status-renderer.component';
 import { PackagesRoutingModule, routedComponents } from './packages-routing.module';
+import { SharedSmartTableComponent } from './shared-smart-table/shared-smart-table.component';
 
 @NgModule({
   entryComponents: [StatusRendererComponent],
@@ -48,6 +49,7 @@ import { PackagesRoutingModule, routedComponents } from './packages-routing.modu
   declarations: [
     ...routedComponents,
     StatusRendererComponent,
+    SharedSmartTableComponent,
   ],
 })
 export class PackagesModule { }

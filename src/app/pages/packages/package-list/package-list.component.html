@@ -14,7 +14,6 @@
   </nb-card-header>
 
   <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="showPackageDetail($event.data)">
-    </ng2-smart-table>
+    <ngx-shared-smart-table [packages]="packages"></ngx-shared-smart-table>
   </nb-card-body>
 </nb-card>

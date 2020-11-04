@@ -1,9 +1,13 @@
-.qr-description{
-    width: 50vw;
-    max-width: 450px;
-    text-align: center;
-}
+@import '../../../@theme/styles/themes';
 
-.action-buttons > button:not(:last-child) {
-    margin-right: 1rem;
-  }
+@include nb-install-component() {
+    .qr-description{
+        width: 50vw;
+        max-width: 450px;
+        text-align: center;
+    }
+
+    .action-buttons > button:not(:last-child) {
+        margin-right: 1rem;
+    }
+}

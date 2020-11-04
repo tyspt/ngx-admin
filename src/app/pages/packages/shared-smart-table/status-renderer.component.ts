@@ -16,5 +16,4 @@ export class StatusRendererComponent implements ViewCell, OnInit {
 
   ngOnInit(): void {
   }
-
 }
