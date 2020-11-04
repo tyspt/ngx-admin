@@ -2,6 +2,10 @@
   margin-right: 1rem;
 }
 
+.header-buttons > button:not(:last-child) {
+  margin-right: 0.75rem;
+}
+
 .description-text {
   margin-top: 1rem;
 }

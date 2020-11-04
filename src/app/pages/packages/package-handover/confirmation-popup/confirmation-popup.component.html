@@ -1,9 +1,17 @@
 <nb-card class="main-card">
   <nb-card-header class="d-flex justify-content-between align-items-center">
     <span>Final Package Handover List (Total: {{ packages.length }})</span>
-    <button nbButton matRipple ghost size="small" (click)="dismiss()">
-      <nb-icon class="close-dialog-icon" icon="close"></nb-icon>
-    </button>
+    <div class="d-flex header-buttons">
+      <button nbButton matRipple outline status="primary" size="small">
+        <nb-icon icon="upload-outline"></nb-icon>Export
+      </button>
+      <button nbButton matRipple outline status="primary" size="small">
+        <nb-icon icon="printer-outline"></nb-icon>Print
+      </button>
+      <button nbButton matRipple ghost size="small" (click)="dismiss()">
+        <nb-icon icon="close"></nb-icon>
+      </button>
+    </div>
   </nb-card-header>
   <nb-card-body>
     <ngx-shared-smart-table [packages]="packages"></ngx-shared-smart-table>
