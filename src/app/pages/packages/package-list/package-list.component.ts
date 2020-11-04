@@ -79,11 +79,4 @@ export class PackageListComponent implements OnInit {
       autoFocus: false,
     });
   }
-
-  showPackageHandover() {
-    this.dialogService.open(PackageDetailComponent, {
-      context: { },
-      autoFocus: false,
-    });
-  }
 }
