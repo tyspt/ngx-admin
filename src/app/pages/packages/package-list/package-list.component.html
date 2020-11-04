@@ -1,0 +1,13 @@
+<nb-card>
+  <nb-card-header class="d-flex justify-content-between align-items-center">
+    Package List
+    <button nbButton status="primary" size="medium" (click)="showPackageAdd($event)">
+      <nb-icon class="add-package-icon" icon="plus"></nb-icon>New Package
+    </button>
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="showPackageDetail($event.data)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

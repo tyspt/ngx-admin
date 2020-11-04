@@ -1,0 +1,103 @@
+<nb-card class="main-card">
+  <nb-card-header class="d-flex justify-content-between align-items-center">
+    <span>Package #{{ package.barcode }}</span>
+    <button nbButton matRipple ghost size="small" (click)="dismiss()">
+      <nb-icon class="close-dialog-icon" icon="close"></nb-icon>
+    </button>
+  </nb-card-header>
+  <nb-card-body>
+
+    <nb-card class="package-detail-card">
+      <nb-card-header>Package Detail</nb-card-header>
+      <nb-card-body>
+        <div class="row">
+          <dt class="col-3">Tracking Number:</dt>
+          <dd class="col">{{ package.barcode }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Order Number:</dt>
+          <dd class="col">{{ package?.orderNumber || 'N/A' }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Recipient Name:</dt>
+          <dd class="col">{{ package?.recipient?.name || 'N/A' }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Email:</dt>
+          <dd class="col">{{ package.recipient?.email || 'N/A' }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Telephone:</dt>
+          <dd class="col">{{ package.recipient?.telephone || 'N/A' }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Building:</dt>
+          <dd class="col">{{ package.recipient?.building || 'N/A' }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Address:</dt>
+          <dd class="col">{{ package.recipient?.fullAddress || 'N/A'}}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Representative:</dt>
+          <dd class="col">
+            {{ package?.representative?.name || 'N/A' }}
+            <span *ngIf="package?.representative?.fullAddress">
+              ({{ package.representative.fullAddress }})
+            </span>
+          </dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Sender:</dt>
+          <dd class="col">{{ package?.sender?.name || 'N/A' }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Time Created:</dt>
+          <dd class="col">{{ package.timeCreated }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Status:</dt>
+          <dd class="col">
+            <ngx-status-renderer [value]="package.status"></ngx-status-renderer>
+          </dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Current Location:</dt>
+          <dd class="col">{{ position.lat }}, {{ position.lng }}</dd>
+        </div>
+        <div class="row map-container">
+          <google-map class="col" [center]="position" [zoom]="12" width="100%" height="250px">
+            <map-marker [position]="position"></map-marker>
+          </google-map>
+        </div>
+      </nb-card-body>
+    </nb-card>
+
+    <nb-card class="tracking-info-card" size="small">
+      <nb-card-header>Tracking Information</nb-card-header>
+      <nb-card-body class="shipmentCourse">
+        <div class="shipmentCourseEntry" *ngFor="let shipmentCourseEntry of shipmentCourses">
+          <div class="courseLeft">
+            <span class="icon">
+              <svg>
+                <use xlink:href="#checkmark-filled" />
+              </svg>
+            </span>
+          </div>
+          <div class="courseText">
+            <dt class="header">{{ shipmentCourseEntry.timestamp }}</dt>
+            <dd class="status">{{ shipmentCourseEntry.description }}</dd>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-body>
+</nb-card>
+
+<svg display="none">
+  <symbol width="24" height="24" viewBox="0 0 24 24" id="checkmark-filled">
+    <path fill-rule="evenodd"
+      d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.25 8.891l-1.421-1.409-6.105 6.218-3.078-2.937-1.396 1.436 4.5 4.319 7.5-7.627z">
+    </path>
+  </symbol>
+</svg>

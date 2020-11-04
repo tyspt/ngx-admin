@@ -1,0 +1,19 @@
+<nb-card>
+  <nb-card-header>Search Packages</nb-card-header>
+  <nb-card-body>
+    <div class="d-flex justify-content-center align-items-center">
+      <input class="search-bar" #autoInput type="text" nbInput fullWidth shape="round"
+        placeholder="Enter Tracking Number" [nbAutocomplete]="auto" (input)="onChange()"
+        (keyup.enter)="searchPackage()">
+      <button nbButton ghost (click)="searchPackage()">
+        <nb-icon class="search-icon" icon="search"></nb-icon>
+      </button>
+    </div>
+
+    <nb-autocomplete #auto (selectedChange)="onSelectionChange($event)">
+      <nb-option *ngFor="let option of filteredOptions$ | async" [value]="option">
+        {{ option }}
+      </nb-option>
+    </nb-autocomplete>
+  </nb-card-body>
+</nb-card>

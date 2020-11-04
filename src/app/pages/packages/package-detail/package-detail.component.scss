@@ -1,0 +1,60 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+
+  .main-card {
+    max-width: 800px;
+    max-height: 90vh;
+
+    & > nb-card-body {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    dt,
+    dd {
+      font-size: small;
+    }
+
+    .tracking-info-card .shipmentCourse .shipmentCourseEntry {
+      display: flex;
+
+      .courseLeft {
+        position: relative;
+        max-width: 68px;
+
+        // Draw connector lines beteween status icons
+        &::before {
+          content: ' ';
+          position: absolute;
+          width: 2px;
+          background-color: nb-theme(color-primary-default);
+          top: 24px;
+          bottom: -4px;
+          left: 14px;
+          margin-left: -3px;
+        }
+
+        .icon svg {
+          width: 24px;
+          height: 24px;
+          fill: nb-theme(color-primary-default);
+        }
+      }
+
+      // Do not display connector for the last entry
+      &:last-child > .courseLeft::before {
+        width: 0;
+      }
+
+      .courseText {
+        margin-left: 2.5rem;
+      }
+
+      // Add padding between entry texts except for the last one
+      &:not(:last-child) > .courseText {
+        padding-bottom: 0.75rem;
+      }
+    }
+  }
+}
