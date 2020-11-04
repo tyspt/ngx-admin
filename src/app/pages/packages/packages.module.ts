@@ -22,6 +22,7 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { StatusRendererComponent } from './shared-smart-table/status-renderer.component';
 import { PackagesRoutingModule, routedComponents } from './packages-routing.module';
 import { SharedSmartTableComponent } from './shared-smart-table/shared-smart-table.component';
+import { ConfirmationPopupComponent } from './package-handover/confirmation-popup/confirmation-popup.component';
 
 @NgModule({
   entryComponents: [StatusRendererComponent],
@@ -50,6 +51,7 @@ import { SharedSmartTableComponent } from './shared-smart-table/shared-smart-tab
     ...routedComponents,
     StatusRendererComponent,
     SharedSmartTableComponent,
+    ConfirmationPopupComponent,
   ],
 })
 export class PackagesModule { }

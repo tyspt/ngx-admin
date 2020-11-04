@@ -19,5 +19,4 @@ export class PackageAddComponent implements OnInit {
   dismiss() {
     this.ref.close();
   }
-
 }

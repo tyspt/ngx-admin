@@ -7,11 +7,23 @@
         mobile phone app.</p>
     </div>
     <div *ngIf="stepIndex === 1">
-      Table here
+      <nb-card status="danger">
+        <nb-card-header>Waiting List (Total: {{ todoPackages.length }})</nb-card-header>
+        <nb-card-body>
+          <ngx-shared-smart-table [packages]="todoPackages"></ngx-shared-smart-table>
+        </nb-card-body>
+      </nb-card>
+      <nb-card status="success">
+        <nb-card-header>Scanned Packages (Total: {{ donePackages.length }})</nb-card-header>
+        <nb-card-body>
+          <ngx-shared-smart-table [packages]="donePackages"></ngx-shared-smart-table>
+        </nb-card-body>
+      </nb-card>
     </div>
   </nb-card-body>
   <nb-card-footer class="action-buttons d-flex d-flex justify-content-end">
-    <button nbButton status="primary" size="medium" (click)="next()" [disabled]="stepIndex === 2">Next</button>
+    <button nbButton *ngIf="stepIndex === 0" status="primary" size="medium" (click)="next()">Next</button>
+    <button nbButton *ngIf="stepIndex === 1" status="primary" size="medium" (click)="showConfirmationDialog()">Finish</button>
     <button nbButton status="secondary" size="medium" (click)="cancel()">Cancel</button>
   </nb-card-footer>
 </nb-card>
