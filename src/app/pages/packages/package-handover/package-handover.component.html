@@ -1,1 +1,10 @@
-<p>package-handover works!</p>
+<nb-card>
+  <nb-card-header>Package Handover Process</nb-card-header>
+  <nb-card-body class="d-flex align-items-center flex-column">
+      <qrcode [qrdata]="'Your data string'" [width]="256"></qrcode>
+      <p class="qr-description">To start the handover process, please ask tour driver to scan the following QR code with mobile phone app.</p>
+  </nb-card-body>
+  <nb-card-footer class="d-flex d-flex justify-content-end">
+    <button nbButton status="primary" size="medium">Next</button>
+  </nb-card-footer>
+</nb-card>

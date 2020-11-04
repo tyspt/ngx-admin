@@ -17,6 +17,7 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { QRCodeModule } from 'angularx-qrcode';
 
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
@@ -42,6 +43,7 @@ import { AppComponent } from './app.component';
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     NbEvaIconsModule,
+    QRCodeModule,
   ],
   bootstrap: [AppComponent],
 })

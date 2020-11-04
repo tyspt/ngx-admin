@@ -15,6 +15,7 @@ import {
   NbSelectModule,
   NbUserModule,
 } from '@nebular/theme';
+import { QRCodeModule } from 'angularx-qrcode';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
@@ -41,6 +42,7 @@ import { PackagesRoutingModule, routedComponents } from './packages-routing.modu
     NbListModule,
     Ng2SmartTableModule,
     NbBadgeModule,
+    QRCodeModule,
   ],
   exports: [],
   declarations: [
