@@ -27,7 +27,10 @@ export class PackageSearchComponent implements OnInit {
   @ViewChild('autoInput') input;
 
   ngOnInit() {
+    // load list of barcodes
     this.options = this.packageService.getData().map(p => p.barcode);
+    // remove duplicates
+    this.options = this.options.filter((item, index) => this.options.indexOf(item) === index);
     this.filteredOptions$ = of(this.options);
 
     // Show package detail popup if route contains a package id
