@@ -24,7 +24,7 @@ export class StatusRendererComponent implements ViewCell, OnInit {
       case Status.SORTIERT:
       case Status.ERFASST:
       default:
-        return 'success'
+        return 'success';
     }
   }
 

@@ -8,7 +8,7 @@ describe('QrPrintoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [QrPrintoutComponent]
+      declarations: [QrPrintoutComponent],
     })
       .compileComponents();
   });
