@@ -8,7 +8,7 @@ describe('PackageHandoverComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PackageHandoverComponent ]
+      declarations: [ PackageHandoverComponent ],
     })
     .compileComponents();
   });

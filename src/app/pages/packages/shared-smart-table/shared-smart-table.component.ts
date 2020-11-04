@@ -9,7 +9,7 @@ import { StatusRendererComponent } from './status-renderer.component';
 @Component({
   selector: 'ngx-shared-smart-table',
   templateUrl: './shared-smart-table.component.html',
-  styleUrls: ['./shared-smart-table.component.scss']
+  styleUrls: ['./shared-smart-table.component.scss'],
 })
 export class SharedSmartTableComponent implements OnInit {
 
@@ -68,7 +68,7 @@ export class SharedSmartTableComponent implements OnInit {
 
   showPackageDetail(pkg: Package) {
     this.dialogService.open(PackageDetailComponent, {
-      context: { package: pkg, },
+      context: { package: pkg },
       autoFocus: false,
     });
   }

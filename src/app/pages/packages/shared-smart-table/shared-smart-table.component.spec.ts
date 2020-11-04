@@ -8,7 +8,7 @@ describe('SharedSmartTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SharedSmartTableComponent ]
+      declarations: [ SharedSmartTableComponent ],
     })
     .compileComponents();
   });

@@ -6,7 +6,7 @@ import { Package } from 'app/@core/data/package';
 @Component({
   selector: 'ngx-confirmation-popup',
   templateUrl: './confirmation-popup.component.html',
-  styleUrls: ['./confirmation-popup.component.scss']
+  styleUrls: ['./confirmation-popup.component.scss'],
 })
 export class ConfirmationPopupComponent implements OnInit {
 

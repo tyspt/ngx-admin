@@ -24,7 +24,7 @@ export class PackageListComponent implements OnInit {
 
   showPackageAdd(event) {
     this.dialogService.open(PackageAddComponent, {
-      context: { package: event?.data, },
+      context: { package: event?.data },
       autoFocus: false,
     });
   }

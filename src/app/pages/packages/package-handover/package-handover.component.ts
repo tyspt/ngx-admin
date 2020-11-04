@@ -8,7 +8,7 @@ import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-po
 @Component({
   selector: 'ngx-package-handover',
   templateUrl: './package-handover.component.html',
-  styleUrls: ['./package-handover.component.scss']
+  styleUrls: ['./package-handover.component.scss'],
 })
 export class PackageHandoverComponent implements OnInit {
 
@@ -20,14 +20,14 @@ export class PackageHandoverComponent implements OnInit {
   constructor(
     private location: Location,
     private dialogService: NbDialogService,
-    private packageService: PackageData
+    private packageService: PackageData,
   ) { }
 
   ngOnInit(): void {
     this.todoPackages = this.packageService.getData()
       .filter(p => p.status === Status.ERFASST || p.status === Status.SORTIERT);
     this.donePackages = this.packageService.getData()
-      .filter(p => p.status === Status.IM_TRANSPORT);;
+      .filter(p => p.status === Status.IM_TRANSPORT);
   }
 
   showConfirmationDialog() {
