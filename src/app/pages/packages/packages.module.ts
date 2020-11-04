@@ -19,10 +19,11 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
-import { StatusRendererComponent } from './shared-smart-table/status-renderer.component';
+import { QrPrintoutComponent } from './package-add/qr-printout/qr-printout.component';
+import { ConfirmationPopupComponent } from './package-handover/confirmation-popup/confirmation-popup.component';
 import { PackagesRoutingModule, routedComponents } from './packages-routing.module';
 import { SharedSmartTableComponent } from './shared-smart-table/shared-smart-table.component';
-import { ConfirmationPopupComponent } from './package-handover/confirmation-popup/confirmation-popup.component';
+import { StatusRendererComponent } from './shared-smart-table/status-renderer.component';
 
 @NgModule({
   entryComponents: [StatusRendererComponent],
@@ -52,6 +53,7 @@ import { ConfirmationPopupComponent } from './package-handover/confirmation-popu
     StatusRendererComponent,
     SharedSmartTableComponent,
     ConfirmationPopupComponent,
+    QrPrintoutComponent,
   ],
 })
 export class PackagesModule { }

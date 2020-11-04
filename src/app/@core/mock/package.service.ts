@@ -690,4 +690,10 @@ export class PackageService extends PackageData {
   getPackagebyBarcode(barCode: string) {
     return this.data.find(p => p.barcode === barCode);
   }
+
+  addPackage(newPkg: any): Package {
+    newPkg.id = Math.round(Math.random() * 99999999 + 1000000).toString();
+    this.data.push(newPkg);
+    return newPkg;
+  }
 }

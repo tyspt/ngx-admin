@@ -6,129 +6,127 @@
     </button>
   </nb-card-header>
   <nb-card-body>
-    <form>
-      <div class="form-group row">
-        <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Package Type*:</label>
-        <div class="col-sm-5">
-          <nb-select matRipple selected="npm">
-            <nb-option matRipple value="npm">NPM</nb-option>
-            <nb-option matRipple value="siva">SIVA</nb-option>
-          </nb-select>
-        </div>
+    <div class="form-group row">
+      <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Package Type*:</label>
+      <div class="col-sm-5">
+        <nb-select matRipple selected="npm">
+          <nb-option matRipple value="npm">NPM</nb-option>
+          <nb-option matRipple value="siva">SIVA</nb-option>
+        </nb-select>
       </div>
-      <div class="form-group row">
-        <label for="trackingNumber" class="label col-sm-3 offset-1 col-form-label">Tracking Number:</label>
-        <div class="col-sm-5">
-          <input type="text" nbInput fullWidth id="trackingNumber">
-        </div>
-        <div class="col-sm">
-          <button nbButton ghost status="primary" size="small">
-            <nb-icon icon="color-picker-outline"></nb-icon>Scanner
-          </button>
-        </div>
+    </div>
+    <div class="form-group row">
+      <label for="trackingNumber" class="label col-sm-3 offset-1 col-form-label">Tracking Number:</label>
+      <div class="col-sm-5">
+        <input type="text" nbInput fullWidth id="trackingNumber">
       </div>
-      <div class="form-group row">
-        <label for="orderNumber" class="label col-sm-3 offset-1 col-form-label">Order Number:</label>
-        <div class="col-sm-5">
-          <input type="text" nbInput fullWidth id="orderNumber">
-        </div>
-        <div class="col-sm">
-          <button nbButton ghost status="primary" size="small">
-            <nb-icon icon="link-2-outline"></nb-icon>SAP
-          </button>
-        </div>
+      <div class="col-sm">
+        <button nbButton ghost status="primary" size="small">
+          <nb-icon icon="color-picker-outline"></nb-icon>Scanner
+        </button>
       </div>
-      <div class="form-group row">
-        <label for="sender" class="label col-sm-3 offset-1 col-form-label">Sender:</label>
-        <div class="col-sm-5">
-          <input type="text" nbInput fullWidth id="sender">
-        </div>
-        <div class="col-sm">
-          <button nbButton ghost status="primary" size="small">
-            <nb-icon icon="link-2-outline"></nb-icon>SAP
-          </button>
-        </div>
+    </div>
+    <div class="form-group row">
+      <label for="orderNumber" class="label col-sm-3 offset-1 col-form-label">Order Number:</label>
+      <div class="col-sm-5">
+        <input type="text" nbInput fullWidth id="orderNumber">
       </div>
-      <div class="form-group row">
-        <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Recipient Name*:</label>
-        <div class="col-sm-5">
-          <input type="text" nbInput fullWidth id="recipient">
-        </div>
-        <div class="col-sm">
-          <button nbButton ghost status="primary" size="small">
-            <nb-icon icon="link-2-outline"></nb-icon>Outlook
-          </button>
-        </div>
+      <div class="col-sm">
+        <button nbButton ghost status="primary" size="small">
+          <nb-icon icon="link-2-outline"></nb-icon>SAP
+        </button>
       </div>
-      <div class="form-group row">
-        <label for="email" class="label col-sm-3 offset-1 col-form-label">Email:</label>
-        <div class="col-sm-5">
-          <input type="text" nbInput fullWidth id="email">
-        </div>
-        <div class="col-sm">
-          <button nbButton ghost status="primary" size="small">
-            <nb-icon icon="link-2-outline"></nb-icon>Outlook
-          </button>
-        </div>
+    </div>
+    <div class="form-group row">
+      <label for="sender" class="label col-sm-3 offset-1 col-form-label">Sender:</label>
+      <div class="col-sm-5">
+        <input type="text" nbInput fullWidth id="sender">
       </div>
-      <div class="form-group row">
-        <label for="telephone" class="label col-sm-3 offset-1 col-form-label">Telephone:</label>
-        <div class="col-sm-5">
-          <input type="text" nbInput fullWidth id="telephone">
-        </div>
-        <div class="col-sm">
-          <button nbButton ghost status="primary" size="small">
-            <nb-icon icon="link-2-outline"></nb-icon>Outlook
-          </button>
-        </div>
+      <div class="col-sm">
+        <button nbButton ghost status="primary" size="small">
+          <nb-icon icon="link-2-outline"></nb-icon>SAP
+        </button>
       </div>
-      <div class="form-group row">
-        <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Building:</label>
-        <div class="col-sm-5">
-          <nb-select matRipple>
-            <nb-option matRipple value="1">A12</nb-option>
-            <nb-option matRipple value="2">A42</nb-option>
-            <nb-option matRipple value="3">B24</nb-option>
-            <nb-option matRipple value="4">B33</nb-option>
-            <nb-option matRipple value="5">D47</nb-option>
-            <nb-option matRipple value="6">F18</nb-option>
-            <nb-option matRipple value="7">K27</nb-option>
-          </nb-select>
-        </div>
-        <div class="col-sm">
-          <button nbButton ghost status="primary" size="small">
-            <nb-icon icon="link-2-outline"></nb-icon>Outlook
-          </button>
-        </div>
+    </div>
+    <div class="form-group row">
+      <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Recipient Name*:</label>
+      <div class="col-sm-5">
+        <input type="text" nbInput fullWidth id="recipient">
       </div>
-      <div class="form-group row">
-        <label for="fullAddress" class="label col-sm-3 offset-1 col-form-label">Address:</label>
-        <div class="col-sm-5">
-          <input type="text" nbInput fullWidth id="fullAddress">
-        </div>
-        <div class="col-sm">
-          <button nbButton ghost status="primary" size="small">
-            <nb-icon icon="link-2-outline"></nb-icon>Outlook
-          </button>
-        </div>
+      <div class="col-sm">
+        <button nbButton ghost status="primary" size="small">
+          <nb-icon icon="link-2-outline"></nb-icon>Outlook
+        </button>
       </div>
-      <div class="form-group row">
-        <label for="representative" class="label col-sm-3 offset-1 col-form-label">Representative:</label>
-        <div class="col-sm-5">
-          <input type="text" nbInput fullWidth id="representative">
-        </div>
-        <div class="col-sm">
-          <button nbButton ghost status="primary" size="small">
-            <nb-icon icon="link-2-outline"></nb-icon>Outlook
-          </button>
-        </div>
+    </div>
+    <div class="form-group row">
+      <label for="email" class="label col-sm-3 offset-1 col-form-label">Email:</label>
+      <div class="col-sm-5">
+        <input type="text" nbInput fullWidth id="email">
       </div>
-      <div class="form-group">
-        <div class="d-flex justify-content-end">
-          <button class="confirm-btn" nbButton type="submit" status="primary">Create</button>
-          <button class="cancel-btn" nbButton status="secondary" (click)="dismiss()">Cancel</button>
-        </div>
+      <div class="col-sm">
+        <button nbButton ghost status="primary" size="small">
+          <nb-icon icon="link-2-outline"></nb-icon>Outlook
+        </button>
       </div>
-    </form>
+    </div>
+    <div class="form-group row">
+      <label for="telephone" class="label col-sm-3 offset-1 col-form-label">Telephone:</label>
+      <div class="col-sm-5">
+        <input type="text" nbInput fullWidth id="telephone">
+      </div>
+      <div class="col-sm">
+        <button nbButton ghost status="primary" size="small">
+          <nb-icon icon="link-2-outline"></nb-icon>Outlook
+        </button>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Building:</label>
+      <div class="col-sm-5">
+        <nb-select matRipple>
+          <nb-option matRipple value="1">A12</nb-option>
+          <nb-option matRipple value="2">A42</nb-option>
+          <nb-option matRipple value="3">B24</nb-option>
+          <nb-option matRipple value="4">B33</nb-option>
+          <nb-option matRipple value="5">D47</nb-option>
+          <nb-option matRipple value="6">F18</nb-option>
+          <nb-option matRipple value="7">K27</nb-option>
+        </nb-select>
+      </div>
+      <div class="col-sm">
+        <button nbButton ghost status="primary" size="small">
+          <nb-icon icon="link-2-outline"></nb-icon>Outlook
+        </button>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="fullAddress" class="label col-sm-3 offset-1 col-form-label">Address:</label>
+      <div class="col-sm-5">
+        <input type="text" nbInput fullWidth id="fullAddress">
+      </div>
+      <div class="col-sm">
+        <button nbButton ghost status="primary" size="small">
+          <nb-icon icon="link-2-outline"></nb-icon>Outlook
+        </button>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="representative" class="label col-sm-3 offset-1 col-form-label">Representative:</label>
+      <div class="col-sm-5">
+        <input type="text" nbInput fullWidth id="representative">
+      </div>
+      <div class="col-sm">
+        <button nbButton ghost status="primary" size="small">
+          <nb-icon icon="link-2-outline"></nb-icon>Outlook
+        </button>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="action-buttons d-flex justify-content-end">
+        <button nbButton status="primary" (click)="createPackage()">Create</button>
+        <button nbButton status="secondary" (click)="dismiss()">Cancel</button>
+      </div>
+    </div>
   </nb-card-body>
 </nb-card>

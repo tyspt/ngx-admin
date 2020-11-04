@@ -1,0 +1,17 @@
+<nb-card>
+  <nb-card-header>Package Successfully Created</nb-card-header>
+  <nb-card-body class="d-flex align-items-center flex-column">
+    <qrcode [qrdata]="qrContent" [width]="256"></qrcode>
+    <span class="qr-text">{{ qrContent }}</span>
+    <p class="qr-description">Please use the button below to print out this code and stick it on the package that you
+      are going to send.</p>
+  </nb-card-body>
+  <nb-card-footer class="action-buttons d-flex justify-content-center">
+    <button nbButton matRipple outline status="primary" size="small">
+      <nb-icon icon="printer-outline"></nb-icon>Print
+    </button>
+    <button nbButton matRipple outline status="primary" size="small" (click)="dismiss()">
+      <nb-icon icon="close"></nb-icon>Close
+    </button>
+  </nb-card-footer>
+</nb-card>

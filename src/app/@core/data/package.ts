@@ -38,4 +38,5 @@ export abstract class PackageData {
     abstract getData(): Package[];
     abstract getPackagebyId(id: string): Package;
     abstract getPackagebyBarcode(barcode: string): Package;
+    abstract addPackage(newPkg: any): Package;
 }
