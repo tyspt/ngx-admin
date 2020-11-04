@@ -1,9 +1,16 @@
 <nb-card>
   <nb-card-header class="d-flex justify-content-between align-items-center">
     Package List
-    <button nbButton status="primary" size="medium" (click)="showPackageAdd($event)">
-      <nb-icon class="add-package-icon" icon="plus"></nb-icon>New Package
-    </button>
+    <div class="header-buttons">
+      <button nbButton status="primary" size="medium" (click)="showPackageHandover()">
+        <nb-icon icon="log-in-outline"></nb-icon>
+        Package Handover
+      </button>
+      <button nbButton status="primary" size="medium" (click)="showPackageAdd($event)">
+        <nb-icon icon="plus"></nb-icon>
+        Add Package
+      </button>
+    </div>
   </nb-card-header>
 
   <nb-card-body>

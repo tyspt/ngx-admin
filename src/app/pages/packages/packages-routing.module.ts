@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PackageAddComponent } from './package-add/package-add.component';
@@ -29,4 +29,6 @@ export const routedComponents = [
   PackagesComponent,
   PackageListComponent,
   PackageSearchComponent,
+  PackageDetailComponent,
+  PackageAddComponent,
 ];

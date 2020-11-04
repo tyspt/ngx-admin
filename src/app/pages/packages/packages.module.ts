@@ -18,8 +18,6 @@ import {
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
-import { PackageAddComponent } from './package-add/package-add.component';
-import { PackageDetailComponent } from './package-detail/package-detail.component';
 import { StatusRendererComponent } from './package-list/status-renderer.component';
 import { PackagesRoutingModule, routedComponents } from './packages-routing.module';
 
@@ -48,8 +46,6 @@ import { PackagesRoutingModule, routedComponents } from './packages-routing.modu
   declarations: [
     ...routedComponents,
     StatusRendererComponent,
-    PackageDetailComponent,
-    PackageAddComponent,
   ],
 })
 export class PackagesModule { }

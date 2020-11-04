@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { Package, PackageData } from 'app/@core/data/package';
 import { LocalDataSource } from 'ng2-smart-table';
@@ -55,7 +54,6 @@ export class PackageListComponent implements OnInit {
   constructor(
     private packageService: PackageData,
     private dialogService: NbDialogService,
-    private activatedRoute: ActivatedRoute,
   ) {
     const data = this.packageService.getData();
     // extract nested data fields into first level so that smart table can work with it as column
@@ -66,22 +64,25 @@ export class PackageListComponent implements OnInit {
     this.source.load(data);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   showPackageDetail(pkg: Package) {
     this.dialogService.open(PackageDetailComponent, {
-      context: {
-        package: pkg,
-      },
+      context: { package: pkg, },
       autoFocus: false,
     });
   }
 
   showPackageAdd(event) {
     this.dialogService.open(PackageAddComponent, {
-      context: {
-        package: event?.data,
-      },
+      context: { package: event?.data, },
+      autoFocus: false,
+    });
+  }
+
+  showPackageHandover() {
+    this.dialogService.open(PackageDetailComponent, {
+      context: { },
       autoFocus: false,
     });
   }
