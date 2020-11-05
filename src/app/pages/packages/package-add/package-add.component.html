@@ -6,134 +6,96 @@
     </button>
   </nb-card-header>
   <nb-card-body>
-    <div class="form-group row">
-      <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Package Type*:</label>
-      <div class="col-sm-5">
-        <nb-select matRipple [(ngModel)]="packageTypeNgModel">
-          <nb-option matRipple value="npm">NPM</nb-option>
-          <nb-option matRipple value="siva">SIVA</nb-option>
-        </nb-select>
+    <form #packageForm="ngForm">
+      <div class="form-group row">
+        <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Package Type:</label>
+        <div class="col-sm-5">
+          <nb-select matRipple [(ngModel)]="package.type" name="type">
+            <nb-option matRipple value="INBOUND">Inbound</nb-option>
+            <nb-option matRipple value="OUTBOUND">Outbound</nb-option>
+          </nb-select>
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="trackingNumber" class="label col-sm-3 offset-1 col-form-label">Tracking Number:</label>
-      <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="trackingNumber" [(ngModel)]="trackingNumberNgModel">
+      <div class="form-group row">
+        <label for="trackingNumber" class="label col-sm-3 offset-1 col-form-label">Tracking Number:</label>
+        <div class="col-sm">
+          <input type="text" nbInput fullWidth id="trackingNumber" [(ngModel)]="package.barcode" name="barcode">
+        </div>
       </div>
-      <div class="col-sm">
-        <button nbButton ghost status="primary" size="small">
-          <nb-icon icon="color-picker-outline"></nb-icon>Scanner
-        </button>
+      <div class="form-group row">
+        <label for="orderNumber" class="label col-sm-3 offset-1 col-form-label">Order Number:</label>
+        <div class="col-sm">
+          <input type="text" nbInput fullWidth id="orderNumber" #orderNumber [(ngModel)]="package.orderNumber"
+            name="orderNumber" [nbAutocomplete]="orderNumberAuto" (input)="onChange()">
+          <nb-autocomplete #orderNumberAuto (selectedChange)="onSelectionChange($event)">
+            <nb-option *ngFor="let option of filteredorderNumberOptions$ | async" [value]="option">
+              {{ option }}
+            </nb-option>
+          </nb-autocomplete>
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="orderNumber" class="label col-sm-3 offset-1 col-form-label">Order Number:</label>
-      <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="orderNumber" #orderNumber [(ngModel)]="orderNumberNgModel"
-          [nbAutocomplete]="orderNumberAuto" (input)="onChange()">
-        <nb-autocomplete #orderNumberAuto (selectedChange)="onSelectionChange($event)">
-          <nb-option *ngFor="let option of filteredorderNumberOptions$ | async" [value]="option">
-            {{ option }}
-          </nb-option>
-        </nb-autocomplete>
+      <div class="form-group row">
+        <label for="sender" class="label col-sm-3 offset-1 col-form-label">Sender:</label>
+        <div class="col-sm">
+          <input type="text" nbInput fullWidth id="sender" [(ngModel)]="package.sender.name" name="senderName">
+        </div>
       </div>
-      <div class="col-sm">
-        <button nbButton ghost status="primary" size="small">
-          <nb-icon icon="link-2-outline"></nb-icon>SAP
-        </button>
+      <div class="form-group row">
+        <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Recipient Name*:</label>
+        <div class="col-sm">
+          <input type="text" nbInput required fullWidth id="recipient" [(ngModel)]="package.recipient.name"
+            name="recipientName">
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="sender" class="label col-sm-3 offset-1 col-form-label">Sender:</label>
-      <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="sender" [(ngModel)]="senderNameNgModel">
+      <div class="form-group row">
+        <label for="email" class="label col-sm-3 offset-1 col-form-label">Email:</label>
+        <div class="col-sm">
+          <input type="text" nbInput fullWidth id="email" [(ngModel)]="package.recipient.email" name="recipientEmail">
+        </div>
       </div>
-      <div class="col-sm">
-        <button nbButton ghost status="primary" size="small">
-          <nb-icon icon="link-2-outline"></nb-icon>SAP
-        </button>
+      <div class="form-group row">
+        <label for="telephone" class="label col-sm-3 offset-1 col-form-label">Telephone:</label>
+        <div class="col-sm">
+          <input type="text" nbInput fullWidth id="telephone" [(ngModel)]="package.recipient.telephone"
+            name="recipientTelephone">
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Recipient Name*:</label>
-      <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="recipient" [(ngModel)]="recipientNameNgModel">
+      <div class="form-group row">
+        <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Building:</label>
+        <div class="col-sm">
+          <nb-select matRipple [(ngModel)]="package.recipient.building" name="recipientBuilding">
+            <nb-option matRipple value="A12">A12</nb-option>
+            <nb-option matRipple value="A42">A42</nb-option>
+            <nb-option matRipple value="B24">B24</nb-option>
+            <nb-option matRipple value="B33">B33</nb-option>
+            <nb-option matRipple value="D47">D47</nb-option>
+            <nb-option matRipple value="F18">F18</nb-option>
+            <nb-option matRipple value="K27">K27</nb-option>
+            <nb-option matRipple value="K210">K210</nb-option>
+          </nb-select>
+        </div>
       </div>
-      <div class="col-sm">
-        <button nbButton ghost status="primary" size="small">
-          <nb-icon icon="link-2-outline"></nb-icon>Outlook
-        </button>
+      <div class="form-group row">
+        <label for="fullAddress" class="label col-sm-3 offset-1 col-form-label">Address:</label>
+        <div class="col-sm">
+          <input type="text" nbInput fullWidth id="fullAddress" [(ngModel)]="package.recipient.fullAddress"
+            name="recipientAddress">
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="email" class="label col-sm-3 offset-1 col-form-label">Email:</label>
-      <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="email" [(ngModel)]="recipientEmailNgModel">
+      <div class="form-group row">
+        <label for="representative" class="label col-sm-3 offset-1 col-form-label">Representative:</label>
+        <div class="col-sm">
+          <input type="text" nbInput fullWidth id="representative" [(ngModel)]="package.representative.name"
+            name="representativeName">
+        </div>
       </div>
-      <div class="col-sm">
-        <button nbButton ghost status="primary" size="small">
-          <nb-icon icon="link-2-outline"></nb-icon>Outlook
-        </button>
+      <div class="form-group">
+        <div class="action-buttons d-flex justify-content-end">
+          <button nbButton status="primary" type="submit" (click)="createPackage(); packageForm.reset()"
+            [disabled]="packageForm.invalid">Create</button>
+          <button nbButton status="secondary" (click)="dismiss()">Cancel</button>
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="telephone" class="label col-sm-3 offset-1 col-form-label">Telephone:</label>
-      <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="telephone" [(ngModel)]="recipientEmailNgModel">
-      </div>
-      <div class="col-sm">
-        <button nbButton ghost status="primary" size="small">
-          <nb-icon icon="link-2-outline"></nb-icon>Outlook
-        </button>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Building:</label>
-      <div class="col-sm-5">
-        <nb-select matRipple [(ngModel)]="recipientBuildingNgModel">
-          <nb-option matRipple value="A12">A12</nb-option>
-          <nb-option matRipple value="A42">A42</nb-option>
-          <nb-option matRipple value="B24">B24</nb-option>
-          <nb-option matRipple value="B33">B33</nb-option>
-          <nb-option matRipple value="D47">D47</nb-option>
-          <nb-option matRipple value="F18">F18</nb-option>
-          <nb-option matRipple value="K27">K27</nb-option>
-          <nb-option matRipple value="K210">K210</nb-option>
-        </nb-select>
-      </div>
-      <div class="col-sm">
-        <button nbButton ghost status="primary" size="small">
-          <nb-icon icon="link-2-outline"></nb-icon>Outlook
-        </button>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="fullAddress" class="label col-sm-3 offset-1 col-form-label">Address:</label>
-      <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="fullAddress" [(ngModel)]="recipientAddressNgModel">
-      </div>
-      <div class="col-sm">
-        <button nbButton ghost status="primary" size="small">
-          <nb-icon icon="link-2-outline"></nb-icon>Outlook
-        </button>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="representative" class="label col-sm-3 offset-1 col-form-label">Representative:</label>
-      <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="representative" [(ngModel)]="representativeNameNgModel">
-      </div>
-      <div class="col-sm">
-        <button nbButton ghost status="primary" size="small">
-          <nb-icon icon="link-2-outline"></nb-icon>Outlook
-        </button>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="action-buttons d-flex justify-content-end">
-        <button nbButton status="primary" (click)="createPackage()">Create</button>
-        <button nbButton status="secondary" (click)="dismiss()">Cancel</button>
-      </div>
-    </div>
+    </form>
   </nb-card-body>
 </nb-card>

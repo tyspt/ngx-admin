@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogRef, NbDialogService } from '@nebular/theme';
-import { Package, PackageData, Status, Type } from 'app/@core/data/package';
+import { Package, PackageData, Type } from 'app/@core/data/package';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -13,19 +13,28 @@ import { QrPrintoutComponent } from './qr-printout/qr-printout.component';
 })
 export class PackageAddComponent implements OnInit {
 
-  package: Package;
+  package: Package = {
+    id: '',
+    barcode: '',
+    orderNumber: undefined,
+    recipient: {
+      name: '',
+      email: '',
+      telephone: '',
+      building: '',
+      fullAddress: '',
+    },
+    timeCreated: '',
+    representative: {
+      name: '',
+    },
+    sender: {
+      name: '',
+    },
+    status: undefined,
+    type: Type.INBOUND,
+  };
   loading = false;
-
-  packageTypeNgModel = 'npm';
-  trackingNumberNgModel: string;
-  orderNumberNgModel: string;
-  senderNameNgModel: string;
-  recipientNameNgModel: string;
-  recipientEmailNgModel: string;
-  recipientTelephoneNgModel: string;
-  recipientBuildingNgModel: string;
-  recipientAddressNgModel: string;
-  representativeNameNgModel: string;
 
   orderNumberOptions: string[] = ['SAP164646164', 'SAP223232323', 'SAP365556565', 'SAP464646646', 'SAP546464146', 'SAP677978897', 'SAP878794454', 'SAP994842616'];
   filteredorderNumberOptions$: Observable<string[]>;
@@ -51,50 +60,33 @@ export class PackageAddComponent implements OnInit {
   }
 
   onChange() {
-    this.filteredorderNumberOptions$ = this.getFilteredorderNumberOptions(this.orderNumberNgModel);
+    this.filteredorderNumberOptions$ = this.getFilteredorderNumberOptions(this.package.orderNumber);
   }
 
   onSelectionChange($event) {
     this.filteredorderNumberOptions$ = this.getFilteredorderNumberOptions($event);
     this.loading = true;
     setTimeout(() => {
-      this.senderNameNgModel = 'Anna Musterfrau';
-      this.recipientNameNgModel = 'Max Mustermann';
-      this.recipientEmailNgModel = 'max.mustermann@continental.com';
-      this.recipientTelephoneNgModel = '0164-61616641';
-      this.recipientBuildingNgModel = 'K210';
-      this.recipientAddressNgModel = 'Seybothstraße 2, K210/2/1 93053 Regensburg';
+      this.package.sender.name = 'Anna Musterfrau';
+      this.package.recipient.name = 'Max Mustermann';
+      this.package.recipient.email = 'max.mustermann@continental.com';
+      this.package.recipient.telephone = '0164-61616641';
+      this.package.recipient.building = 'K210';
+      this.package.recipient.fullAddress = 'Seybothstraße 2, K210/2/1 93053 Regensburg';
       this.loading = false;
     }, 2000);
   }
 
   createPackage() {
-    this.dismiss();
-    this.package = {
-      id: undefined,
-      barcode: this.trackingNumberNgModel,
-      recipient: {
-        name: this.recipientNameNgModel,
-        email: this.recipientEmailNgModel,
-        telephone: this.recipientTelephoneNgModel,
-        building: this.recipientBuildingNgModel,
-        fullAddress: this.recipientAddressNgModel,
-      },
-      timeCreated: new Date().toString(),
-      representative: {
-        name: this.representativeNameNgModel,
-      },
-      sender: {
-        name: this.senderNameNgModel,
-      },
-      status: Status.ERFASST,
-      type: Type.INBOUND,
-    };
     const result = this.packageService.addPackage(this.package);
-    this.dialogService.open(QrPrintoutComponent, {
-      context: { qrContent: result.id },
-      autoFocus: false,
-    });
+    this.loading = true;
+    setTimeout(() => {
+      this.dismiss();
+      this.dialogService.open(QrPrintoutComponent, {
+        context: { qrContent: result.id },
+        autoFocus: false,
+      });
+    }, 2000);
   }
 
   dismiss() {
