@@ -17,14 +17,14 @@ export class PackageAddComponent implements OnInit {
   loading = false;
 
   packageTypeNgModel = 'npm';
-  trackingNumberNgModel;
+  trackingNumberNgModel: string;
   orderNumberNgModel: string;
-  senderNameNgModel;
+  senderNameNgModel: string;
   recipientNameNgModel: string;
   recipientEmailNgModel: string;
   recipientTelephoneNgModel: string;
-  recipientBuildingNgModel;
-  recipientAddressNgModel;
+  recipientBuildingNgModel: string;
+  recipientAddressNgModel: string;
   representativeNameNgModel: string;
 
   orderNumberOptions: string[] = ['SAP164646164', 'SAP223232323', 'SAP365556565', 'SAP464646646', 'SAP546464146', 'SAP677978897', 'SAP878794454', 'SAP994842616'];
@@ -58,11 +58,11 @@ export class PackageAddComponent implements OnInit {
     this.filteredorderNumberOptions$ = this.getFilteredorderNumberOptions($event);
     this.loading = true;
     setTimeout(() => {
-      this.senderNameNgModel = 'Max Mustermann';
-      this.recipientNameNgModel = 'Anna Musterfrau';
+      this.senderNameNgModel = 'Anna Musterfrau';
+      this.recipientNameNgModel = 'Max Mustermann';
       this.recipientEmailNgModel = 'max.mustermann@continental.com';
       this.recipientTelephoneNgModel = '0164-61616641';
-      this.recipientBuildingNgModel = '2';
+      this.recipientBuildingNgModel = 'K210';
       this.recipientAddressNgModel = 'Seybothstraße 2, K210/2/1 93053 Regensburg';
       this.loading = false;
     }, 2000);
