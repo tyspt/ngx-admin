@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import {
   NbActionsModule,
@@ -13,6 +14,7 @@ import {
   NbRadioModule,
   NbSearchModule,
   NbSelectModule,
+  NbSpinnerModule,
   NbUserModule,
 } from '@nebular/theme';
 import { QRCodeModule } from 'angularx-qrcode';
@@ -32,6 +34,7 @@ import { StatusRendererComponent } from './shared-smart-table/status-renderer.co
     PackagesRoutingModule,
     GoogleMapsModule,
     QRCodeModule,
+    FormsModule,
     Ng2SmartTableModule,
     NbAutocompleteModule,
     NbSearchModule,
@@ -46,6 +49,7 @@ import { StatusRendererComponent } from './shared-smart-table/status-renderer.co
     NbIconModule,
     NbListModule,
     NbBadgeModule,
+    NbSpinnerModule,
   ],
   exports: [],
   declarations: [

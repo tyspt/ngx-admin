@@ -1,4 +1,4 @@
-<nb-card class="form-card">
+<nb-card class="form-card" [nbSpinner]="loading">
   <nb-card-header class="d-flex justify-content-between align-items-center">
     Add New Package
     <button nbButton matRipple ghost size="small" (click)="dismiss()">
@@ -9,7 +9,7 @@
     <div class="form-group row">
       <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Package Type*:</label>
       <div class="col-sm-5">
-        <nb-select matRipple selected="npm">
+        <nb-select matRipple [(ngModel)]="packageTypeNgModel">
           <nb-option matRipple value="npm">NPM</nb-option>
           <nb-option matRipple value="siva">SIVA</nb-option>
         </nb-select>
@@ -18,7 +18,7 @@
     <div class="form-group row">
       <label for="trackingNumber" class="label col-sm-3 offset-1 col-form-label">Tracking Number:</label>
       <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="trackingNumber">
+        <input type="text" nbInput fullWidth id="trackingNumber" [(ngModel)]="trackingNumberNgModel">
       </div>
       <div class="col-sm">
         <button nbButton ghost status="primary" size="small">
@@ -29,7 +29,13 @@
     <div class="form-group row">
       <label for="orderNumber" class="label col-sm-3 offset-1 col-form-label">Order Number:</label>
       <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="orderNumber">
+        <input type="text" nbInput fullWidth id="orderNumber" #orderNumber [(ngModel)]="orderNumberNgModel"
+          [nbAutocomplete]="orderNumberAuto" (input)="onChange()">
+        <nb-autocomplete #orderNumberAuto (selectedChange)="onSelectionChange($event)">
+          <nb-option *ngFor="let option of filteredorderNumberOptions$ | async" [value]="option">
+            {{ option }}
+          </nb-option>
+        </nb-autocomplete>
       </div>
       <div class="col-sm">
         <button nbButton ghost status="primary" size="small">
@@ -40,7 +46,7 @@
     <div class="form-group row">
       <label for="sender" class="label col-sm-3 offset-1 col-form-label">Sender:</label>
       <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="sender">
+        <input type="text" nbInput fullWidth id="sender" [(ngModel)]="senderNameNgModel">
       </div>
       <div class="col-sm">
         <button nbButton ghost status="primary" size="small">
@@ -51,7 +57,7 @@
     <div class="form-group row">
       <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Recipient Name*:</label>
       <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="recipient">
+        <input type="text" nbInput fullWidth id="recipient" [(ngModel)]="recipientNameNgModel">
       </div>
       <div class="col-sm">
         <button nbButton ghost status="primary" size="small">
@@ -62,7 +68,7 @@
     <div class="form-group row">
       <label for="email" class="label col-sm-3 offset-1 col-form-label">Email:</label>
       <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="email">
+        <input type="text" nbInput fullWidth id="email" [(ngModel)]="recipientEmailNgModel">
       </div>
       <div class="col-sm">
         <button nbButton ghost status="primary" size="small">
@@ -73,7 +79,7 @@
     <div class="form-group row">
       <label for="telephone" class="label col-sm-3 offset-1 col-form-label">Telephone:</label>
       <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="telephone">
+        <input type="text" nbInput fullWidth id="telephone" [(ngModel)]="recipientEmailNgModel">
       </div>
       <div class="col-sm">
         <button nbButton ghost status="primary" size="small">
@@ -84,7 +90,7 @@
     <div class="form-group row">
       <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Building:</label>
       <div class="col-sm-5">
-        <nb-select matRipple>
+        <nb-select matRipple [(ngModel)]="recipientBuildingNgModel">
           <nb-option matRipple value="1">A12</nb-option>
           <nb-option matRipple value="2">A42</nb-option>
           <nb-option matRipple value="3">B24</nb-option>
@@ -103,7 +109,7 @@
     <div class="form-group row">
       <label for="fullAddress" class="label col-sm-3 offset-1 col-form-label">Address:</label>
       <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="fullAddress">
+        <input type="text" nbInput fullWidth id="fullAddress" [(ngModel)]="recipientAddressNgModel">
       </div>
       <div class="col-sm">
         <button nbButton ghost status="primary" size="small">
@@ -114,7 +120,7 @@
     <div class="form-group row">
       <label for="representative" class="label col-sm-3 offset-1 col-form-label">Representative:</label>
       <div class="col-sm-5">
-        <input type="text" nbInput fullWidth id="representative">
+        <input type="text" nbInput fullWidth id="representative" [(ngModel)]="representativeNameNgModel">
       </div>
       <div class="col-sm">
         <button nbButton ghost status="primary" size="small">
