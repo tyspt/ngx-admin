@@ -19,36 +19,23 @@ export class PackageSearchComponent implements OnInit {
     private packageService: PackageData,
   ) { }
 
-  trackingNumber: string;
+  searchText: string;
 
   ngOnInit() {
     // Show package detail popup if route contains a package id
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id) {
-      const pkg = this.packageService.getPackagebyId(+id);
-      setTimeout(() => {
-        this.showPackageDetail(pkg);
-      }, 100);
+      this.searchText = id;
+      this.searchPackage();
     }
   }
 
   searchPackage(): void {
-    const barcode = this.trackingNumber;
-    const pkg = this.packageService.getPackagebyBarcode(barcode);
-    this.showPackageDetail(pkg);
-  }
-
-  private showPackageDetail(pkg: Package) {
-    if (pkg) {
-      this.dialogService.open(PackageDetailComponent, {
-        context: {
-          package: pkg,
-        },
-        autoFocus: false,
-      });
-    } else {
-      this.toastrService.danger('Please make sure to fill in the correct number', `Package number does not exist!`);
-      this.trackingNumber = '';
-    }
+    const barcode = this.searchText;
+    this.searchText = '';
+    this.packageService.getPackagebyIdOrBarcode(barcode).subscribe(
+      pkg => this.dialogService.open(PackageDetailComponent, { context: { package: pkg, }, autoFocus: false, }),
+      _ => this.toastrService.danger('Please make sure to fill in the correct number', `Package number does not exist!`)
+    );
   }
 }

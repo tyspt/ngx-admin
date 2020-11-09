@@ -2,8 +2,8 @@
   <nb-card-header>Search Packages</nb-card-header>
   <nb-card-body>
     <div class="d-flex justify-content-center align-items-center">
-      <input class="search-bar" type="text" nbInput fullWidth shape="round" placeholder="Enter Tracking Number"
-        [(ngModel)]="trackingNumber" name="trackingNumber" (keyup.enter)="searchPackage()">
+      <input class="search-bar" type="text" nbInput fullWidth shape="round" placeholder="Enter Package ID or Tracking Number"
+        [(ngModel)]="searchText" name="searchText" (keyup.enter)="searchPackage()">
       <button nbButton ghost (click)="searchPackage()">
         <nb-icon class="search-icon" icon="search"></nb-icon>
       </button>

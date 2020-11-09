@@ -787,12 +787,9 @@ export class PackageService implements PackageData {
     return of(this.data);
   }
 
-  getPackagebyId(id: number) {
-    return this.data.find(p => p.id === id);
-  }
-
-  getPackagebyBarcode(barCode: string) {
-    return this.data.find(p => p.barcode === barCode);
+  getPackagebyIdOrBarcode(queryNumber: string) {
+    return of(this.data.find(p =>
+      p.id === +queryNumber || p.barcode === queryNumber));
   }
 
   addPackage(newPkg: any): Package {

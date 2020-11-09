@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable, of } from 'rxjs';
+import { catchError, filter, switchMap, take } from 'rxjs/operators';
 
 import { Package, PackageData } from '../data/package';
 
@@ -19,12 +20,8 @@ export class PackageService implements PackageData {
         return this.http.get<Package[]>(this.endpoint);
     }
 
-    getPackagebyId(id: number): Package {
-        throw new Error('Method not implemented.');
-    }
-
-    getPackagebyBarcode(barcode: string): Package {
-        throw new Error('Method not implemented.');
+    getPackagebyIdOrBarcode(queryNumber: string): Observable<Package> {
+        return this.http.get<Package>(`${this.endpoint}/${queryNumber}`);
     }
 
     addPackage(newPkg: any): Package {
