@@ -28,6 +28,9 @@ export class PackageHandoverComponent implements OnInit {
       .filter(p => p.status === Status.ERFASST || p.status === Status.SORTIERT);
     this.donePackages = this.packageService.getData()
       .filter(p => p.status === Status.IM_TRANSPORT);
+
+    // Simulate driver app scan delay
+    setTimeout(() => this.stepIndex++, 10000);
   }
 
   showConfirmationDialog() {
@@ -35,10 +38,6 @@ export class PackageHandoverComponent implements OnInit {
       context: { packages: this.donePackages },
       autoFocus: false,
     });
-  }
-
-  next() {
-    this.stepIndex++;
   }
 
   cancel() {

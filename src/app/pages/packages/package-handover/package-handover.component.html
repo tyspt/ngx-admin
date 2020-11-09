@@ -22,7 +22,6 @@
     </div>
   </nb-card-body>
   <nb-card-footer class="action-buttons d-flex d-flex justify-content-end">
-    <button nbButton *ngIf="stepIndex === 0" status="primary" size="medium" (click)="next()">Next</button>
     <button nbButton *ngIf="stepIndex === 1" status="primary" size="medium" (click)="showConfirmationDialog()">Finish</button>
     <button nbButton status="secondary" size="medium" (click)="cancel()">Cancel</button>
   </nb-card-footer>
