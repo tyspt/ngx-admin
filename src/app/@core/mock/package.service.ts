@@ -405,7 +405,7 @@ export class PackageService extends PackageData {
       sender: {
         name: 'Max Mustermann',
       },
-      status: PackageStatus.CREATED,
+      status: PackageStatus.NOT_DELIVERABLE,
       type: PackageType.INBOUND,
     },
     {
@@ -436,7 +436,7 @@ export class PackageService extends PackageData {
       sender: {
         name: 'Max Mustermann',
       },
-      status: PackageStatus.CREATED,
+      status: PackageStatus.REATTEMPT_DELIVERY,
       type: PackageType.INBOUND,
     },
     {
@@ -467,7 +467,7 @@ export class PackageService extends PackageData {
       sender: {
         name: 'Max Mustermann',
       },
-      status: PackageStatus.CREATED,
+      status: PackageStatus.RECEIVED_BY_LOGISTIC_CENTER,
       type: PackageType.INBOUND,
     },
     {

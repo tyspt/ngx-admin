@@ -1,0 +1,27 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+
+  .created {
+    background-color: #53da72;
+  }
+
+  .in_handover {
+    background-color: #d2b9ff;
+  }
+
+  .in_transport,
+  .reattempt_delivery,
+  .collected {
+    background-color: #ffd556;
+  }
+
+  .delivered,
+  .received_by_logistic_center {
+    background-color: #cccccc;
+  }
+
+  .not_deliverable {
+    background-color: #ff6473;
+  }
+}
