@@ -34,8 +34,9 @@ export class PackageSearchComponent implements OnInit {
     const barcode = this.searchText;
     this.searchText = '';
     this.packageService.getPackagebyIdOrBarcode(barcode).subscribe(
-      pkg => this.dialogService.open(PackageDetailComponent, { context: { package: pkg, }, autoFocus: false, }),
-      _ => this.toastrService.danger('Please make sure to fill in the correct number', `Package number does not exist!`)
+      pkg => this.dialogService.open(PackageDetailComponent, { context: { package: pkg }, autoFocus: false }),
+      _ =>
+      this.toastrService.danger('Please make sure to fill in the correct number', `Package number does not exist!`),
     );
   }
 }

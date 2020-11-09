@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { forkJoin, Observable, of } from 'rxjs';
-import { catchError, filter, switchMap, take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { Package, PackageData } from '../data/package';
 
@@ -13,7 +12,7 @@ export class PackageService implements PackageData {
     endpoint = `${environment.apiHost}/packages`;
 
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
     ) { }
 
     getData(): Observable<Package[]> {

@@ -23,7 +23,7 @@ export class PackageAddComponent implements OnInit {
       telephone: '',
       building: {
         id: undefined,
-        shortName: ''
+        shortName: '',
       },
       fullAddress: '',
     },
@@ -75,7 +75,7 @@ export class PackageAddComponent implements OnInit {
       this.package.recipient.telephone = '0164-61616641';
       this.package.recipient.building = {
         id: 3,
-        shortName: 'K210'
+        shortName: 'K210',
       };
       this.package.recipient.fullAddress = 'Seybothstraße 2, K210/2/1 93053 Regensburg';
       this.loading = false;

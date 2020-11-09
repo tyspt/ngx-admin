@@ -26,7 +26,8 @@ export class PackageHandoverComponent implements OnInit {
   ngOnInit(): void {
     this.packageService.getData()
       .subscribe(packages =>
-        this.todoPackages = packages.filter(p => p.status === PackageStatus.CREATED || p.status === PackageStatus.IN_HANDOVER));
+        this.todoPackages = packages.filter(p =>
+          p.status === PackageStatus.CREATED || p.status === PackageStatus.IN_HANDOVER));
 
     this.packageService.getData()
       .subscribe(packages =>
