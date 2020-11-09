@@ -1,25 +1,26 @@
+import { Observable } from 'rxjs';
 import { Building } from './building';
 
 export interface Package {
-    id: string;
+    id: number;
     type: PackageType;
     barcode: string;
-    orderNumber?: string;
     recipient: Person;
+    status: PackageStatus;
+    orderNumber?: string;
     representative?: Person;
     sender?: Person;
     createdTimestamp?: string;
     lastUpdatedTimestamp?: string;
-    status: PackageStatus;
     // Following fields are optional and only used by smart table, no need to fill in data
     recipientName?: string;
     recipientBuilding?: string;
 }
 
 export interface Person {
+    id?: number;
     name: string;
     email?: string;
-    id?: string;
     telephone?: string;
     building?: Building;
     fullAddress?: string;
@@ -44,8 +45,8 @@ export enum PackageStatus {
 }
 
 export abstract class PackageData {
-    abstract getData(): Package[];
-    abstract getPackagebyId(id: string): Package;
+    abstract getData(): Observable<Package[]>;
+    abstract getPackagebyId(id: number): Package;
     abstract getPackagebyBarcode(barcode: string): Package;
     abstract addPackage(newPkg: any): Package;
 }

@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="col">
-            <ng-container *ngIf="package.id as qrdata">
+            <ng-container *ngIf="(package.id + '') as qrdata">
               <qrcode [qrdata]="qrdata" [width]="128"></qrcode>
             </ng-container>
           </div>
@@ -50,7 +50,7 @@
         <div class="row">
           <dt class="col-3">Representative:</dt>
           <dd class="col">
-            {{ package?.representative?.name || 'N/A' }}
+            {{ package?.recipient?.representative?.name || 'N/A' }}
             <span *ngIf="package?.representative?.fullAddress">
               ({{ package.representative.fullAddress }})
             </span>
@@ -62,7 +62,11 @@
         </div>
         <div class="row">
           <dt class="col-3">Time Created:</dt>
-          <dd class="col">{{ package.createdTimestamp }}</dd>
+          <dd class="col">{{ package.createdTimestamp | date:'long' }}</dd>
+        </div>
+        <div class="row">
+          <dt class="col-3">Last Updated:</dt>
+          <dd class="col">{{ package.lastUpdatedTimestamp | date:'long' }}</dd>
         </div>
         <div class="row">
           <dt class="col-3">Status:</dt>

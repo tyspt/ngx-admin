@@ -24,10 +24,13 @@ export class PackageHandoverComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.todoPackages = this.packageService.getData()
-      .filter(p => p.status === PackageStatus.CREATED || p.status === PackageStatus.IN_HANDOVER);
-    this.donePackages = this.packageService.getData()
-      .filter(p => p.status === PackageStatus.IN_TRANSPORT);
+    this.packageService.getData()
+      .subscribe(packages =>
+        this.todoPackages = packages.filter(p => p.status === PackageStatus.CREATED || p.status === PackageStatus.IN_HANDOVER));
+
+    this.packageService.getData()
+      .subscribe(packages =>
+        this.donePackages = packages.filter(p => p.status === PackageStatus.IN_TRANSPORT));
 
     // Simulate driver app scan delay
     setTimeout(() => this.stepIndex++, 10000);

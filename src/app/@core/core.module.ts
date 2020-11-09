@@ -55,7 +55,7 @@ import { SecurityCamerasService } from './mock/security-cameras.service';
 import { RippleService } from './utils/ripple.service';
 import { MockDataModule } from './mock/mock-data.module';
 import { PackageData } from './data/package';
-import { PackageService } from './mock/package.service';
+import { PackageService } from './services/package.service';
 
 const socialLinks = [
   {

@@ -19,12 +19,13 @@ export class PackageListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.packages = this.packageService.getData();
+    this.packageService.getData()
+      .subscribe(packages => this.packages = packages);
   }
 
   showPackageAdd(event) {
     this.dialogService.open(PackageAddComponent, {
-      context: { },
+      context: {},
       autoFocus: false,
     });
   }

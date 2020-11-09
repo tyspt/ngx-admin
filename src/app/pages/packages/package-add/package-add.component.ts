@@ -14,7 +14,7 @@ import { QrPrintoutComponent } from './qr-printout/qr-printout.component';
 export class PackageAddComponent implements OnInit {
 
   package: Package = {
-    id: '',
+    id: undefined,
     barcode: '',
     orderNumber: undefined,
     recipient: {
@@ -88,7 +88,7 @@ export class PackageAddComponent implements OnInit {
     setTimeout(() => {
       this.dismiss();
       this.dialogService.open(QrPrintoutComponent, {
-        context: { qrContent: result.id },
+        context: { qrContent: result.id.toString() },
         autoFocus: false,
       });
     }, 2000);

@@ -25,7 +25,7 @@ export class PackageSearchComponent implements OnInit {
     // Show package detail popup if route contains a package id
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id) {
-      const pkg = this.packageService.getPackagebyId(id);
+      const pkg = this.packageService.getPackagebyId(+id);
       setTimeout(() => {
         this.showPackageDetail(pkg);
       }, 100);

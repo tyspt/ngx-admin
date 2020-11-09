@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 import { Package, PackageData, PackageStatus, PackageType } from '../data/package';
 
 @Injectable()
-export class PackageService extends PackageData {
+export class PackageService implements PackageData {
   data: Package[] = [
     {
-      id: '1',
+      id: 1,
       barcode: '1937917519711295139517',
       recipient: {
         name: 'John Doe',
@@ -37,7 +38,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '2',
+      id: 2,
       barcode: '1724719749171921373931',
       recipient: {
         name: 'MICHAEL NOEL',
@@ -68,7 +69,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '3',
+      id: 3,
       barcode: '1378979849812083132213',
       recipient: {
         name: 'EMMETT TILL',
@@ -99,7 +100,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '4',
+      id: 4,
       barcode: '1792379102749017340917',
       recipient: {
         name: 'MARTIN LUTHER KING',
@@ -130,7 +131,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '5',
+      id: 5,
       barcode: '1275891757197590177232',
       recipient: {
         name: 'MICHAEL BROWN',
@@ -161,7 +162,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '6',
+      id: 6,
       barcode: '4797689068208207602863',
       recipient: {
         name: 'QUINTONIO LEGRIER',
@@ -192,7 +193,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '7',
+      id: 7,
       barcode: '3795798501808372975948',
       recipient: {
         name: 'John Doe',
@@ -223,7 +224,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '8',
+      id: 8,
       barcode: '9489758268364824832172',
       recipient: {
         name: 'John Doe',
@@ -254,7 +255,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '9',
+      id: 9,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -285,7 +286,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '10',
+      id: 10,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -316,7 +317,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '11',
+      id: 11,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -347,7 +348,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '12',
+      id: 12,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -378,7 +379,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '13',
+      id: 13,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -409,7 +410,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '14',
+      id: 14,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -440,7 +441,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '15',
+      id: 15,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -471,7 +472,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '16',
+      id: 16,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -502,7 +503,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '17',
+      id: 17,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -533,7 +534,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '18',
+      id: 18,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -564,7 +565,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '19',
+      id: 19,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -595,7 +596,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '20',
+      id: 20,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -626,7 +627,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '21',
+      id: 21,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -657,7 +658,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '22',
+      id: 22,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -688,7 +689,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '23',
+      id: 23,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -719,7 +720,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '24',
+      id: 24,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -750,100 +751,7 @@ export class PackageService extends PackageData {
       type: PackageType.INBOUND,
     },
     {
-      id: '25',
-      barcode: '4621642642641264124261',
-      recipient: {
-        name: 'John Doe',
-        email: 'john.doe@continental.com',
-        telephone: '123-4567890',
-        building: {
-          id: 2,
-          shortName: 'D42',
-        },
-        fullAddress: 'Siemensstraße 12 Geb. D42/4/7, Regensburg',
-      },
-      createdTimestamp: '2020-10-30 12:42:35',
-      lastUpdatedTimestamp: '2020-10-30 12:42:35',
-      representative: {
-        name: 'Anna Musterfrau',
-        email: 'anna.musterfrau@continental.com',
-        telephone: '987-6543210',
-        building: {
-          id: 2,
-          shortName: 'D42',
-        },
-        fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
-      },
-      sender: {
-        name: 'Max Mustermann',
-      },
-      status: PackageStatus.CREATED,
-      type: PackageType.INBOUND,
-    },
-    {
-      id: '26',
-      barcode: '4621642642641264124261',
-      recipient: {
-        name: 'John Doe',
-        email: 'john.doe@continental.com',
-        telephone: '123-4567890',
-        building: {
-          id: 2,
-          shortName: 'D42',
-        },
-        fullAddress: 'Siemensstraße 12 Geb. D42/4/7, Regensburg',
-      },
-      createdTimestamp: '2020-10-30 12:42:35',
-      lastUpdatedTimestamp: '2020-10-30 12:42:35',
-      representative: {
-        name: 'Anna Musterfrau',
-        email: 'anna.musterfrau@continental.com',
-        telephone: '987-6543210',
-        building: {
-          id: 2,
-          shortName: 'D42',
-        },
-        fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
-      },
-      sender: {
-        name: 'Max Mustermann',
-      },
-      status: PackageStatus.CREATED,
-      type: PackageType.INBOUND,
-    },
-    {
-      id: '27',
-      barcode: '4621642642641264124261',
-      recipient: {
-        name: 'John Doe',
-        email: 'john.doe@continental.com',
-        telephone: '123-4567890',
-        building: {
-          id: 2,
-          shortName: 'D42',
-        },
-        fullAddress: 'Siemensstraße 12 Geb. D42/4/7, Regensburg',
-      },
-      createdTimestamp: '2020-10-30 12:42:35',
-      lastUpdatedTimestamp: '2020-10-30 12:42:35',
-      representative: {
-        name: 'Anna Musterfrau',
-        email: 'anna.musterfrau@continental.com',
-        telephone: '987-6543210',
-        building: {
-          id: 2,
-          shortName: 'D42',
-        },
-        fullAddress: 'Siemensstraße 12 Geb. D42/4/8, Regensburg',
-      },
-      sender: {
-        name: 'Max Mustermann',
-      },
-      status: PackageStatus.CREATED,
-      type: PackageType.INBOUND,
-    },
-    {
-      id: '28',
+      id: 25,
       barcode: '4621642642641264124261',
       recipient: {
         name: 'John Doe',
@@ -876,10 +784,10 @@ export class PackageService extends PackageData {
   ];
 
   getData() {
-    return this.data;
+    return of(this.data);
   }
 
-  getPackagebyId(id: string) {
+  getPackagebyId(id: number) {
     return this.data.find(p => p.id === id);
   }
 
