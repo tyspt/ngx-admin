@@ -34,7 +34,7 @@
             </div>
             <div class="row">
               <dt class="col-4">Building:</dt>
-              <dd class="col">{{ package.recipient?.building || 'N/A' }}</dd>
+              <dd class="col">{{ package.recipient?.building?.shortName || 'N/A' }}</dd>
             </div>
           </div>
           <div class="col">
@@ -62,7 +62,7 @@
         </div>
         <div class="row">
           <dt class="col-3">Time Created:</dt>
-          <dd class="col">{{ package.timeCreated }}</dd>
+          <dd class="col">{{ package.createdTimestamp }}</dd>
         </div>
         <div class="row">
           <dt class="col-3">Status:</dt>

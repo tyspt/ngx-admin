@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
-import { Package, PackageData, Status } from 'app/@core/data/package';
+import { Package, PackageData, PackageStatus } from 'app/@core/data/package';
 
 import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-popup.component';
 
@@ -25,9 +25,9 @@ export class PackageHandoverComponent implements OnInit {
 
   ngOnInit(): void {
     this.todoPackages = this.packageService.getData()
-      .filter(p => p.status === Status.ERFASST || p.status === Status.SORTIERT);
+      .filter(p => p.status === PackageStatus.CREATED || p.status === PackageStatus.IN_HANDOVER);
     this.donePackages = this.packageService.getData()
-      .filter(p => p.status === Status.IM_TRANSPORT);
+      .filter(p => p.status === PackageStatus.IN_TRANSPORT);
 
     // Simulate driver app scan delay
     setTimeout(() => this.stepIndex++, 10000);

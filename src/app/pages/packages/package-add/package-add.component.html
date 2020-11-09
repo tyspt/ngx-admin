@@ -63,15 +63,15 @@
       <div class="form-group row">
         <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Building:</label>
         <div class="col-sm">
-          <nb-select matRipple [(ngModel)]="package.recipient.building" name="recipientBuilding">
-            <nb-option matRipple value="A12">A12</nb-option>
-            <nb-option matRipple value="A42">A42</nb-option>
-            <nb-option matRipple value="B24">B24</nb-option>
-            <nb-option matRipple value="B33">B33</nb-option>
-            <nb-option matRipple value="D47">D47</nb-option>
-            <nb-option matRipple value="F18">F18</nb-option>
-            <nb-option matRipple value="K27">K27</nb-option>
-            <nb-option matRipple value="K210">K210</nb-option>
+          <nb-select matRipple [(ngModel)]="package.recipient.building.id" name="recipientBuilding">
+            <nb-option matRipple value="1">A12</nb-option>
+            <nb-option matRipple value="2">A42</nb-option>
+            <nb-option matRipple value="3">B24</nb-option>
+            <nb-option matRipple value="4">B33</nb-option>
+            <nb-option matRipple value="5">D47</nb-option>
+            <nb-option matRipple value="6">F18</nb-option>
+            <nb-option matRipple value="7">K27</nb-option>
+            <nb-option matRipple value="8">K210</nb-option>
           </nb-select>
         </div>
       </div>

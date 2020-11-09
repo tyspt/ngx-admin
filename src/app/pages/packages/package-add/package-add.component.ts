@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogRef, NbDialogService } from '@nebular/theme';
-import { Package, PackageData, Type } from 'app/@core/data/package';
+import { Package, PackageData, PackageType } from 'app/@core/data/package';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -21,10 +21,12 @@ export class PackageAddComponent implements OnInit {
       name: '',
       email: '',
       telephone: '',
-      building: '',
+      building: {
+        id: undefined,
+        shortName: ''
+      },
       fullAddress: '',
     },
-    timeCreated: '',
     representative: {
       name: '',
     },
@@ -32,7 +34,7 @@ export class PackageAddComponent implements OnInit {
       name: '',
     },
     status: undefined,
-    type: Type.INBOUND,
+    type: PackageType.INBOUND,
   };
   loading = false;
 
@@ -71,7 +73,10 @@ export class PackageAddComponent implements OnInit {
       this.package.recipient.name = 'Max Mustermann';
       this.package.recipient.email = 'max.mustermann@continental.com';
       this.package.recipient.telephone = '0164-61616641';
-      this.package.recipient.building = 'K210';
+      this.package.recipient.building = {
+        id: 3,
+        shortName: 'K210'
+      };
       this.package.recipient.fullAddress = 'Seybothstraße 2, K210/2/1 93053 Regensburg';
       this.loading = false;
     }, 2000);

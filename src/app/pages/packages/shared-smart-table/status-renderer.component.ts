@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Status } from 'app/@core/data/package';
+import { PackageStatus } from 'app/@core/data/package';
 import { ViewCell } from 'ng2-smart-table';
 
 @Component({
@@ -17,12 +17,12 @@ export class StatusRendererComponent implements ViewCell, OnInit {
 
   get colorClass() {
     switch (this.value) {
-      case Status.GELIEFERT:
+      case PackageStatus.DELIVERED:
         return 'secondary';
-      case Status.IM_TRANSPORT:
+      case PackageStatus.IN_TRANSPORT:
         return 'warning';
-      case Status.SORTIERT:
-      case Status.ERFASST:
+      case PackageStatus.IN_HANDOVER:
+      case PackageStatus.CREATED:
       default:
         return 'success';
     }
