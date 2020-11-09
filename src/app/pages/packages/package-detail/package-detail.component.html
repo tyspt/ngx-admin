@@ -1,6 +1,6 @@
 <nb-card class="main-card">
   <nb-card-header class="d-flex justify-content-between align-items-center">
-    <span>Package #{{ package.barcode }}</span>
+    <span>Package #{{ package.id }}</span>
     <button nbButton matRipple ghost size="small" (click)="dismiss()">
       <nb-icon class="close-dialog-icon" icon="close"></nb-icon>
     </button>
@@ -11,28 +11,37 @@
       <nb-card-header>Package Detail</nb-card-header>
       <nb-card-body>
         <div class="row">
-          <dt class="col-3">Tracking Number:</dt>
-          <dd class="col">{{ package.barcode }}</dd>
-        </div>
-        <div class="row">
-          <dt class="col-3">Order Number:</dt>
-          <dd class="col">{{ package?.orderNumber || 'N/A' }}</dd>
-        </div>
-        <div class="row">
-          <dt class="col-3">Recipient Name:</dt>
-          <dd class="col">{{ package?.recipient?.name || 'N/A' }}</dd>
-        </div>
-        <div class="row">
-          <dt class="col-3">Email:</dt>
-          <dd class="col">{{ package.recipient?.email || 'N/A' }}</dd>
-        </div>
-        <div class="row">
-          <dt class="col-3">Telephone:</dt>
-          <dd class="col">{{ package.recipient?.telephone || 'N/A' }}</dd>
-        </div>
-        <div class="row">
-          <dt class="col-3">Building:</dt>
-          <dd class="col">{{ package.recipient?.building || 'N/A' }}</dd>
+          <div class="col-9">
+            <div class="row">
+              <dt class="col-3">Tracking Number:</dt>
+              <dd class="col">{{ package.barcode }}</dd>
+            </div>
+            <div class="row">
+              <dt class="col-3">Order Number:</dt>
+              <dd class="col">{{ package?.orderNumber || 'N/A' }}</dd>
+            </div>
+            <div class="row">
+              <dt class="col-3">Recipient Name:</dt>
+              <dd class="col">{{ package?.recipient?.name || 'N/A' }}</dd>
+            </div>
+            <div class="row">
+              <dt class="col-3">Email:</dt>
+              <dd class="col">{{ package.recipient?.email || 'N/A' }}</dd>
+            </div>
+            <div class="row">
+              <dt class="col-3">Telephone:</dt>
+              <dd class="col">{{ package.recipient?.telephone || 'N/A' }}</dd>
+            </div>
+            <div class="row">
+              <dt class="col-3">Building:</dt>
+              <dd class="col">{{ package.recipient?.building || 'N/A' }}</dd>
+            </div>
+          </div>
+          <div class="col-3">
+            <ng-container *ngIf="package.id as qrdata">
+              <qrcode [qrdata]="qrdata" [width]="128"></qrcode>
+            </ng-container>
+          </div>
         </div>
         <div class="row">
           <dt class="col-3">Address:</dt>
