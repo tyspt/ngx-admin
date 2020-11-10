@@ -21,6 +21,10 @@
               <dd class="col">{{ package?.orderNumber || 'N/A' }}</dd>
             </div>
             <div class="row">
+              <dt class="col-4">Type:</dt>
+              <dd class="col">{{ (package?.type | titlecase) || 'N/A' }}</dd>
+            </div>
+            <div class="row">
               <dt class="col-4">Recipient Name:</dt>
               <dd class="col">{{ package?.recipient?.name || 'N/A' }}</dd>
             </div>
