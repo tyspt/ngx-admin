@@ -60,6 +60,6 @@ import { StatusRendererComponent } from './shared-smart-table/status-renderer.co
     ConfirmationPopupComponent,
     QrPrintoutComponent,
   ],
-  providers: [ DatePipe ]
+  providers: [ DatePipe ],
 })
 export class PackagesModule { }
