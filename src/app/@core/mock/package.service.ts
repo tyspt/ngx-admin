@@ -787,7 +787,7 @@ export class PackageService implements PackageData {
     return of(this.data);
   }
 
-  getPackagebyIdOrBarcode(queryNumber: string) {
+  getPackageByIdOrBarcode(queryNumber: string) {
     return of(this.data.find(p =>
       p.id === +queryNumber || p.barcode === queryNumber));
   }

@@ -33,7 +33,7 @@ export class PackageSearchComponent implements OnInit {
   searchPackage(): void {
     const barcode = this.searchText;
     this.searchText = '';
-    this.packageService.getPackagebyIdOrBarcode(barcode).subscribe(
+    this.packageService.getPackageByIdOrBarcode(barcode).subscribe(
       pkg => this.dialogService.open(PackageDetailComponent, { context: { package: pkg }, autoFocus: false }),
       _ =>
       this.toastrService.danger('Please make sure to fill in the correct number', `Package number does not exist!`),

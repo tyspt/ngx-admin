@@ -38,6 +38,6 @@ export enum PackageStatus {
 
 export abstract class PackageData {
     abstract getData(): Observable<Package[]>;
-    abstract getPackagebyIdOrBarcode(queryNumber: string): Observable<Package>;
+    abstract getPackageByIdOrBarcode(queryNumber: string): Observable<Package>;
     abstract addPackage(newPkg: any): Observable<Package>;
 }

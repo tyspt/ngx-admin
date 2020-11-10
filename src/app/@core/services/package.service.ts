@@ -20,7 +20,7 @@ export class PackageService implements PackageData {
             .pipe(delay(environment.simulatedApiDelay));
     }
 
-    getPackagebyIdOrBarcode(queryNumber: string): Observable<Package> {
+    getPackageByIdOrBarcode(queryNumber: string): Observable<Package> {
         return this.http.get<Package>(`${this.endpoint}/${queryNumber}`)
             .pipe(delay(environment.simulatedApiDelay));
     }
