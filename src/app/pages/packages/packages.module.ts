@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
@@ -59,5 +60,6 @@ import { StatusRendererComponent } from './shared-smart-table/status-renderer.co
     ConfirmationPopupComponent,
     QrPrintoutComponent,
   ],
+  providers: [ DatePipe ]
 })
 export class PackagesModule { }

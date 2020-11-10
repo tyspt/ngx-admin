@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { Package } from 'app/@core/data/package';
@@ -39,7 +40,7 @@ export class SharedSmartTableComponent implements OnInit, OnChanges {
         title: 'Recipient',
         type: 'string',
       },
-      timeCreated: {
+      createdTimestamp: {
         title: 'Time Created',
         type: 'string',
       },
@@ -55,9 +56,10 @@ export class SharedSmartTableComponent implements OnInit, OnChanges {
 
   constructor(
     private dialogService: NbDialogService,
-  ) {}
+    private datePipe: DatePipe,
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.loadData();
@@ -68,6 +70,7 @@ export class SharedSmartTableComponent implements OnInit, OnChanges {
     this.packages.forEach(p => {
       p.recipientName = p.recipient.name;
       p.recipientBuilding = p.recipient.building.shortName;
+      p.createdTimestamp = this.datePipe.transform(p.createdTimestamp, 'medium');
     });
     this.source.load(this.packages);
   }
