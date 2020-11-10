@@ -56,6 +56,8 @@ import { RippleService } from './utils/ripple.service';
 import { MockDataModule } from './mock/mock-data.module';
 import { PackageData } from './data/package';
 import { PackageService } from './services/package.service';
+import { BuildingData } from './data/building';
+import { BuildingService } from './services/building.service';
 
 const socialLinks = [
   {
@@ -96,6 +98,7 @@ const DATA_SERVICES = [
   { provide: VisitorsAnalyticsData, useClass: VisitorsAnalyticsService },
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
   { provide: PackageData, useClass: PackageService },
+  { provide: BuildingData, useClass: BuildingService },
   {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useExisting: RippleService},
 ];
 

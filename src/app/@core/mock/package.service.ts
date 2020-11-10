@@ -792,9 +792,9 @@ export class PackageService implements PackageData {
       p.id === +queryNumber || p.barcode === queryNumber));
   }
 
-  addPackage(newPkg: any): Package {
+  addPackage(newPkg: any): Observable<Package> {
     newPkg.id = Math.round(Math.random() * 99999999 + 1000000).toString();
     this.data.push(newPkg);
-    return newPkg;
+    return of(newPkg);
   }
 }
