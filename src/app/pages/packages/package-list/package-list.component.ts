@@ -12,6 +12,7 @@ import { PackageAddComponent } from '../package-add/package-add.component';
 export class PackageListComponent implements OnInit {
 
   packages: Package[];
+  loading = true;
 
   constructor(
     private packageService: PackageData,
@@ -19,14 +20,20 @@ export class PackageListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.packageService.getData()
-      .subscribe(packages => this.packages = packages);
+    this.loadPackages();
+  }
+
+  private loadPackages() {
+    this.loading = true;
+    this.packageService.getData().subscribe(packages => {
+      this.packages = packages;
+      this.loading = false;
+    });
   }
 
   showPackageAdd(event) {
     this.dialogService.open(PackageAddComponent, {
-      context: {},
-      autoFocus: false,
-    });
+      context: {}, autoFocus: false,
+    }).onClose.subscribe(_ => this.loadPackages());
   }
 }

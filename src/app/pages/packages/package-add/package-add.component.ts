@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { Building, BuildingData } from 'app/@core/data/building';
-import { Package, PackageData, PackageType } from 'app/@core/data/package';
+import { Package, PackageData, PackageStatus, PackageType } from 'app/@core/data/package';
 import { Person, PersonData } from 'app/@core/data/person';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -36,7 +36,7 @@ export class PackageAddComponent implements OnInit {
       id: undefined,
       name: '',
     },
-    status: undefined,
+    status: PackageStatus.CREATED,
     type: PackageType.INBOUND,
   };
   buildings: Building[];
@@ -71,8 +71,8 @@ export class PackageAddComponent implements OnInit {
   createPackage() {
     this.loading = true;
     this.packageService.addPackage(this.package).subscribe(result => {
-      this.dismiss();
-      this.dialogService.open(QrPrintoutComponent, { context: { qrContent: result.id.toString() }, autoFocus: false });
+      this.dialogService.open(QrPrintoutComponent, { context: { qrContent: result.id.toString() }, autoFocus: false })
+        .onClose.subscribe(_ => this.dismiss());
     });
   }
 

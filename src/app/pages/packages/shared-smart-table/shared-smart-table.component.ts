@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { Package } from 'app/@core/data/package';
 import { LocalDataSource } from 'ng2-smart-table';
@@ -11,7 +11,7 @@ import { StatusRendererComponent } from './status-renderer.component';
   templateUrl: './shared-smart-table.component.html',
   styleUrls: ['./shared-smart-table.component.scss'],
 })
-export class SharedSmartTableComponent implements OnInit {
+export class SharedSmartTableComponent implements OnInit, OnChanges {
 
   @Input() packages: Package[];
 
@@ -57,14 +57,20 @@ export class SharedSmartTableComponent implements OnInit {
     private dialogService: NbDialogService,
   ) {}
 
-  ngOnInit(): void {
-    // extract nested data fields into first level so that smart table can work with it as column
+  ngOnInit(): void {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.loadData();
+  }
+
+  // extract nested data fields into first level so that smart table can work with it as column
+  private loadData() {
     this.packages.forEach(p => {
       p.recipientName = p.recipient.name;
       p.recipientBuilding = p.recipient.building.shortName;
     });
     this.source.load(this.packages);
-   }
+  }
 
   showPackageDetail(pkg: Package) {
     this.dialogService.open(PackageDetailComponent, {
