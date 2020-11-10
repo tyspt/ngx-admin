@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs';
-import { Building } from './building';
+
+import { Person } from './person';
 
 export interface Package {
     id: number;
@@ -15,15 +16,6 @@ export interface Package {
     // Following fields are optional and only used by smart table, no need to fill in data
     recipientName?: string;
     recipientBuilding?: string;
-}
-
-export interface Person {
-    id?: number;
-    name: string;
-    email?: string;
-    telephone?: string;
-    building?: Building;
-    fullAddress?: string;
 }
 
 export enum PackageType {

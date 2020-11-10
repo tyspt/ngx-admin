@@ -58,6 +58,8 @@ import { PackageData } from './data/package';
 import { PackageService } from './services/package.service';
 import { BuildingData } from './data/building';
 import { BuildingService } from './services/building.service';
+import { PersonData } from './data/person';
+import { PersonService } from './services/person.service';
 
 const socialLinks = [
   {
@@ -99,6 +101,7 @@ const DATA_SERVICES = [
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
   { provide: PackageData, useClass: PackageService },
   { provide: BuildingData, useClass: BuildingService },
+  { provide: PersonData, useClass: PersonService },
   {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useExisting: RippleService},
 ];
 

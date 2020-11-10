@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogRef, NbDialogService } from '@nebular/theme';
+import { Building, BuildingData } from 'app/@core/data/building';
 import { Package, PackageData, PackageType } from 'app/@core/data/package';
+import { Person, PersonData } from 'app/@core/data/person';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -18,12 +20,12 @@ export class PackageAddComponent implements OnInit {
     barcode: '',
     orderNumber: undefined,
     recipient: {
+      id: undefined,
       name: '',
       email: '',
       telephone: '',
       building: {
         id: undefined,
-        shortName: '',
       },
       fullAddress: '',
     },
@@ -31,45 +33,71 @@ export class PackageAddComponent implements OnInit {
       name: '',
     },
     sender: {
+      id: undefined,
       name: '',
     },
     status: undefined,
     type: PackageType.INBOUND,
   };
-  loading = false;
+  buildings: Building[];
+  loading = true;
 
   orderNumberOptions: string[] = ['SAP164646164', 'SAP223232323', 'SAP365556565', 'SAP464646646', 'SAP546464146', 'SAP677978897', 'SAP878794454', 'SAP994842616'];
   filteredorderNumberOptions$: Observable<string[]>;
+
+  personOptions: Person[] = [];
+  filteredPersonOptions$: Observable<string[]>;
 
   constructor(
     protected ref: NbDialogRef<PackageAddComponent>,
     private dialogService: NbDialogService,
     private packageService: PackageData,
+    private buildingService: BuildingData,
+    private personService: PersonData,
   ) { }
 
   ngOnInit(): void {
+    this.buildingService.getData().subscribe(buildings => {
+      this.buildings = buildings;
+      this.loading = !(this.personOptions && this.buildings);
+    });
+
+    this.personService.getData().subscribe(persons => {
+      this.personOptions = persons;
+      this.loading = !(this.personOptions && this.buildings);
+    });
   }
 
-  private filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.orderNumberOptions.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
+  createPackage() {
+    this.loading = true;
+    this.packageService.addPackage(this.package).subscribe(result => {
+      this.dismiss();
+      this.dialogService.open(QrPrintoutComponent, { context: { qrContent: result.id.toString() }, autoFocus: false });
+    });
   }
 
+  dismiss() {
+    this.ref.close();
+  }
+
+  /* *************************************** Filtering orderNumber options *************************************** */
   getFilteredorderNumberOptions(value: string): Observable<string[]> {
-    return of(value).pipe(
-      map(filterString => this.filter(filterString)),
-    );
+    return of(value).pipe(map(filterString =>
+      this.orderNumberOptions.filter(optionValue =>
+        optionValue.toLowerCase().includes(filterString.toLowerCase()))));
   }
 
-  onChange() {
+  onOrderNumberChange() {
     this.filteredorderNumberOptions$ = this.getFilteredorderNumberOptions(this.package.orderNumber);
   }
 
-  onSelectionChange($event) {
+  onOrderNumberSelectionChange($event) {
     this.filteredorderNumberOptions$ = this.getFilteredorderNumberOptions($event);
     this.loading = true;
     setTimeout(() => {
+      this.package.sender.id = 2;
       this.package.sender.name = 'Anna Musterfrau';
+      this.package.recipient.id = 1;
       this.package.recipient.name = 'Max Mustermann';
       this.package.recipient.email = 'max.mustermann@continental.com';
       this.package.recipient.telephone = '0164-61616641';
@@ -82,19 +110,35 @@ export class PackageAddComponent implements OnInit {
     }, 2000);
   }
 
-  createPackage() {
-    const result = this.packageService.addPackage(this.package);
-    this.loading = true;
-    setTimeout(() => {
-      this.dismiss();
-      this.dialogService.open(QrPrintoutComponent, {
-        context: { qrContent: result.id.toString() },
-        autoFocus: false,
-      });
-    }, 2000);
+  /* *************************************** Filtering person options *************************************** */
+  getFilteredPersonOptions(value: string): Observable<string[]> {
+    return of(value).pipe(map(filterString =>
+      this.personOptions
+        .map(person => person.name)
+        .filter(optionValue => optionValue.toLowerCase().includes(filterString.toLowerCase()))));
   }
 
-  dismiss() {
-    this.ref.close();
+  onPersonChange($event) {
+    const personName = $event.target.value;
+    this.filteredPersonOptions$ = this.getFilteredPersonOptions(personName);
+  }
+
+  onPersonSelectionChange(selectedValue: string, origin: ('sender' | 'recipient' | 'representative')) {
+    this.filteredorderNumberOptions$ = this.getFilteredPersonOptions(selectedValue);
+
+    if (this.personOptions?.length) {
+      const selectedPerson = this.personOptions.find(person => person?.name === selectedValue);
+      switch (origin) {
+        case 'recipient':
+          this.package.recipient = Object.assign({}, selectedPerson);
+          break;
+        case 'sender':
+          this.package.sender = Object.assign({}, selectedPerson);
+          break;
+        case 'representative':
+          this.package.representative = Object.assign({}, selectedPerson);
+          break;
+      }
+    }
   }
 }

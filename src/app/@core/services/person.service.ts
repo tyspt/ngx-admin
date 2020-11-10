@@ -4,19 +4,19 @@ import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
-import { Building, BuildingData } from '../data/building';
+import { Person, PersonData } from '../data/person';
 
 @Injectable()
-export class BuildingService implements BuildingData {
+export class PersonService implements PersonData {
 
-    endpoint = `${environment.apiHost}/buildings`;
+    endpoint = `${environment.apiHost}/persons`;
 
     constructor(
         private http: HttpClient,
     ) { }
 
-    getData(): Observable<Building[]> {
-        return this.http.get<Building[]>(this.endpoint)
-        .pipe(delay(environment.simulatedApiDelay));
+    getData(): Observable<Person[]> {
+        return this.http.get<Person[]>(this.endpoint)
+            .pipe(delay(environment.simulatedApiDelay));
     }
 }

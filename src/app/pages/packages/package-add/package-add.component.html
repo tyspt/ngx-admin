@@ -26,8 +26,8 @@
         <label for="orderNumber" class="label col-sm-3 offset-1 col-form-label">Order Number:</label>
         <div class="col-sm">
           <input type="text" nbInput fullWidth id="orderNumber" #orderNumber [(ngModel)]="package.orderNumber"
-            name="orderNumber" [nbAutocomplete]="orderNumberAuto" (input)="onChange()">
-          <nb-autocomplete #orderNumberAuto (selectedChange)="onSelectionChange($event)">
+            name="orderNumber" [nbAutocomplete]="orderNumberAuto" (input)="onOrderNumberChange()">
+          <nb-autocomplete #orderNumberAuto (selectedChange)="onOrderNumberSelectionChange($event)">
             <nb-option *ngFor="let option of filteredorderNumberOptions$ | async" [value]="option">
               {{ option }}
             </nb-option>
@@ -37,14 +37,25 @@
       <div class="form-group row">
         <label for="sender" class="label col-sm-3 offset-1 col-form-label">Sender:</label>
         <div class="col-sm">
-          <input type="text" nbInput fullWidth id="sender" [(ngModel)]="package.sender.name" name="senderName">
+          <input type="text" nbInput fullWidth id="sender" #sender [(ngModel)]="package.sender.name" name="senderName"
+            [nbAutocomplete]="senderAuto" (input)="onPersonChange($event)">
+          <nb-autocomplete #senderAuto (selectedChange)="onPersonSelectionChange($event, 'sender')">
+            <nb-option *ngFor="let option of filteredPersonOptions$ | async" [value]="option">
+              {{ option }}
+            </nb-option>
+          </nb-autocomplete>
         </div>
       </div>
       <div class="form-group row">
         <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Recipient Name*:</label>
         <div class="col-sm">
-          <input type="text" nbInput required fullWidth id="recipient" [(ngModel)]="package.recipient.name"
-            name="recipientName">
+          <input type="text" nbInput required fullWidth id="recipient" #recipient [(ngModel)]="package.recipient.name"
+            name="recipientName" [nbAutocomplete]="recipientAuto" (input)="onPersonChange($event)">
+          <nb-autocomplete #recipientAuto (selectedChange)="onPersonSelectionChange($event, 'recipient')">
+            <nb-option *ngFor="let option of filteredPersonOptions$ | async" [value]="option">
+              {{ option }}
+            </nb-option>
+          </nb-autocomplete>
         </div>
       </div>
       <div class="form-group row">
@@ -64,7 +75,8 @@
         <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Building:</label>
         <div class="col-sm">
           <nb-select matRipple [(ngModel)]="package.recipient.building.id" name="recipientBuilding">
-            <nb-option *ngFor="let building of buildings" matRipple [value]="building.id">{{ building.shortName }}</nb-option>
+            <nb-option *ngFor="let building of buildings" matRipple [value]="building.id">{{ building.shortName }}
+            </nb-option>
           </nb-select>
         </div>
       </div>
@@ -78,8 +90,14 @@
       <div class="form-group row">
         <label for="representative" class="label col-sm-3 offset-1 col-form-label">Representative:</label>
         <div class="col-sm">
-          <input type="text" nbInput fullWidth id="representative" [(ngModel)]="package.representative.name"
-            name="representativeName">
+          <input type="text" nbInput fullWidth id="representative" #representative
+            [(ngModel)]="package.representative.name" name="representativeName" [nbAutocomplete]="representativeAuto"
+            (input)="onPersonChange($event)">
+          <nb-autocomplete #representativeAuto (selectedChange)="onPersonSelectionChange($event, 'representative')">
+            <nb-option *ngFor="let option of filteredPersonOptions$ | async" [value]="option">
+              {{ option }}
+            </nb-option>
+          </nb-autocomplete>
         </div>
       </div>
       <div class="form-group">
@@ -89,6 +107,7 @@
           <button nbButton status="secondary" (click)="dismiss()">Cancel</button>
         </div>
       </div>
+      {{ package | json }}
     </form>
   </nb-card-body>
 </nb-card>
