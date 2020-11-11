@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
-import { delay } from 'rxjs/operators';
 
 import { Person, PersonData } from '../data/person';
 
@@ -16,7 +15,6 @@ export class PersonService implements PersonData {
     ) { }
 
     getData(): Observable<Person[]> {
-        return this.http.get<Person[]>(this.endpoint)
-            .pipe(delay(environment.simulatedApiDelay));
+        return this.http.get<Person[]>(this.endpoint);
     }
 }

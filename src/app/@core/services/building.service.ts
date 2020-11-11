@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
-import { delay } from 'rxjs/operators';
 
 import { Building, BuildingData } from '../data/building';
 
@@ -16,7 +15,6 @@ export class BuildingService implements BuildingData {
     ) { }
 
     getData(): Observable<Building[]> {
-        return this.http.get<Building[]>(this.endpoint)
-        .pipe(delay(environment.simulatedApiDelay));
+        return this.http.get<Building[]>(this.endpoint);
     }
 }
