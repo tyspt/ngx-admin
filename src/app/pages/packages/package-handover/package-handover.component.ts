@@ -1,7 +1,11 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
+import { HandoverData } from 'app/@core/data/handover';
 import { Package, PackageData, PackageStatus } from 'app/@core/data/package';
+import { interval, Subject } from 'rxjs';
+import { startWith, take, takeUntil } from 'rxjs/operators';
+import { v4 as uuidv4 } from 'uuid';
 
 import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-popup.component';
 
@@ -10,36 +14,83 @@ import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-po
   templateUrl: './package-handover.component.html',
   styleUrls: ['./package-handover.component.scss'],
 })
-export class PackageHandoverComponent implements OnInit {
+export class PackageHandoverComponent implements OnInit, OnDestroy {
 
-  stepIndex = 0;
+  handoverStep: 'qr-view' | 'table-view' | 'confirmation-view' = 'qr-view';
 
-  todoPackages: Package[];
-  donePackages: Package[];
+  // QR code that contains a randomly generated uuid used for pairing with driver app
+  uuid = uuidv4();
+  qrdata = JSON.stringify({ action: 'handover', code: this.uuid });
+
+  candidatePackages: Package[];
+  scannedPackages: Package[];
+
+  private unsubscribeQRRefresh$ = new Subject<void>();
+  private unsubscribePackageDataRefresh$ = new Subject<void>();
 
   constructor(
     private location: Location,
     private dialogService: NbDialogService,
     private packageService: PackageData,
+    private handoverService: HandoverData,
   ) { }
 
   ngOnInit(): void {
-    this.packageService.getData()
-      .subscribe(packages =>
-        this.todoPackages = packages.filter(p =>
-          p.status === PackageStatus.CREATED || p.status === PackageStatus.IN_HANDOVER));
+    this.queryHandoverStatus();
+  }
 
-    this.packageService.getData()
-      .subscribe(packages =>
-        this.donePackages = packages.filter(p => p.status === PackageStatus.IN_TRANSPORT));
+  ngOnDestroy(): void {
+    this.unsubscribeQRRefresh$.next();
+    this.unsubscribeQRRefresh$.complete();
 
-    // Simulate driver app scan delay
-    setTimeout(() => this.stepIndex++, 10000);
+    this.unsubscribePackageDataRefresh$.next();
+    this.unsubscribePackageDataRefresh$.complete();
+  }
+
+  private queryHandoverStatus() {
+    // Continiously check whether the QR code has been scanned and data has been updated, the action will expire after
+    // 100 failed requests
+    interval(3000)
+      .pipe(
+        take(100),
+        takeUntil(this.unsubscribeQRRefresh$))
+      .subscribe(() =>
+        this.handoverService.findByUuid(this.uuid).subscribe(() => {
+          this.unsubscribeQRRefresh$.next(); // stop qr status refresh
+          console.clear();
+          this.handoverStep = 'table-view';
+          this.loadPackages();
+        }));
+  }
+
+  private loadPackages() {
+    // Refreshes data until leaving table-view
+    interval(5000)
+      .pipe(
+        startWith(0),
+        takeUntil(this.unsubscribePackageDataRefresh$),
+      )
+      .subscribe(_ => {
+        this.packageService.getData().subscribe(packages =>
+          this.candidatePackages = packages.filter(p =>
+            p.status === (PackageStatus.CREATED || PackageStatus.COLLECTED)),
+        );
+
+        this.handoverService.findByUuid(this.uuid).subscribe(handover =>
+          this.scannedPackages = handover.packages,
+        );
+      });
   }
 
   showConfirmationDialog() {
+    this.unsubscribePackageDataRefresh$.next(); // stop the package table refresh
+
+    this.handoverStep === 'confirmation-view';
     this.dialogService.open(ConfirmationPopupComponent, {
-      context: { packages: this.donePackages },
+      context: {
+        packages: this.scannedPackages,
+        uuid: this.uuid,
+      },
       autoFocus: false,
     });
   }

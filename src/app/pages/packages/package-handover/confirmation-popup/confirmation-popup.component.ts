@@ -1,7 +1,10 @@
+import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NbDialogRef, NbToastrService } from '@nebular/theme';
-import { Package } from 'app/@core/data/package';
+import { HandoverData } from 'app/@core/data/handover';
+import { Package, PackageData } from 'app/@core/data/package';
+import { HandoverService } from 'app/@core/services/handover.service';
 
 @Component({
   selector: 'ngx-confirmation-popup',
@@ -11,24 +14,34 @@ import { Package } from 'app/@core/data/package';
 export class ConfirmationPopupComponent implements OnInit {
 
   @Input() packages: Package[];
+  @Input() uuid: string;
 
   constructor(
+    private location: Location,
     protected ref: NbDialogRef<ConfirmationPopupComponent>,
-    private router: Router,
     private toastrService: NbToastrService,
+    private handoverService: HandoverData,
   ) { }
 
   ngOnInit(): void {
   }
 
-  confirmHandover() {
-    // TODO: call handover bcakend API
-    this.dismiss();
-    this.toastrService.success('Packages status have been successfully updated.', `Handover success!`);
-    this.router.navigate(['pages', 'packages', 'list']);
+  confirm() {
+    this.handoverService.confirm(this.uuid).subscribe(_ => {
+      this.toastrService.success('Packages status have been successfully updated.', `Handover Successffuly Confirmed`);
+      this.dismiss();
+    });
+  }
+
+  rollback() {
+    this.handoverService.confirm(this.uuid).subscribe(_ => {
+      this.toastrService.success('Packages status have reverted to their original state.', `Rollback Done`);
+      this.dismiss();
+    });
   }
 
   dismiss() {
     this.ref.close();
+    this.location.back();
   }
 }
