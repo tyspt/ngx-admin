@@ -32,7 +32,7 @@ export class StatusRendererComponent implements ViewCell, OnInit {
         return 'not_deliverable';
       case PackageStatus.COLLECTED:
         return 'collected';
-      case PackageStatus.RECEIVED_BY_LOGISTIC_CENTER:
+      case PackageStatus.RECEIVED_BY_LC:
         return 'received_by_logistic_center';
     }
   }

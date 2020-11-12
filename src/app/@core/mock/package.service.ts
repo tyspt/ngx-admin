@@ -468,7 +468,7 @@ export class PackageService implements PackageData {
       sender: {
         name: 'Max Mustermann',
       },
-      status: PackageStatus.RECEIVED_BY_LOGISTIC_CENTER,
+      status: PackageStatus.RECEIVED_BY_LC,
       type: PackageType.INBOUND,
     },
     {

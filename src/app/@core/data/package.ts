@@ -33,7 +33,7 @@ export enum PackageStatus {
     NOT_DELIVERABLE = 'NOT_DELIVERABLE',
 
     COLLECTED = 'COLLECTED',
-    RECEIVED_BY_LOGISTIC_CENTER = 'RECEIVED_BY_LOGISTIC_CENTER',
+    RECEIVED_BY_LC = 'RECEIVED_BY_LC',
 }
 
 export abstract class PackageData {
