@@ -1,18 +1,13 @@
-ng build --prod
+#ng build --prod
 
 cd ./dist
-tar -cvzf projekt-studium-admin-portal.tar.gz ./
-
-scp ./*.tar.gz tony@jiaweitang.com:~
+scp ./* tony@jiaweitang.com:~/projekt-studium-admin-portal
 
 ssh -t tony@jiaweitang.com << EOF
-    rm -rf ./projekt-studium-admin-portal
-    mkdir ./projekt-studium-admin-portal
-    tar -xvzf *.tar.gz -C ./projekt-studium-admin-portal
     sudo rm -rf /var/www/html/*
-    sudo mv ./projekt-studium-admin-portal/* /var/www/html
+    sudo mv ~/projekt-studium-admin-portal/* /var/www/html
+    sudo systemctl restart httpd
+    rm -rf ~/projekt-studium-admin-portal/*
 EOF
 
-rm -rf ./*.tar.gz
-
-read -p "done!"
+echo "done!"
