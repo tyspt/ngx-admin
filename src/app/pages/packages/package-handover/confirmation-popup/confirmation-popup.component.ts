@@ -16,6 +16,8 @@ export class ConfirmationPopupComponent implements OnInit {
   @Input() packages: Package[];
   @Input() uuid: string;
 
+  loading = false;
+
   constructor(
     private location: Location,
     protected ref: NbDialogRef<ConfirmationPopupComponent>,
@@ -27,6 +29,7 @@ export class ConfirmationPopupComponent implements OnInit {
   }
 
   confirm() {
+    this.loading = true;
     this.handoverService.confirm(this.uuid).subscribe(_ => {
       this.toastrService.success('Packages status have been successfully updated.', `Handover Successffuly Confirmed`);
       this.dismiss();
@@ -34,7 +37,8 @@ export class ConfirmationPopupComponent implements OnInit {
   }
 
   rollback() {
-    this.handoverService.confirm(this.uuid).subscribe(_ => {
+    this.loading = true;
+    this.handoverService.rollback(this.uuid).subscribe(_ => {
       this.toastrService.success('Packages status have reverted to their original state.', `Rollback Done`);
       this.dismiss();
     });

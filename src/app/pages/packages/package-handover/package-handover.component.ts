@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbDialogService } from '@nebular/theme';
+import { NbDialogService, NbToastrService } from '@nebular/theme';
 import { HandoverData } from 'app/@core/data/handover';
 import { Package, PackageData, PackageStatus } from 'app/@core/data/package';
 import { interval, Subject } from 'rxjs';
@@ -20,7 +20,8 @@ export class PackageHandoverComponent implements OnInit, OnDestroy {
 
   // QR code that contains a randomly generated uuid used for pairing with driver app
   uuid = uuidv4();
-  qrdata = JSON.stringify({ action: 'handover', code: this.uuid });
+  qrdata = JSON.stringify({ action: 'handover', data: this.uuid });
+  loading = false;
 
   candidatePackages: Package[];
   scannedPackages: Package[];
@@ -31,6 +32,7 @@ export class PackageHandoverComponent implements OnInit, OnDestroy {
   constructor(
     private location: Location,
     private dialogService: NbDialogService,
+    private toastrService: NbToastrService,
     private packageService: PackageData,
     private handoverService: HandoverData,
   ) { }
@@ -95,7 +97,11 @@ export class PackageHandoverComponent implements OnInit, OnDestroy {
     });
   }
 
-  cancel() {
-    this.location.back();
+  rollback() {
+    this.loading = true;
+    this.handoverService.rollback(this.uuid).subscribe(_ => {
+      this.toastrService.success('Packages status have reverted to their original state.', `Rollback Done`);
+      this.location.back();
+    });
   }
 }

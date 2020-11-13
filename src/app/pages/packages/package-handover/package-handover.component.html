@@ -1,4 +1,4 @@
-<nb-card>
+<nb-card [nbSpinner]="loading">
   <nb-card-header>Package Handover Process</nb-card-header>
   <nb-card-body>
     <div *ngIf="handoverStep === 'qr-view'" class="qr-container d-flex align-items-center flex-column">
@@ -23,6 +23,6 @@
   </nb-card-body>
   <nb-card-footer class="action-buttons d-flex d-flex justify-content-end">
     <button nbButton *ngIf="handoverStep === 'table-view'" status="primary" size="medium" (click)="showConfirmationDialog()">Finish</button>
-    <button nbButton status="secondary" size="medium" (click)="cancel()">Cancel</button>
+    <button nbButton status="secondary" size="medium" (click)="rollback()">Cancel</button>
   </nb-card-footer>
 </nb-card>
