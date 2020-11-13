@@ -5,5 +5,5 @@
  */
 export const environment = {
   production: true,
-  apiHost: 'https://...',
+  apiHost: 'https://jiaweitang.com/api',
 };
