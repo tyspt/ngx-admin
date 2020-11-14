@@ -13,16 +13,16 @@
         <div class="row">
           <div class="col-9">
             <div class="row">
+              <dt class="col-4">Type:</dt>
+              <dd class="col">{{ (package?.type | titlecase) || 'N/A' }}</dd>
+            </div>
+            <div class="row">
               <dt class="col-4">Tracking Number:</dt>
               <dd class="col">{{ package.barcode }}</dd>
             </div>
             <div class="row">
               <dt class="col-4">Order Number:</dt>
               <dd class="col">{{ package?.orderNumber || 'N/A' }}</dd>
-            </div>
-            <div class="row">
-              <dt class="col-4">Type:</dt>
-              <dd class="col">{{ (package?.type | titlecase) || 'N/A' }}</dd>
             </div>
             <div class="row">
               <dt class="col-4">Recipient Name:</dt>

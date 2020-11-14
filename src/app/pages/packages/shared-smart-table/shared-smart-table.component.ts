@@ -28,8 +28,16 @@ export class SharedSmartTableComponent implements OnInit, OnChanges {
         type: 'number',
         width: '5rem',
       },
+      type: {
+        title: 'Type',
+        type: 'string',
+      },
       barcode: {
         title: 'Barcode',
+        type: 'string',
+      },
+      orderNumber: {
+        title: 'SAP Order',
         type: 'string',
       },
       recipientBuilding: {
@@ -38,6 +46,10 @@ export class SharedSmartTableComponent implements OnInit, OnChanges {
       },
       recipientName: {
         title: 'Recipient',
+        type: 'string',
+      },
+      senderName: {
+        title: 'Sender',
         type: 'string',
       },
       createdTimestamp: {
@@ -70,6 +82,7 @@ export class SharedSmartTableComponent implements OnInit, OnChanges {
     this.packages.forEach(p => {
       p.recipientName = p.recipient.name;
       p.recipientBuilding = p.recipient.building.shortName;
+      p.senderName = p.sender.name;
       p.createdTimestamp = this.datePipe.transform(p.createdTimestamp, 'medium');
     });
     this.source.load(this.packages);

@@ -16,6 +16,7 @@ export interface Package {
     // Following fields are optional and only used by smart table, no need to fill in data
     recipientName?: string;
     recipientBuilding?: string;
+    senderName?: string;
 }
 
 export enum PackageType {
