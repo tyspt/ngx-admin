@@ -43,3 +43,13 @@
 .action-buttons > button:not(:last-child) {
   margin-right: 1rem;
 }
+
+// Center smart table title and content
+ng2-smart-table {
+
+  thead > tr > th,
+  tbody > tr > td,
+  input-filter > input {
+    text-align: center;
+  }
+}
