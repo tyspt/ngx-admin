@@ -13,17 +13,17 @@ const routes: Routes = [{
   children: [
     {
       path: 'employees',
-      component: EmployeesListComponent
+      component: EmployeesListComponent,
     },
     {
       path: 'drivers',
-      component: DriversListComponent
+      component: DriversListComponent,
     },
     {
       path: 'administrators',
-      component: AdministratorsListComponent
+      component: AdministratorsListComponent,
     },
-  ]
+  ],
 }];
 
 @NgModule({
