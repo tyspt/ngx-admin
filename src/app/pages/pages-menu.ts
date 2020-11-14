@@ -2,13 +2,15 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
+    title: 'Search',
+    icon: 'search',
+    link: '/pages/packages/search',
+    home: true,
+  },
+  {
     title: 'Packages',
-    icon: 'cube-outline',
+    icon: 'cube',
     children: [
-      {
-        title: 'Search',
-        link: '/pages/packages/search',
-      },
       {
         title: 'Package List',
         link: '/pages/packages/list',
@@ -16,6 +18,34 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Package Handover',
         link: '/pages/packages/handover',
+      },
+    ],
+  },
+  {
+    title: 'Buildings',
+    icon: 'home',
+    children: [
+      {
+        title: 'Building List',
+        link: '/pages/buildings/list',
+      },
+    ],
+  },
+  {
+    title: 'Users',
+    icon: 'person',
+    children: [
+      {
+        title: 'Employees',
+        link: '/pages/buildings/list',
+      },
+      {
+        title: 'Drivers',
+        link: '/pages/buildings/list',
+      },
+      {
+        title: 'Administrators',
+        link: '/pages/buildings/list',
       },
     ],
   },
