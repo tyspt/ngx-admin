@@ -37,15 +37,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Employees',
-        link: '/pages/buildings/list',
+        link: '/pages/users/employees',
       },
       {
         title: 'Drivers',
-        link: '/pages/buildings/list',
+        link: '/pages/users/drivers',
       },
       {
         title: 'Administrators',
-        link: '/pages/buildings/list',
+        link: '/pages/users/administrators',
       },
     ],
   },
