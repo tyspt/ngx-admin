@@ -9,6 +9,11 @@ export interface Person {
     telephone?: string;
     building?: Building;
     fullAddress?: string;
+    representative?: Person;
+
+    // Following fields are optional and only used by smart table, no need to fill in data
+    buildingCode?: string;
+    representativeName?: string;
 }
 
 export abstract class PersonData {
