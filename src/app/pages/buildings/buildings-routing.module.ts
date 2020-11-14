@@ -11,9 +11,9 @@ const routes: Routes = [{
   children: [
     {
       path: 'list',
-      component: BuildingsListComponent
+      component: BuildingsListComponent,
     },
-  ]
+  ],
 }];
 
 @NgModule({
