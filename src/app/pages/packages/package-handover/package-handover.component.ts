@@ -75,7 +75,8 @@ export class PackageHandoverComponent implements OnInit, OnDestroy {
       .subscribe(_ => {
         this.packageService.getData().subscribe(packages =>
           this.candidatePackages = packages.filter(p =>
-            p.status === (PackageStatus.CREATED || PackageStatus.COLLECTED)),
+            p.status === PackageStatus.CREATED ||
+            p.status === PackageStatus.COLLECTED),
         );
 
         this.handoverService.findByUuid(this.uuid).subscribe(handover =>
