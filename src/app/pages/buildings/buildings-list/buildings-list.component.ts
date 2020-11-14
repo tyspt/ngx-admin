@@ -32,6 +32,7 @@ export class BuildingsListComponent implements OnInit {
       id: {
         title: '#',
         type: 'number',
+        width: '5rem',
       },
       shortName: {
         title: 'Code',
@@ -41,12 +42,12 @@ export class BuildingsListComponent implements OnInit {
         title: 'Full Name',
         type: 'string',
       },
-      description: {
-        title: 'Description',
-        type: 'string',
-      },
       address: {
         title: 'Address',
+        type: 'string',
+      },
+      description: {
+        title: 'Description',
         type: 'string',
       },
     },
