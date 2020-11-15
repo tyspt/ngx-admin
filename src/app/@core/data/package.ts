@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs';
 
+import { Driver } from './driver';
 import { Person } from './person';
 
 export interface Package {
@@ -13,6 +14,7 @@ export interface Package {
     sender?: Person;
     createdTimestamp?: string;
     lastUpdatedTimestamp?: string;
+    driver?: Driver;
     // Following fields are optional and only used by smart table, no need to fill in data
     recipientName?: string;
     recipientBuilding?: string;

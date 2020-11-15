@@ -11,6 +11,15 @@ export class PackageDetailComponent implements OnInit {
 
   @Input() package: Package;
 
+  position: { lat: number, lng: number, radius: number };
+  radius: number;
+
+  icon: google.maps.Icon =
+    { url: 'assets/icons/marker-icon.png', size: new google.maps.Size(48, 57), anchor: new google.maps.Point(24, 24) };
+  mapOptions: google.maps.MapOptions = { mapTypeId: 'hybrid' };
+  markerOptions: google.maps.MarkerOptions = { icon: this.icon };
+  circleOptions: google.maps.CircleOptions = { fillColor: 'DodgerBlue', fillOpacity: 0.2, strokeOpacity: 0 };
+
   shipmentCourses = [{
     timestamp: 'Sa, 31.10.2020, 23:14',
     description: 'Der Empfänger hat die Sendung aus der PACKSTATION abgeholt.',
@@ -39,11 +48,14 @@ export class PackageDetailComponent implements OnInit {
     description: 'Die Sendung wurde elektronisch angekündigt. Sobald die Sendung von uns bearbeitet wurde, erhalten Sie weitere Informationen.',
   }];
 
-  readonly position = { lat: 49.005739, lng: 12.145199 };
-
   constructor(protected ref: NbDialogRef<PackageDetailComponent>) { }
 
   ngOnInit(): void {
+    this.position = {
+      lat: this.package?.driver?.location?.latitude ? this.package.driver.location.latitude : 49.007090,
+      lng: this.package?.driver?.location?.longitude ? this.package.driver.location.longitude : 12.142016,
+      radius: this.package?.driver?.location?.accuracy ? this.package.driver.location.accuracy : 50,
+    };
   }
 
   dismiss() {
