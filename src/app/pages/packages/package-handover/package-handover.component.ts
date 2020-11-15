@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbDialogService, NbToastrService } from '@nebular/theme';
 import { HandoverData } from 'app/@core/data/handover';
-import { Package, PackageData, PackageStatus } from 'app/@core/data/package';
+import { Package, PackageData, PackageStatus, PackageType } from 'app/@core/data/package';
 import { interval, Subject } from 'rxjs';
 import { startWith, take, takeUntil } from 'rxjs/operators';
 import { v4 as uuidv4 } from 'uuid';
@@ -75,8 +75,8 @@ export class PackageHandoverComponent implements OnInit, OnDestroy {
       .subscribe(_ => {
         this.packageService.getData().subscribe(packages =>
           this.candidatePackages = packages.filter(p =>
-            p.status === PackageStatus.CREATED ||
-            p.status === PackageStatus.COLLECTED),
+            (p.type === PackageType.INBOUND && p.status === PackageStatus.CREATED) ||
+            (p.type === PackageType.OUTBOUND && p.status === PackageStatus.IN_TRANSPORT)),
         );
 
         this.handoverService.findByUuid(this.uuid).subscribe(handover =>
