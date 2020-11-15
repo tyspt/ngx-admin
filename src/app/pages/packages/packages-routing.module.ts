@@ -12,7 +12,7 @@ const routes: Routes = [{
   path: '',
   component: PackagesComponent,
   children: [
-    { path: 'list', component: PackageListComponent },
+    { path: 'list/:type', component: PackageListComponent },
     { path: 'add', component: PackageAddComponent },
     { path: 'handover', component: PackageHandoverComponent },
     { path: '', component: PackageSearchComponent },

@@ -12,11 +12,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'cube',
     children: [
       {
-        title: 'Package List',
-        link: '/pages/packages/list',
+        title: 'Inbound',
+        link: '/pages/packages/list/inbound',
       },
       {
-        title: 'Package Handover',
+        title: 'Outbound',
+        link: '/pages/packages/list/outbound',
+      },
+      {
+        title: 'Start Handover',
         link: '/pages/packages/handover',
       },
     ],
