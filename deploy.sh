@@ -1,4 +1,4 @@
-#ng build --prod
+ng build --prod
 
 cd ./dist
 scp ./* tony@jiaweitang.com:~/projekt-studium-admin-portal

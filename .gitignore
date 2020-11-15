@@ -43,3 +43,6 @@ Thumbs.db
 # Firebase
 *.log
 *.cache
+
+# Scripts
+*.sh
