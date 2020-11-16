@@ -20,6 +20,6 @@ export interface Location {
 export abstract class DriverData {
     abstract getData(): Observable<Driver[]>;
     abstract addDriver(newDriver: any): Observable<Driver>;
-    abstract updateDriver(newDriver: any): Observable<Driver>;
+    abstract updateDriver(newDriver: Driver): Observable<Driver>;
     abstract deleteDriver(id: number): Observable<Driver>;
 }

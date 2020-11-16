@@ -23,7 +23,7 @@ export class DriverService implements DriverData {
         return this.http.post<Driver>(this.endpoint, newDriver);
     }
 
-    updateDriver(newDriver: any): Observable<Driver> {
+    updateDriver(newDriver: Driver): Observable<Driver> {
         return this.http.put<Driver>(`${this.endpoint}/${newDriver.id}`, newDriver);
     }
 

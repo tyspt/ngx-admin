@@ -33,7 +33,7 @@ export class EmployeesListComponent implements OnInit {
     },
     actions: {
       columnTitle: 'Actions',
-      position: 'right'
+      position: 'right',
     },
     columns: {
       id: {
@@ -52,7 +52,7 @@ export class EmployeesListComponent implements OnInit {
         width: '5rem',
         editor: {
           type: 'list',
-          config: { list: [] }
+          config: { list: [] },
         },
       },
       email: {
@@ -68,7 +68,7 @@ export class EmployeesListComponent implements OnInit {
         type: 'string',
         editor: {
           type: 'list',
-          config: { list: [] }
+          config: { list: [] },
         },
       },
       fullAddress: {
@@ -97,12 +97,13 @@ export class EmployeesListComponent implements OnInit {
         this.buildings = buildings;
 
         // Load list of all buildings
-        const buildingOptions: { value: string; title: string; }[] = buildings.map(building => ({ value: building.shortName, title: building.shortName }));
+        const buildingOptions: { value: string; title: string; }[] = buildings.map(building =>
+          ({ value: building.shortName, title: building.shortName }));
         this.settings.columns.buildingCode.editor.config.list = buildingOptions;
         this.settings = Object.assign({}, this.settings);
 
         resolve();
-      })
+      });
     });
   }
 
@@ -115,7 +116,8 @@ export class EmployeesListComponent implements OnInit {
         });
 
         // Load list of possible representatives
-        const representativeOptions: { value: string; title: string; }[] = employees.map(employee => ({ value: employee.name, title: employee.name }));
+        const representativeOptions: { value: string; title: string; }[] = employees.map(employee =>
+          ({ value: employee.name, title: employee.name }));
         this.settings.columns.representativeName.editor.config.list = representativeOptions;
         this.settings = Object.assign({}, this.settings);
 
@@ -134,15 +136,15 @@ export class EmployeesListComponent implements OnInit {
     this.loading = true;
     this.employeeService.addEmployee(newEmployee).subscribe(res => {
       this.loadEmployees().then(_ => this.loading = false);
-    })
+    });
   }
 
   onEditConfirm(event): void {
     const newEmployee = this.getEmployeeWithFullBuildingAndRepresentative(event);
     this.loading = true;
-    this.employeeService.updateEmployee(newEmployee).subscribe(_ => {
-      this.loadEmployees().then(_ => this.loading = false);
-    })
+    this.employeeService.updateEmployee(newEmployee).subscribe(() => {
+      this.loadEmployees().then(() => this.loading = false);
+    });
   }
 
   private getEmployeeWithFullBuildingAndRepresentative(event: any): Employee {

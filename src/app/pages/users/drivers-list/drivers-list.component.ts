@@ -31,7 +31,7 @@ export class DriversListComponent implements OnInit {
     },
     actions: {
       columnTitle: 'Actions',
-      position: 'right'
+      position: 'right',
     },
     columns: {
       id: {
@@ -78,7 +78,7 @@ export class DriversListComponent implements OnInit {
     this.driverService.addDriver(event.newData).subscribe(res => {
       this.loading = false;
       this.source.append(res);
-    })
+    });
   }
 
   onEditConfirm(event): void {
@@ -86,7 +86,7 @@ export class DriversListComponent implements OnInit {
     this.driverService.updateDriver(event.newData).subscribe(res => {
       this.loading = false;
       res ? event.confirm.resolve() : event.confirm.reject();
-    })
+    });
   }
 
   onDeleteConfirm(event): void {

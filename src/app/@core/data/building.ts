@@ -10,4 +10,7 @@ export interface Building {
 
 export abstract class BuildingData {
     abstract getData(): Observable<Building[]>;
+    abstract addBuilding(newBuilding: any): Observable<Building>;
+    abstract updateBuilding(newBuilding: Building): Observable<Building>;
+    abstract deleteBuilding(id: number): Observable<Building>;
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Building, BuildingData } from 'app/@core/data/building';
-import { SmartTableData } from 'app/@core/data/smart-table';
 import { LocalDataSource } from 'ng2-smart-table';
 
 @Component({
@@ -18,21 +17,28 @@ export class BuildingsListComponent implements OnInit {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmCreate: true,
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave: true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true,
+    },
+    actions: {
+      columnTitle: 'Actions',
+      position: 'right',
     },
     columns: {
       id: {
         title: '#',
         type: 'number',
         width: '5rem',
+        editable: false,
       },
       shortName: {
         title: 'Code',
@@ -67,9 +73,29 @@ export class BuildingsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onCreateConfirm(event): void {
+    this.loading = true;
+    this.buildingService.addBuilding(event.newData).subscribe(res => {
+      this.loading = false;
+      this.source.append(res);
+    });
+  }
+
+  onEditConfirm(event): void {
+    this.loading = true;
+    this.buildingService.updateBuilding(event.newData).subscribe(res => {
+      this.loading = false;
+      res ? event.confirm.resolve() : event.confirm.reject();
+    });
+  }
+
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
+      this.loading = true;
+      this.buildingService.deleteBuilding(event.data.id).subscribe(res => {
+        this.loading = false;
+        res ? event.confirm.resolve() : event.confirm.reject();
+      });
     } else {
       event.confirm.reject();
     }

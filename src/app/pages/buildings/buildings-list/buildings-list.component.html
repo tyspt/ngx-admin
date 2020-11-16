@@ -1,11 +1,11 @@
 <nb-card [nbSpinner]="loading">
-    <nb-card-header>
-        Buildings List (Total: {{ buildings?.length || 0 }})
-    </nb-card-header>
-  
-    <nb-card-body>
-      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
-      </ng2-smart-table>
-    </nb-card-body>
-  </nb-card>
-  
+  <nb-card-header>
+    Buildings List (Total: {{ buildings?.length || 0 }})
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (createConfirm)="onCreateConfirm($event)"
+      (editConfirm)="onEditConfirm($event)" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
