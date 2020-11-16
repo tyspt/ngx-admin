@@ -17,21 +17,28 @@ export class DriversListComponent implements OnInit {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmCreate: true,
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave: true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true,
+    },
+    actions: {
+      columnTitle: 'Actions',
+      position: 'right'
     },
     columns: {
       id: {
         title: '#',
         type: 'number',
         width: '5rem',
+        editable: false,
       },
       name: {
         title: 'Name',
@@ -55,6 +62,10 @@ export class DriversListComponent implements OnInit {
   source: LocalDataSource = new LocalDataSource();
 
   constructor(private driverService: DriverData) {
+    this.loadData();
+  }
+
+  private loadData() {
     this.loading = true;
     this.driverService.getData().subscribe(drivers => {
       this.drivers = drivers;
@@ -66,9 +77,29 @@ export class DriversListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onCreateConfirm(event): void {
+    this.loading = true;
+    this.driverService.addDriver(event.newData).subscribe(res => {
+      this.loading = false;
+      this.source.append(res);
+    })
+  }
+
+  async onEditConfirm(event) {
+    this.loading = true;
+    this.driverService.updateDriver(event.newData).subscribe(res => {
+      this.loading = false;
+      res ? event.confirm.resolve() : event.confirm.reject();
+    })
+  }
+
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
+      this.loading = true;
+      this.driverService.deleteDriver(event.data.id).subscribe(res => {
+        this.loading = false;
+        res ? event.confirm.resolve() : event.confirm.reject();
+      });
     } else {
       event.confirm.reject();
     }

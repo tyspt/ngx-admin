@@ -27,6 +27,10 @@ export class EmployeesListComponent implements OnInit {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true,
     },
+    actions: {
+      columnTitle: 'Actions',
+      position: 'right'
+    },
     columns: {
       id: {
         title: '#',
