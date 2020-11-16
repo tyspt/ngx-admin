@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
-import { Package, PackageData } from 'app/@core/data/package';
+import { Package, PackageData, PackageType } from 'app/@core/data/package';
 import { Subscription } from 'rxjs';
 
 import { PackageAddComponent } from '../package-add/package-add.component';
@@ -40,7 +40,7 @@ export class PackageListComponent implements OnInit, OnDestroy {
     this.routerSubscription$.unsubscribe();
   }
 
-  private loadPackages() {
+  loadPackages() {
     this.loading = true;
     this.packageService.getData().subscribe(packages => {
       this.packages = packages.filter(p => p.type.toString().toLowerCase() === this.type);
@@ -50,7 +50,9 @@ export class PackageListComponent implements OnInit, OnDestroy {
 
   showPackageAdd(event) {
     this.dialogService.open(PackageAddComponent, {
-      context: {}, autoFocus: false,
+      context: {
+        packageType: this.type === 'inbound' ? PackageType.INBOUND : PackageType.OUTBOUND,
+      }, autoFocus: false,
     }).onClose.subscribe(_ => this.loadPackages());
   }
 }

@@ -2,6 +2,9 @@
   <nb-card-header class="d-flex justify-content-between align-items-center">
     {{ type | titlecase }} Packages (Total: {{ packages?.length || 0 }})
     <div class="header-buttons">
+      <button nbButton status="secondary" size="medium" (click)="loadPackages()">
+        <nb-icon icon="refresh"></nb-icon>
+      </button>
       <button nbButton status="primary" size="medium" (click)="showPackageAdd($event)">
         <nb-icon icon="plus"></nb-icon>
         Add Package

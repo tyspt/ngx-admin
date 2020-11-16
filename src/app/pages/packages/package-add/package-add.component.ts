@@ -15,6 +15,7 @@ import { QrPrintoutComponent } from './qr-printout/qr-printout.component';
 })
 export class PackageAddComponent implements OnInit {
 
+  packageType: PackageType;
   package: Package = {
     id: undefined,
     barcode: '',
@@ -66,6 +67,8 @@ export class PackageAddComponent implements OnInit {
       this.employeeOptions = employees;
       this.loading = !(this.employeeOptions && this.buildings);
     });
+
+    this.package.type = this.packageType;
   }
 
   createPackage() {
