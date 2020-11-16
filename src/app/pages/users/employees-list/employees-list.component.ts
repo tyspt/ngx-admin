@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Person, PersonData } from 'app/@core/data/person';
+import { Employee, EmployeeData } from 'app/@core/data/employee';
 import { LocalDataSource } from 'ng2-smart-table';
 
 @Component({
@@ -9,7 +9,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 })
 export class EmployeesListComponent implements OnInit {
 
-  employees: Person[];
+  employees: Employee[];
   loading = true;
 
   settings = {
@@ -68,16 +68,16 @@ export class EmployeesListComponent implements OnInit {
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private personService: PersonData) {
+  constructor(private employeeService: EmployeeData) {
     this.loading = true;
-    this.personService.getData().subscribe(persons => {
-      persons.forEach(
+    this.employeeService.getData().subscribe(employees => {
+      employees.forEach(
         p => {
           p.buildingCode = p?.building?.shortName;
           p.representativeName = p?.representative?.name ? p.representative.name : 'N/A';
         });
 
-      this.employees = persons;
+      this.employees = employees;
       this.source.load(this.employees);
       this.loading = false;
     });

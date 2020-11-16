@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { Building, BuildingData } from 'app/@core/data/building';
+import { Employee, EmployeeData } from 'app/@core/data/employee';
 import { Package, PackageData, PackageStatus, PackageType } from 'app/@core/data/package';
-import { Person, PersonData } from 'app/@core/data/person';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -45,26 +45,26 @@ export class PackageAddComponent implements OnInit {
   orderNumberOptions: string[] = ['SAP164646164', 'SAP223232323', 'SAP365556565', 'SAP464646646', 'SAP546464146', 'SAP677978897', 'SAP878794454', 'SAP994842616'];
   filteredorderNumberOptions$: Observable<string[]>;
 
-  personOptions: Person[] = [];
-  filteredPersonOptions$: Observable<string[]>;
+  employeeOptions: Employee[] = [];
+  filteredEmployeeOptions$: Observable<string[]>;
 
   constructor(
     protected ref: NbDialogRef<PackageAddComponent>,
     private dialogService: NbDialogService,
     private packageService: PackageData,
     private buildingService: BuildingData,
-    private personService: PersonData,
+    private employeeService: EmployeeData,
   ) { }
 
   ngOnInit(): void {
     this.buildingService.getData().subscribe(buildings => {
       this.buildings = buildings;
-      this.loading = !(this.personOptions && this.buildings);
+      this.loading = !(this.employeeOptions && this.buildings);
     });
 
-    this.personService.getData().subscribe(persons => {
-      this.personOptions = persons;
-      this.loading = !(this.personOptions && this.buildings);
+    this.employeeService.getData().subscribe(employees => {
+      this.employeeOptions = employees;
+      this.loading = !(this.employeeOptions && this.buildings);
     });
   }
 
@@ -110,33 +110,33 @@ export class PackageAddComponent implements OnInit {
     }, 2000);
   }
 
-  /* *************************************** Filtering person options *************************************** */
-  getFilteredPersonOptions(value: string): Observable<string[]> {
+  /* *************************************** Filtering employee options *************************************** */
+  getFilteredEmployeeOptions(value: string): Observable<string[]> {
     return of(value).pipe(map(filterString =>
-      this.personOptions
-        .map(person => person.name)
+      this.employeeOptions
+        .map(employee => employee.name)
         .filter(optionValue => optionValue.toLowerCase().includes(filterString.toLowerCase()))));
   }
 
-  onPersonChange($event) {
-    const personName = $event.target.value;
-    this.filteredPersonOptions$ = this.getFilteredPersonOptions(personName);
+  onEmployeeChange($event) {
+    const employeeName = $event.target.value;
+    this.filteredEmployeeOptions$ = this.getFilteredEmployeeOptions(employeeName);
   }
 
-  onPersonSelectionChange(selectedValue: string, origin: ('sender' | 'recipient' | 'representative')) {
-    this.filteredorderNumberOptions$ = this.getFilteredPersonOptions(selectedValue);
+  onEmployeeSelectionChange(selectedValue: string, origin: ('sender' | 'recipient' | 'representative')) {
+    this.filteredorderNumberOptions$ = this.getFilteredEmployeeOptions(selectedValue);
 
-    if (this.personOptions?.length) {
-      const selectedPerson = this.personOptions.find(person => person?.name === selectedValue);
+    if (this.employeeOptions?.length) {
+      const selectedEmployee = this.employeeOptions.find(employee => employee?.name === selectedValue);
       switch (origin) {
         case 'recipient':
-          this.package.recipient = Object.assign({}, selectedPerson);
+          this.package.recipient = Object.assign({}, selectedEmployee);
           break;
         case 'sender':
-          this.package.sender = Object.assign({}, selectedPerson);
+          this.package.sender = Object.assign({}, selectedEmployee);
           break;
         case 'representative':
-          this.package.representative = Object.assign({}, selectedPerson);
+          this.package.representative = Object.assign({}, selectedEmployee);
           break;
       }
     }

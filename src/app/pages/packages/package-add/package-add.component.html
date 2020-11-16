@@ -38,9 +38,9 @@
         <label for="sender" class="label col-sm-3 offset-1 col-form-label">Sender:</label>
         <div class="col-sm">
           <input type="text" nbInput fullWidth id="sender" #sender [(ngModel)]="package.sender.name" name="senderName"
-            [nbAutocomplete]="senderAuto" (input)="onPersonChange($event)">
-          <nb-autocomplete #senderAuto (selectedChange)="onPersonSelectionChange($event, 'sender')">
-            <nb-option *ngFor="let option of filteredPersonOptions$ | async" [value]="option">
+            [nbAutocomplete]="senderAuto" (input)="onEmployeeChange($event)">
+          <nb-autocomplete #senderAuto (selectedChange)="onEmployeeSelectionChange($event, 'sender')">
+            <nb-option *ngFor="let option of filteredEmployeeOptions$ | async" [value]="option">
               {{ option }}
             </nb-option>
           </nb-autocomplete>
@@ -50,9 +50,9 @@
         <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Recipient Name*:</label>
         <div class="col-sm">
           <input type="text" nbInput required fullWidth id="recipient" #recipient [(ngModel)]="package.recipient.name"
-            name="recipientName" [nbAutocomplete]="recipientAuto" (input)="onPersonChange($event)">
-          <nb-autocomplete #recipientAuto (selectedChange)="onPersonSelectionChange($event, 'recipient')">
-            <nb-option *ngFor="let option of filteredPersonOptions$ | async" [value]="option">
+            name="recipientName" [nbAutocomplete]="recipientAuto" (input)="onEmployeeChange($event)">
+          <nb-autocomplete #recipientAuto (selectedChange)="onEmployeeSelectionChange($event, 'recipient')">
+            <nb-option *ngFor="let option of filteredEmployeeOptions$ | async" [value]="option">
               {{ option }}
             </nb-option>
           </nb-autocomplete>
@@ -92,9 +92,9 @@
         <div class="col-sm">
           <input type="text" nbInput fullWidth id="representative" #representative
             [(ngModel)]="package.representative.name" name="representativeName" [nbAutocomplete]="representativeAuto"
-            (input)="onPersonChange($event)">
-          <nb-autocomplete #representativeAuto (selectedChange)="onPersonSelectionChange($event, 'representative')">
-            <nb-option *ngFor="let option of filteredPersonOptions$ | async" [value]="option">
+            (input)="onEmployeeChange($event)">
+          <nb-autocomplete #representativeAuto (selectedChange)="onEmployeeSelectionChange($event, 'representative')">
+            <nb-option *ngFor="let option of filteredEmployeeOptions$ | async" [value]="option">
               {{ option }}
             </nb-option>
           </nb-autocomplete>

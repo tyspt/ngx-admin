@@ -58,8 +58,8 @@ import { PackageData } from './data/package';
 import { PackageService } from './services/package.service';
 import { BuildingData } from './data/building';
 import { BuildingService } from './services/building.service';
-import { PersonData } from './data/person';
-import { PersonService } from './services/person.service';
+import { EmployeeData } from './data/employee';
+import { EmployeeService } from './services/employee.service';
 import { HandoverData } from './data/handover';
 import { HandoverService } from './services/handover.service';
 import { DriverData } from './data/driver';
@@ -105,10 +105,10 @@ const DATA_SERVICES = [
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
   { provide: PackageData, useClass: PackageService },
   { provide: BuildingData, useClass: BuildingService },
-  { provide: PersonData, useClass: PersonService },
+  { provide: EmployeeData, useClass: EmployeeService },
   { provide: HandoverData, useClass: HandoverService },
   { provide: DriverData, useClass: DriverService },
-  {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useExisting: RippleService},
+  { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useExisting: RippleService },
 ];
 
 export class NbSimpleRoleProvider extends NbRoleProvider {

@@ -1,17 +1,17 @@
 import { Observable } from 'rxjs';
 
 import { Driver } from './driver';
-import { Person } from './person';
+import { Employee } from './employee';
 
 export interface Package {
     id: number;
     type: PackageType;
     barcode: string;
-    recipient: Person;
+    recipient: Employee;
     status: PackageStatus;
     orderNumber?: string;
-    representative?: Person;
-    sender?: Person;
+    representative?: Employee;
+    sender?: Employee;
     createdTimestamp?: string;
     lastUpdatedTimestamp?: string;
     driver?: Driver;
