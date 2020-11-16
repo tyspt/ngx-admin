@@ -62,6 +62,8 @@ import { PersonData } from './data/person';
 import { PersonService } from './services/person.service';
 import { HandoverData } from './data/handover';
 import { HandoverService } from './services/handover.service';
+import { DriverData } from './data/driver';
+import { DriverService } from './services/driver.service';
 
 const socialLinks = [
   {
@@ -105,6 +107,7 @@ const DATA_SERVICES = [
   { provide: BuildingData, useClass: BuildingService },
   { provide: PersonData, useClass: PersonService },
   { provide: HandoverData, useClass: HandoverService },
+  { provide: DriverData, useClass: DriverService },
   {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useExisting: RippleService},
 ];
 

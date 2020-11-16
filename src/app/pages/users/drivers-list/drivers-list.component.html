@@ -1,1 +1,11 @@
-<p>drivers-list works!</p>
+<nb-card [nbSpinner]="loading">
+    <nb-card-header>
+        Drivers List (Total: {{ drivers?.length || 0 }})
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+  

@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+
 export interface Driver {
     id: number;
     name: string;
@@ -16,4 +18,5 @@ export interface Location {
 
 
 export abstract class DriverData {
+    abstract getData(): Observable<Driver[]>;
 }
