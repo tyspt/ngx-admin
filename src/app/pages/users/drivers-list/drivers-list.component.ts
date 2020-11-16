@@ -62,10 +62,6 @@ export class DriversListComponent implements OnInit {
   source: LocalDataSource = new LocalDataSource();
 
   constructor(private driverService: DriverData) {
-    this.loadData();
-  }
-
-  private loadData() {
     this.loading = true;
     this.driverService.getData().subscribe(drivers => {
       this.drivers = drivers;
@@ -85,7 +81,7 @@ export class DriversListComponent implements OnInit {
     })
   }
 
-  async onEditConfirm(event) {
+  onEditConfirm(event): void {
     this.loading = true;
     this.driverService.updateDriver(event.newData).subscribe(res => {
       this.loading = false;

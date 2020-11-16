@@ -18,4 +18,7 @@ export interface Employee {
 
 export abstract class EmployeeData {
     abstract getData(): Observable<Employee[]>;
+    abstract addEmployee(newEmployee: Employee): Observable<Employee>;
+    abstract updateEmployee(newEmployee: Employee): Observable<Employee>;
+    abstract deleteEmployee(id: number): Observable<Employee>;
 }
