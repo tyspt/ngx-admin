@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NbDialogRef, NbToastrService } from '@nebular/theme';
 import { HandoverData } from 'app/@core/data/handover';
 import { Package } from 'app/@core/data/package';
+import { ExportToCsv } from 'export-to-csv';
 
 @Component({
   selector: 'ngx-confirmation-popup',
@@ -50,5 +51,27 @@ export class ConfirmationPopupComponent implements OnInit {
 
   openPrintWindow() {
     window.print();
+  }
+
+  generateCSV() {
+    const options = {
+      filename: 'pacakge-handover-list-' + this.timestamp.toUTCString(),
+      showLabels: true,
+      showTitle: true,
+      title: 'Pacakge Handover List on ' + this.timestamp,
+      useKeysAsHeaders: true,
+    };
+
+    const data = this.packages.forEach(pkg => {
+      pkg.recipientName = pkg?.recipient?.name;
+      pkg.recipientBuilding = pkg?.recipient?.building?.shortName;
+      pkg.senderName = pkg?.sender?.name;
+      delete pkg.recipient;
+      delete pkg.sender;
+      delete pkg.representative;
+    });
+
+    const csvExporter = new ExportToCsv(options);
+    csvExporter.generateCsv(this.packages);
   }
 }

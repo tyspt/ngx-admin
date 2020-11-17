@@ -18,4 +18,8 @@ export class QrPrintoutComponent implements OnInit {
   dismiss() {
     this.ref.close();
   }
+
+  openPrintWindow() {
+    window.print();
+  }
 }
