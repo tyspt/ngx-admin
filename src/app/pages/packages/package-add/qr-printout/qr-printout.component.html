@@ -7,7 +7,7 @@
       are going to send.</p>
   </nb-card-body>
   <nb-card-footer class="action-buttons d-flex justify-content-center">
-    <button nbButton matRipple outline status="primary" size="small">
+    <button nbButton matRipple outline status="primary" size="small" (click)="openPrintWindow()">
       <nb-icon icon="printer-outline"></nb-icon>Print
     </button>
     <button nbButton matRipple outline status="primary" size="small" (click)="dismiss()">
