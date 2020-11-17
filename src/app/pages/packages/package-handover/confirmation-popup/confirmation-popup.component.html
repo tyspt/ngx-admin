@@ -1,11 +1,14 @@
-<nb-card class="main-card" [nbSpinner]="loading">
+<nb-card class="main-card print-content" [nbSpinner]="loading">
   <nb-card-header class="d-flex justify-content-between align-items-center">
-    <span>Final Package Handover List (Total: {{ packages.length }})</span>
+    <div class="d-flex flex-column">
+      <span>Package Handover List (Total: {{ packages.length }})</span>
+      <span class="timestamp">{{ timestamp | date: 'medium' }}</span>
+    </div>
     <div class="d-flex header-buttons">
       <button nbButton matRipple outline status="primary" size="small">
         <nb-icon icon="upload-outline"></nb-icon>Export
       </button>
-      <button nbButton matRipple outline status="primary" size="small">
+      <button nbButton matRipple outline status="primary" size="small" (click)="openPrintWindow()">
         <nb-icon icon="printer-outline"></nb-icon>Print
       </button>
       <button nbButton matRipple ghost size="small" (click)="dismiss()">
@@ -14,7 +17,7 @@
     </div>
   </nb-card-header>
   <nb-card-body>
-    <ngx-shared-smart-table [packages]="packages"></ngx-shared-smart-table>
+    <ngx-shared-smart-table class="package-table" [packages]="packages"></ngx-shared-smart-table>
     <p class="description-text">Please double check the handover list and click on confirm if everything is correct.</p>
   </nb-card-body>
   <nb-card-footer class="action-buttons d-flex justify-content-end">

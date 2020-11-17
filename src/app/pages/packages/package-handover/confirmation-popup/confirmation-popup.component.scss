@@ -5,3 +5,20 @@
 .description-text {
   margin-top: 1rem;
 }
+
+.timestamp {
+  font-size: 0.75rem;
+}
+
+@media print {
+  .header-buttons,
+  .description-text,
+  nb-card-footer,
+  .package-table /deep/ .ng2-smart-filters {
+    display: none !important;
+  }
+
+  .package-table /deep/ tr {
+    background: #ffffff !important;
+  }
+}

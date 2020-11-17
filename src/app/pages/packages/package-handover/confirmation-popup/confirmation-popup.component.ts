@@ -1,10 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { NbDialogRef, NbToastrService } from '@nebular/theme';
 import { HandoverData } from 'app/@core/data/handover';
-import { Package, PackageData } from 'app/@core/data/package';
-import { HandoverService } from 'app/@core/services/handover.service';
+import { Package } from 'app/@core/data/package';
 
 @Component({
   selector: 'ngx-confirmation-popup',
@@ -17,6 +15,7 @@ export class ConfirmationPopupComponent implements OnInit {
   @Input() uuid: string;
 
   loading = false;
+  timestamp = new Date();
 
   constructor(
     private location: Location,
@@ -47,5 +46,9 @@ export class ConfirmationPopupComponent implements OnInit {
   dismiss() {
     this.ref.close();
     this.location.back();
+  }
+
+  openPrintWindow() {
+    window.print();
   }
 }
