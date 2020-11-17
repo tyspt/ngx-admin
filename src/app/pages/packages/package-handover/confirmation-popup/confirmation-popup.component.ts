@@ -69,7 +69,7 @@ export class ConfirmationPopupComponent implements OnInit {
       delete pkg.recipient;
       delete pkg.sender;
       delete pkg.representative;
-    })
+    });
 
     const csvExporter = new ExportToCsv(options);
     csvExporter.generateCsv(this.packages);
