@@ -11,4 +11,5 @@
 export const environment = {
   production: false,
   apiHost: 'http://localhost:8080',
+  refreshRate: 2000, // Time system waits between QR code / handover list refreshs
 };

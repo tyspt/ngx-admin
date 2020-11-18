@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbDialogService, NbToastrService } from '@nebular/theme';
 import { HandoverData } from 'app/@core/data/handover';
 import { Package, PackageData, PackageStatus, PackageType } from 'app/@core/data/package';
+import { environment } from 'environments/environment';
 import { interval, Subject } from 'rxjs';
 import { startWith, take, takeUntil } from 'rxjs/operators';
 import { v4 as uuidv4 } from 'uuid';
@@ -17,6 +18,9 @@ import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-po
 export class PackageHandoverComponent implements OnInit, OnDestroy {
 
   handoverStep: 'qr-view' | 'table-view' | 'confirmation-view' = 'qr-view';
+
+  // Time system waits between QR code / handover list refreshs
+  refreshRate = environment.refreshRate;
 
   // QR code that contains a randomly generated uuid used for pairing with driver app
   uuid = uuidv4();
@@ -52,7 +56,7 @@ export class PackageHandoverComponent implements OnInit, OnDestroy {
   private queryHandoverStatus() {
     // Continiously check whether the QR code has been scanned and data has been updated, the action will expire after
     // 100 failed requests
-    interval(3000)
+    interval(this.refreshRate)
       .pipe(
         take(100),
         takeUntil(this.unsubscribeQRRefresh$))
@@ -67,7 +71,7 @@ export class PackageHandoverComponent implements OnInit, OnDestroy {
 
   private loadPackages() {
     // Refreshes data until leaving table-view
-    interval(5000)
+    interval(this.refreshRate)
       .pipe(
         startWith(0),
         takeUntil(this.unsubscribePackageDataRefresh$),
