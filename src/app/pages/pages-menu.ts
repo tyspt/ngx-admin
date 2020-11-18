@@ -21,7 +21,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         title: 'Start Handover',
-        link: '/pages/packages/handover',
+        link: '/pages/packages/handovers/add',
+      },
+      {
+        title: 'Open Handovers',
+        link: '/pages/packages/handovers',
       },
     ],
   },

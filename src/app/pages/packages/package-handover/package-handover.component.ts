@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NbDialogService, NbToastrService } from '@nebular/theme';
 import { HandoverData } from 'app/@core/data/handover';
 import { Package, PackageData, PackageStatus, PackageType } from 'app/@core/data/package';
@@ -17,15 +18,15 @@ import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-po
 })
 export class PackageHandoverComponent implements OnInit, OnDestroy {
 
-  handoverStep: 'qr-view' | 'table-view' | 'confirmation-view' = 'qr-view';
+  loading = false;
+  handoverStep: 'qr-view' | 'table-view' | 'confirmation-view';
 
   // Time system waits between QR code / handover list refreshs
   refreshRate = environment.refreshRate;
 
-  // QR code that contains a randomly generated uuid used for pairing with driver app
-  uuid = uuidv4();
-  qrdata = JSON.stringify({ action: 'handover', data: this.uuid });
-  loading = false;
+  // QR code that contains an uuid used for pairing with driver app
+  uuid: string;
+  qrdata: string;
 
   candidatePackages: Package[];
   scannedPackages: Package[];
@@ -35,6 +36,7 @@ export class PackageHandoverComponent implements OnInit, OnDestroy {
 
   constructor(
     private location: Location,
+    private activatedRoute: ActivatedRoute,
     private dialogService: NbDialogService,
     private toastrService: NbToastrService,
     private packageService: PackageData,
@@ -42,7 +44,19 @@ export class PackageHandoverComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.queryHandoverStatus();
+    const uuid = this.activatedRoute.snapshot.paramMap.get('uuid');
+    if (!uuid) {
+      // Display QR view with a randomly generated handover uuid
+      this.handoverStep = 'qr-view';
+      this.uuid = uuidv4();
+      this.qrdata = JSON.stringify({ action: 'handover', data: this.uuid });
+      this.queryHandoverStatus();
+    } else {
+      // Skip QR view and directly go into table-view
+      this.handoverStep = 'table-view';
+      this.uuid = uuid;
+      this.loadPackages();
+    }
   }
 
   ngOnDestroy(): void {

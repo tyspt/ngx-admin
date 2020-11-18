@@ -88,11 +88,10 @@ export class SharedSmartTableComponent implements OnInit, OnChanges {
     this.source.load(this.packages);
   }
 
-  showPackageDetail(pkg: Package) {
+  showPackageDetail(pkg: Package): void {
     this.dialogService.open(PackageDetailComponent, {
       context: { package: pkg },
       autoFocus: false,
     });
   }
-
 }

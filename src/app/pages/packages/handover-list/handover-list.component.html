@@ -1,0 +1,10 @@
+<nb-card [nbSpinner]="loading">
+  <nb-card-header>
+    Open Handovers (Total: {{ handovers?.length || 0 }})
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="resumeHandover($event.data)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

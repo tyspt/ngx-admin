@@ -14,6 +14,10 @@ export class HandoverService implements HandoverData {
         private http: HttpClient,
     ) { }
 
+    getData(): Observable<Handover[]> {
+        return this.http.get<Handover[]>(`${this.endpoint}`);
+    }
+
     findByUuid(uuid: string): Observable<Handover> {
         return this.http.get<Handover>(`${this.endpoint}/${uuid}`);
     }
