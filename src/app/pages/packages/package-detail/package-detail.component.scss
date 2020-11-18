@@ -9,6 +9,10 @@
     & > nb-card-body {
       padding-left: 50px;
       padding-right: 50px;
+
+      nb-card {
+        min-width: 700px;
+      }
     }
 
     dt,

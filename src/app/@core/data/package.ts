@@ -15,10 +15,17 @@ export interface Package {
     createdTimestamp?: string;
     lastUpdatedTimestamp?: string;
     driver?: Driver;
+    shipmentCourses?: ShipmentCourse[];
     // Following fields are optional and only used by smart table, no need to fill in data
     recipientName?: string;
     recipientBuilding?: string;
     senderName?: string;
+}
+
+export interface ShipmentCourse {
+    id: number;
+    message: string;
+    timestamp: string;
 }
 
 export enum PackageType {

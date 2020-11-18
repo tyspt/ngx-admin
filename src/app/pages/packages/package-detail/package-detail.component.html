@@ -91,10 +91,10 @@
       </nb-card-body>
     </nb-card>
 
-    <nb-card class="tracking-info-card" size="small">
+    <nb-card class="tracking-info-card">
       <nb-card-header>Tracking Information</nb-card-header>
       <nb-card-body class="shipmentCourse">
-        <div class="shipmentCourseEntry" *ngFor="let shipmentCourseEntry of shipmentCourses">
+        <div class="shipmentCourseEntry" *ngFor="let shipmentCourseEntry of package.shipmentCourses">
           <div class="courseLeft">
             <span class="icon">
               <svg>
@@ -103,8 +103,8 @@
             </span>
           </div>
           <div class="courseText">
-            <dt class="header">{{ shipmentCourseEntry.timestamp }}</dt>
-            <dd class="status">{{ shipmentCourseEntry.description }}</dd>
+            <dt class="header">{{ shipmentCourseEntry.timestamp | date:'medium' }}</dt>
+            <dd class="status">{{ shipmentCourseEntry.message }}</dd>
           </div>
         </div>
       </nb-card-body>
