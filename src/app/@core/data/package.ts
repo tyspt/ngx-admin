@@ -27,11 +27,6 @@ export interface ShipmentCourse {
     timestamp: string;
 }
 
-export interface Signature {
-    id: number;
-    dataBlob: Uint8Array;
-}
-
 export enum PackageType {
     INBOUND = 'INBOUND',
     OUTBOUND = 'OUTBOUND',
@@ -53,6 +48,6 @@ export abstract class PackageData {
     abstract getData(): Observable<Package[]>;
     abstract getPackageByIdOrBarcode(idOrBarcode: string): Observable<Package>;
     abstract getShipmentCoursesByIdOrBarcode(idOrBarcode: string): Observable<ShipmentCourse[]>;
-    abstract getSignatureBlobByIdOrBarcode(idOrBarcode: string): Observable<Signature>;
+    abstract getSignatureByIdOrBarcode(idOrBarcode: string): Observable<string>;
     abstract addPackage(newPkg: any): Observable<Package>;
 }

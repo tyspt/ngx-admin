@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { NbDialogRef } from '@nebular/theme';
-import { Package, PackageData, ShipmentCourse } from 'app/@core/data/package';
+import { Package, PackageData, PackageStatus, ShipmentCourse } from 'app/@core/data/package';
 
 @Component({
   selector: 'ngx-package-detail',
@@ -12,7 +13,11 @@ export class PackageDetailComponent implements OnInit {
   @Input() package: Package;
 
   shipmentCourses: ShipmentCourse[];
+  signatureUrl: any;
+  delivered: boolean;
+  displaySignature: boolean;
 
+  // Settings for displaying the package position on Google Maps
   position: { lat: number, lng: number, radius: number };
   radius: number;
 
@@ -25,10 +30,13 @@ export class PackageDetailComponent implements OnInit {
   constructor(
     protected ref: NbDialogRef<PackageDetailComponent>,
     private PackageService: PackageData,
+    private sanitizer: DomSanitizer,
   ) { }
 
   ngOnInit(): void {
-    // Setup position data, if not avaialbele, then use the default values
+    this.delivered = (this.package.status === PackageStatus.DELIVERED);
+
+    // Setup position data, use the default values if not avaialbele
     this.position = {
       lat: this.package?.driver?.location?.latitude ? this.package.driver.location.latitude : 49.007090,
       lng: this.package?.driver?.location?.longitude ? this.package.driver.location.longitude : 12.142016,
@@ -38,6 +46,15 @@ export class PackageDetailComponent implements OnInit {
     // Retrieve shipment course data from server
     this.PackageService.getShipmentCoursesByIdOrBarcode(this.package.id.toString())
       .subscribe(shipmentCourses => this.shipmentCourses = shipmentCourses);
+  }
+
+  toggleSignatureDisplay() {
+    this.displaySignature = !this.displaySignature;
+    if (!this.signatureUrl) {
+      this.PackageService.getSignatureByIdOrBarcode(this.package.id.toString())
+        .subscribe((base64Img: string) =>
+          this.signatureUrl = this.sanitizer.bypassSecurityTrustUrl('data:image/jpg;base64,' + base64Img));
+    }
   }
 
   dismiss() {

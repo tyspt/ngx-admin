@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 
-import { Package, PackageData, ShipmentCourse, Signature } from '../data/package';
+import { Package, PackageData, ShipmentCourse } from '../data/package';
 
 @Injectable()
 export class PackageService implements PackageData {
@@ -26,8 +26,8 @@ export class PackageService implements PackageData {
         return this.http.get<ShipmentCourse[]>(`${this.endpoint}/${idOrBarcode}/shipmentCourses`);
     }
 
-    getSignatureBlobByIdOrBarcode(idOrBarcode: string): Observable<Signature> {
-        return this.http.get<Signature>(`${this.endpoint}/${idOrBarcode}/signature`);
+    getSignatureByIdOrBarcode(idOrBarcode: string): Observable<string> {
+        return this.http.get(`${this.endpoint}/${idOrBarcode}/signature`, { responseType: 'text' });
     }
 
     addPackage(newPkg: any): Observable<Package> {

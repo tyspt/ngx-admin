@@ -78,15 +78,34 @@
             <ngx-status-renderer [value]="package.status"></ngx-status-renderer>
           </dd>
         </div>
-        <div class="row">
-          <dt class="col-3">Current Location:</dt>
-          <dd class="col">{{ position ? (this.position.lat + ', ' + this.position.lng) : 'N/A' }}</dd>
+        <ng-container *ngIf="!delivered">
+          <div class="row">
+            <dt class="col-3">Current Location:</dt>
+            <dd class="col">{{ position ? (this.position.lat + ', ' + this.position.lng) : 'N/A' }}</dd>
+          </div>
+          <div class="row">
+            <google-map class="col" [center]="position" [options]="mapOptions" [zoom]="18" width="100%" height="250px">
+              <map-marker [position]="position" [options]="markerOptions"></map-marker>
+              <map-circle [center]="position" [radius]="position.radius" [options]="circleOptions"></map-circle>
+            </google-map>
+          </div>
+        </ng-container>
+        <div *ngIf="delivered" class="row">
+          <dt class="col-3">Delivery Signature:</dt>
+          <dd class="col">
+            <button nbButton matRipple outline status="secondary" size="tiny"
+              [nbSpinner]="displaySignature && !signatureUrl" (click)="toggleSignatureDisplay()">
+              <ng-container *ngIf="!displaySignature">
+                <nb-icon icon="eye"></nb-icon>Show
+              </ng-container>
+              <ng-container *ngIf="displaySignature">
+                <nb-icon icon="eye-off"></nb-icon>Hide
+              </ng-container>
+            </button>
+          </dd>
         </div>
-        <div class="row map-container">
-          <google-map class="col" [center]="position" [options]="mapOptions" [zoom]="18" width="100%" height="250px">
-            <map-marker [position]="position" [options]="markerOptions"></map-marker>
-            <map-circle [center]="position" [radius]="position.radius" [options]="circleOptions"></map-circle>
-          </google-map>
+        <div class="row">
+          <img *ngIf="displaySignature && signatureUrl" class="col" [src]="signatureUrl" />
         </div>
       </nb-card-body>
     </nb-card>
