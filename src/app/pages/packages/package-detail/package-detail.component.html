@@ -91,10 +91,10 @@
       </nb-card-body>
     </nb-card>
 
-    <nb-card class="tracking-info-card">
+    <nb-card class="tracking-info-card" [nbSpinner]="!shipmentCourses">
       <nb-card-header>Tracking Information</nb-card-header>
       <nb-card-body class="shipmentCourse">
-        <div class="shipmentCourseEntry" *ngFor="let shipmentCourseEntry of package.shipmentCourses">
+        <div class="shipmentCourseEntry" *ngFor="let shipmentCourseEntry of shipmentCourses">
           <div class="courseLeft">
             <span class="icon">
               <svg>

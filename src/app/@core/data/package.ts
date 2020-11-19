@@ -15,7 +15,6 @@ export interface Package {
     createdTimestamp?: string;
     lastUpdatedTimestamp?: string;
     driver?: Driver;
-    shipmentCourses?: ShipmentCourse[];
     // Following fields are optional and only used by smart table, no need to fill in data
     recipientName?: string;
     recipientBuilding?: string;
@@ -26,6 +25,11 @@ export interface ShipmentCourse {
     id: number;
     message: string;
     timestamp: string;
+}
+
+export interface Signature {
+    id: number;
+    dataBlob: Uint8Array;
 }
 
 export enum PackageType {
@@ -47,6 +51,8 @@ export enum PackageStatus {
 
 export abstract class PackageData {
     abstract getData(): Observable<Package[]>;
-    abstract getPackageByIdOrBarcode(queryNumber: string): Observable<Package>;
+    abstract getPackageByIdOrBarcode(idOrBarcode: string): Observable<Package>;
+    abstract getShipmentCoursesByIdOrBarcode(idOrBarcode: string): Observable<ShipmentCourse[]>;
+    abstract getSignatureBlobByIdOrBarcode(idOrBarcode: string): Observable<Signature>;
     abstract addPackage(newPkg: any): Observable<Package>;
 }
