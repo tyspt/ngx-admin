@@ -18,7 +18,7 @@
             </div>
             <div class="row">
               <dt class="col-4">Tracking Number:</dt>
-              <dd class="col">{{ package.barcode }}</dd>
+              <dd class="col">{{ package?.barcode || 'N/A' }}</dd>
             </div>
             <div class="row">
               <dt class="col-4">Order Number:</dt>
