@@ -80,6 +80,9 @@ export class SharedSmartTableComponent implements OnInit, OnChanges {
   // extract nested data fields into first level so that smart table can work with it as column
   private loadData() {
     this.packages.forEach(p => {
+      p.barcode = p.barcode ? p.barcode : 'N/A';
+      p.orderNumber = p.orderNumber ? p.orderNumber: 'N/A';
+      
       p.recipientName = p.recipient.name;
       p.recipientBuilding = p.recipient.building.shortName;
       p.senderName = p.sender.name;
