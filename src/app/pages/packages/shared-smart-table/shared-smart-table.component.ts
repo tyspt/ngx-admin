@@ -81,8 +81,8 @@ export class SharedSmartTableComponent implements OnInit, OnChanges {
   private loadData() {
     this.packages.forEach(p => {
       p.barcode = p.barcode ? p.barcode : 'N/A';
-      p.orderNumber = p.orderNumber ? p.orderNumber: 'N/A';
-      
+      p.orderNumber = p.orderNumber ? p.orderNumber : 'N/A';
+
       p.recipientName = p.recipient.name;
       p.recipientBuilding = p.recipient.building.shortName;
       p.senderName = p.sender.name;
