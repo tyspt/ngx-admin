@@ -6,6 +6,7 @@
 @import './material/material-dark';
 @import './material/material-light';
 
+// -----------------------------------------  Default Theme settings, Scroll Down for Custom Theme Settings ----------------------------------------- 
 $nb-themes: nb-register-theme((
   layout-padding-top: 2.25rem,
 
@@ -133,3 +134,28 @@ $nb-themes: nb-register-theme((
   slide-out-shadow-color: 0 4px 14px 0 #292929,
   slide-out-shadow-color-rtl: 0 4px 14px 0 #292929,
 ), material-dark, material-dark);
+
+// -----------------------------------------  Custom Theme settings ----------------------------------------- 
+$nb-themes: nb-register-theme(( 
+    // Primary color override
+    color-primary-100: #ffe4b3,
+    color-primary-200: #ffd280,
+    color-primary-300: #ffc04d,
+    color-primary-400: #ffb326,
+    color-primary-500: #ffa500,
+    color-primary-600: #ff9d00,
+    color-primary-700: #ff9300,
+    color-primary-800: #ff8a00,
+    color-primary-900: #ff7900,
+
+    // Primary Transparent Versions
+    color-primary-transparent-100: rgba(255, 165, 0, 0.08),
+    color-primary-transparent-200: rgba(255, 165, 0, 0.16),
+    color-primary-transparent-300: rgba(255, 165, 0, 0.24),
+    color-primary-transparent-400: rgba(255, 165, 0, 0.32),
+    color-primary-transparent-500: rgba(255, 165, 0, 0.4),
+    color-primary-transparent-600: rgba(255, 165, 0, 0.48),
+
+    // Text color
+    text-control-color: #000000,
+  ), corporate-extend, corporate);
