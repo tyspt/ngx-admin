@@ -103,12 +103,15 @@
       <div class="form-group d-flex justify-content-between">
         <button nbButton status="secondary" (click)="startCameraPreview()">
           <nb-icon icon="camera-outline"></nb-icon>
-          Autofill With Image Recognition
+          Autofill From Image
         </button>
         <div class="action-buttons d-flex justify-content-end">
-          <button nbButton status="primary" type="submit" (click)="createPackage()"
-            [disabled]="packageForm.invalid">Create</button>
-          <button nbButton status="secondary" (click)="dismiss()">Cancel</button>
+          <button nbButton status="primary" type="submit" (click)="createPackage()" [disabled]="packageForm.invalid">
+            <nb-icon icon="checkmark"></nb-icon>Create
+          </button>
+          <button nbButton status="secondary" type="reset">
+            <nb-icon icon="close"></nb-icon>Clear
+          </button>
         </div>
       </div>
       <!-- {{ package | json }} -->

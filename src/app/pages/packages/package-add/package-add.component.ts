@@ -84,11 +84,29 @@ export class PackageAddComponent implements OnInit {
     this.dialogService.open(CameraPreviewComponent, {
       context: {}, autoFocus: false
     })
-      .onClose.subscribe(result => console.log('camera preview ended, ->', result));
+      .onClose.subscribe(result => result && this.fillFormWithDummyData());
   }
 
   dismiss(): void {
     this.ref.close();
+  }
+
+  private fillFormWithDummyData(): void {
+    this.loading = true;
+    setTimeout(() => {
+      this.package.sender.id = 2;
+      this.package.sender.name = 'Anna Musterfrau';
+      this.package.recipient.id = 1;
+      this.package.recipient.name = 'Max Mustermann';
+      this.package.recipient.email = 'max.mustermann@continental.com';
+      this.package.recipient.telephone = '0164-61616641';
+      this.package.recipient.building = {
+        id: 3,
+        shortName: 'K210',
+      };
+      this.package.recipient.fullAddress = 'Seybothstraße 2, K210/2/1 93053 Regensburg';
+      this.loading = false;
+    }, 1000);
   }
 
   /* *************************************** Filtering orderNumber options *************************************** */
@@ -104,21 +122,7 @@ export class PackageAddComponent implements OnInit {
 
   onOrderNumberSelectionChange($event) {
     this.filteredorderNumberOptions$ = this.getFilteredorderNumberOptions($event);
-    this.loading = true;
-    setTimeout(() => {
-      this.package.sender.id = 2;
-      this.package.sender.name = 'Anna Musterfrau';
-      this.package.recipient.id = 1;
-      this.package.recipient.name = 'Max Mustermann';
-      this.package.recipient.email = 'max.mustermann@continental.com';
-      this.package.recipient.telephone = '0164-61616641';
-      this.package.recipient.building = {
-        id: 3,
-        shortName: 'K210',
-      };
-      this.package.recipient.fullAddress = 'Seybothstraße 2, K210/2/1 93053 Regensburg';
-      this.loading = false;
-    }, 2000);
+    this.fillFormWithDummyData();
   }
 
   /* *************************************** Filtering employee options *************************************** */
