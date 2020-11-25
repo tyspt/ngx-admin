@@ -8,9 +8,9 @@
   <nb-card-body>
     <form #packageForm="ngForm">
       <div class="form-group row">
-        <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Package Type:</label>
+        <label for="recipient" class="label col-sm-3 offset-1 col-form-label">Package Type:*</label>
         <div class="col-sm-5">
-          <nb-select matRipple [(ngModel)]="package.type" name="type">
+          <nb-select required matRipple [(ngModel)]="package.type" name="type">
             <nb-option matRipple value="INBOUND">Inbound</nb-option>
             <nb-option matRipple value="OUTBOUND">Outbound</nb-option>
           </nb-select>
@@ -35,10 +35,10 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="sender" class="label col-sm-3 offset-1 col-form-label">Sender:</label>
+        <label for="sender" class="label col-sm-3 offset-1 col-form-label">Sender:*</label>
         <div class="col-sm">
-          <input type="text" nbInput fullWidth id="sender" #sender [(ngModel)]="package.sender.name" name="senderName"
-            [nbAutocomplete]="senderAuto" (input)="onEmployeeChange($event)">
+          <input type="text" required nbInput fullWidth id="sender" #sender [(ngModel)]="package.sender.name"
+            name="senderName" [nbAutocomplete]="senderAuto" (input)="onEmployeeChange($event)">
           <nb-autocomplete #senderAuto (selectedChange)="onEmployeeSelectionChange($event, 'sender')">
             <nb-option *ngFor="let option of filteredEmployeeOptions$ | async" [value]="option">
               {{ option }}
@@ -81,9 +81,9 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="fullAddress" class="label col-sm-3 offset-1 col-form-label">Address:</label>
+        <label for="fullAddress" class="label col-sm-3 offset-1 col-form-label">Address:*</label>
         <div class="col-sm">
-          <input type="text" nbInput fullWidth id="fullAddress" [(ngModel)]="package.recipient.fullAddress"
+          <input type="text" required nbInput fullWidth id="fullAddress" [(ngModel)]="package.recipient.fullAddress"
             name="recipientAddress">
         </div>
       </div>
