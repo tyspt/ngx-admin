@@ -82,7 +82,7 @@ export class PackageAddComponent implements OnInit {
 
   startCameraPreview(): void {
     this.dialogService.open(CameraPreviewComponent, {
-      context: {}, autoFocus: false
+      context: {}, autoFocus: false,
     })
       .onClose.subscribe(result => result && this.fillFormWithDummyData());
   }

@@ -8,7 +8,7 @@ describe('CameraPreviewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CameraPreviewComponent ]
+      declarations: [ CameraPreviewComponent ],
     })
     .compileComponents();
   });

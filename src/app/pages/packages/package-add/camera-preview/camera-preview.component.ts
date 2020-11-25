@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'ngx-camera-preview',
   templateUrl: './camera-preview.component.html',
-  styleUrls: ['./camera-preview.component.scss']
+  styleUrls: ['./camera-preview.component.scss'],
 })
 export class CameraPreviewComponent implements OnInit {
 
@@ -15,7 +15,7 @@ export class CameraPreviewComponent implements OnInit {
   loading = true;
 
   constructor(
-    protected ref: NbDialogRef<CameraPreviewComponent>
+    protected ref: NbDialogRef<CameraPreviewComponent>,
   ) { }
 
   ngOnInit(): void {
