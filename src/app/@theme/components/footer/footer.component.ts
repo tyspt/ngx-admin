@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
   template: `
     <span class="created-by">
-      Created with ♥ by <b>PJ Group B</b>
+      Created with ❤️ by <b>PJ Group B</b>
     </span>
     <div class="socials">
       <a href="https://github.com/tyspt/project-studium-admin-portal" target="_blank" class="ion ion-social-github"></a>
