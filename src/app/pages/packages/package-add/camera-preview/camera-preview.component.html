@@ -1,0 +1,21 @@
+<nb-card [nbSpinner]="loading">
+  <nb-card-header>Form Autofill With Image Recognition</nb-card-header>
+  <nb-card-body>
+    <webcam [hidden]="webcamImage" [trigger]="trigger" (imageCapture)="handleImage($event)"></webcam>
+    <img *ngIf="webcamImage" [src]="webcamImage.imageAsDataUrl" />
+  </nb-card-body>
+  <nb-card-footer class="action-buttons d-flex justify-content-center">
+    <button *ngIf="!webcamImage" nbButton status="primary" (click)="takeSnapshot()">
+      <nb-icon icon="camera-outline"></nb-icon>Take Picture
+    </button>
+    <button *ngIf="webcamImage" nbButton status="primary" (click)="submit()">
+      <nb-icon icon="checkmark"></nb-icon>Use This Picture
+    </button>
+    <button *ngIf="webcamImage" nbButton status="secondary" (click)="discardSnapshot()">
+      <nb-icon icon="refresh"></nb-icon>Retake
+    </button>
+    <button nbButton matRipple status="secondary" (click)="dismiss()">
+      <nb-icon icon="close"></nb-icon>Cancel
+    </button>
+  </nb-card-footer>
+</nb-card>

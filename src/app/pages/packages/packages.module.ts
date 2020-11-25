@@ -20,8 +20,10 @@ import {
 } from '@nebular/theme';
 import { QRCodeModule } from 'angularx-qrcode';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { WebcamModule } from 'ngx-webcam';
 
 import { ThemeModule } from '../../@theme/theme.module';
+import { CameraPreviewComponent } from './package-add/camera-preview/camera-preview.component';
 import { QrPrintoutComponent } from './package-add/qr-printout/qr-printout.component';
 import { ConfirmationPopupComponent } from './package-handover/confirmation-popup/confirmation-popup.component';
 import { PackagesRoutingModule, routedComponents } from './packages-routing.module';
@@ -35,6 +37,7 @@ import { StatusRendererComponent } from './shared-smart-table/status-renderer.co
     PackagesRoutingModule,
     GoogleMapsModule,
     QRCodeModule,
+    WebcamModule,
     FormsModule,
     Ng2SmartTableModule,
     NbAutocompleteModule,
@@ -59,6 +62,7 @@ import { StatusRendererComponent } from './shared-smart-table/status-renderer.co
     SharedSmartTableComponent,
     ConfirmationPopupComponent,
     QrPrintoutComponent,
+    CameraPreviewComponent,
   ],
   providers: [ DatePipe ],
 })

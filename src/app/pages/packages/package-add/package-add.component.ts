@@ -6,6 +6,7 @@ import { Package, PackageData, PackageStatus, PackageType } from 'app/@core/data
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { CameraPreviewComponent } from './camera-preview/camera-preview.component';
 import { QrPrintoutComponent } from './qr-printout/qr-printout.component';
 
 @Component({
@@ -71,7 +72,7 @@ export class PackageAddComponent implements OnInit {
     this.package.type = this.packageType;
   }
 
-  createPackage() {
+  createPackage(): void {
     this.loading = true;
     this.packageService.addPackage(this.package).subscribe(result => {
       this.dialogService.open(QrPrintoutComponent, { context: { qrContent: result.id.toString() }, autoFocus: false })
@@ -79,7 +80,14 @@ export class PackageAddComponent implements OnInit {
     });
   }
 
-  dismiss() {
+  startCameraPreview(): void {
+    this.dialogService.open(CameraPreviewComponent, {
+      context: {}, autoFocus: false
+    })
+      .onClose.subscribe(result => console.log('camera preview ended, ->', result));
+  }
+
+  dismiss(): void {
     this.ref.close();
   }
 

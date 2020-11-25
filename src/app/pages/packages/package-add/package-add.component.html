@@ -100,7 +100,11 @@
           </nb-autocomplete>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group d-flex justify-content-between">
+        <button nbButton status="secondary" (click)="startCameraPreview()">
+          <nb-icon icon="camera-outline"></nb-icon>
+          Autofill With Image Recognition
+        </button>
         <div class="action-buttons d-flex justify-content-end">
           <button nbButton status="primary" type="submit" (click)="createPackage()"
             [disabled]="packageForm.invalid">Create</button>

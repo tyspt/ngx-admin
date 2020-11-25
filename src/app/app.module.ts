@@ -19,6 +19,7 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { QRCodeModule } from 'angularx-qrcode';
+import { WebcamModule } from 'ngx-webcam';
 
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
@@ -46,6 +47,7 @@ import { AppComponent } from './app.component';
     ThemeModule.forRoot(),
     NbEvaIconsModule,
     QRCodeModule,
+    WebcamModule,
   ],
   bootstrap: [AppComponent],
 })
