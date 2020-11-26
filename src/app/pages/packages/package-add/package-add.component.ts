@@ -6,8 +6,8 @@ import { Package, PackageData, PackageStatus, PackageType } from 'app/@core/data
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { QrPrintoutComponent } from '../qr-printout/qr-printout.component';
 import { CameraPreviewComponent } from './camera-preview/camera-preview.component';
-import { QrPrintoutComponent } from './qr-printout/qr-printout.component';
 
 @Component({
   selector: 'ngx-package-add',
@@ -75,7 +75,14 @@ export class PackageAddComponent implements OnInit {
   createPackage(): void {
     this.loading = true;
     this.packageService.addPackage(this.package).subscribe(result => {
-      this.dialogService.open(QrPrintoutComponent, { context: { qrContent: result.id.toString() }, autoFocus: false })
+      this.dialogService.open(QrPrintoutComponent, {
+        context:
+        {
+          qrContent: result.id.toString(),
+          title: 'Package Successfully Created',
+        },
+        autoFocus: false,
+      })
         .onClose.subscribe(_ => this.dismiss());
     });
   }

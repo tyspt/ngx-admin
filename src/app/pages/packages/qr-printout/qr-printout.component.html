@@ -1,5 +1,5 @@
 <nb-card>
-  <nb-card-header>Package Successfully Created</nb-card-header>
+  <nb-card-header>{{ title }}</nb-card-header>
   <nb-card-body class="d-flex align-items-center flex-column">
     <qrcode [qrdata]="qrContent" [width]="256"></qrcode>
     <span class="qr-text">{{ qrContent }}</span>

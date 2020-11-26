@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { NbDialogRef } from '@nebular/theme';
+import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { Package, PackageData, PackageStatus, ShipmentCourse } from 'app/@core/data/package';
+
+import { QrPrintoutComponent } from '../qr-printout/qr-printout.component';
 
 @Component({
   selector: 'ngx-package-detail',
@@ -29,6 +31,7 @@ export class PackageDetailComponent implements OnInit {
 
   constructor(
     protected ref: NbDialogRef<PackageDetailComponent>,
+    private dialogService: NbDialogService,
     private PackageService: PackageData,
     private sanitizer: DomSanitizer,
   ) { }
@@ -57,7 +60,16 @@ export class PackageDetailComponent implements OnInit {
     }
   }
 
-  dismiss() {
+  showQRPopup(): void {
+    this.dialogService.open(QrPrintoutComponent, {
+      context: {
+        qrContent: this.package.id.toString(),
+        title: 'QR Code Printout',
+      }, autoFocus: false,
+    });
+  }
+
+  dismiss(): void {
     this.ref.close();
   }
 }

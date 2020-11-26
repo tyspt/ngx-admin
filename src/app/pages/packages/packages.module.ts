@@ -24,9 +24,9 @@ import { WebcamModule } from 'ngx-webcam';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { CameraPreviewComponent } from './package-add/camera-preview/camera-preview.component';
-import { QrPrintoutComponent } from './package-add/qr-printout/qr-printout.component';
 import { ConfirmationPopupComponent } from './package-handover/confirmation-popup/confirmation-popup.component';
 import { PackagesRoutingModule, routedComponents } from './packages-routing.module';
+import { QrPrintoutComponent } from './qr-printout/qr-printout.component';
 import { SharedSmartTableComponent } from './shared-smart-table/shared-smart-table.component';
 import { StatusRendererComponent } from './shared-smart-table/status-renderer.component';
 

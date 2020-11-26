@@ -8,6 +8,7 @@ import { NbDialogRef } from '@nebular/theme';
 })
 export class QrPrintoutComponent implements OnInit {
 
+  @Input() title: string;
   @Input() qrContent: string;
 
   constructor(protected ref: NbDialogRef<QrPrintoutComponent>) { }
