@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { Building, BuildingData } from 'app/@core/data/building';
 import { Employee, EmployeeData } from 'app/@core/data/employee';
@@ -42,6 +42,8 @@ export class PackageAddComponent implements OnInit {
     type: PackageType.INBOUND,
   };
   buildings: Building[];
+
+  @ViewChild('barcodeInput') firstInputField: ElementRef;
   loading = true;
 
   orderNumberOptions: string[] = ['SAP164646164', 'SAP223232323', 'SAP365556565', 'SAP464646646', 'SAP546464146', 'SAP677978897', 'SAP878794454', 'SAP994842616'];
@@ -70,6 +72,9 @@ export class PackageAddComponent implements OnInit {
     });
 
     this.package.type = this.packageType;
+
+    // Focus the first input field
+    setTimeout(() => this.firstInputField.nativeElement.focus(), 0);
   }
 
   createPackage(): void {

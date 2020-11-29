@@ -19,7 +19,7 @@
       <div class="form-group row">
         <label for="trackingNumber" class="label col-sm-3 offset-1 col-form-label">Tracking Number:</label>
         <div class="col-sm">
-          <input type="text" nbInput fullWidth id="trackingNumber" [(ngModel)]="package.barcode" name="barcode">
+          <input type="text" nbInput fullWidth id="trackingNumber" [(ngModel)]="package.barcode" name="barcode" #barcodeInput>
         </div>
       </div>
       <div class="form-group row">
